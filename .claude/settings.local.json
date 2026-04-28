@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(.venv/bin/python -m pytest tests/ -q 2>&1)",
+      "Bash(python3:*)",
+      "Bash(uv run:*)",
+      "Bash(uv add:*)",
+      "WebSearch"
+    ]
+  }
+}
