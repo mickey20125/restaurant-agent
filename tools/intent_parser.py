@@ -46,7 +46,7 @@ class IntentParserSkill:
 
     @staticmethod
     def _extract_min_rating(query: str) -> float | None:
-        match = re.search(r"([0-5](?:\.\d)?)\s*分(?:以上|up|UP)?", query)
+        match = re.search(r"(?<!\d)([0-5](?:\.\d)?)\s*分(?:以上|up|UP)?", query)
         if not match:
             return None
         return float(match.group(1))

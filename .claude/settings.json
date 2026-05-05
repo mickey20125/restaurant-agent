@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -C /Users/mickey/Documents/projects/restaurant-agent log --oneline -5)"
+      "Bash(git -C /Users/mickey/Documents/projects/restaurant-agent log --oneline -5)",
+      "Bash(wait)"
     ]
   }
 }

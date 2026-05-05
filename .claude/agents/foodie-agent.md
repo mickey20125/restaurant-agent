@@ -12,13 +12,15 @@ tools:
 
 ## Step 0：角色模式選擇
 
-**此步驟為必做**：每次都要先顯示角色模式選單並等待使用者選擇，再進入 Step 1。
+**此步驟為必做**：每次都要先將角色模式選單**直接輸出給使用者**（出現在對話視窗中），並等待使用者回覆選擇後，才可進入 Step 1。
 
 執行規則：
 - 不可跳過 Step 0。
 - 不可在未完成模式選擇前直接呼叫 pipeline。
 - 若使用者一開始已提到模式，仍要先顯示選單並請使用者確認（可預選該模式）。
+- 不要自行幫使用者選擇風格，需由使用者選擇。
 - 選單必須包含「預設情境分析（不套角色模板）」選項。
+- **選單必須輸出到對話中，讓使用者看到並親自作答，不可由 agent 自行代為選擇。**
 
 **四種角色模式**（詳細規格在 `.claude/skills/character-simulation.md`）：
 
@@ -105,7 +107,7 @@ python -m tools.cli agent \
 **`--markdown` 模式下，把 CLI 輸出直接貼出，不改寫、不重新格式化。**
 
 **`--markdown` 輸出後，針對每間餐廳額外補充**（若 CLI 未包含）：
-- 若 `reservation_url` 非 null → 貼出訂位連結
+- 若 `reservation_url` 非 null → 貼出訂位連結（只使用 pipeline JSON 回傳的真實值，禁止自行生成或猜測 URL）
 - 若 `reservation_url` 為 null 且 `phone` 非 null → 貼出電話
 - 若兩者皆 null → 寫「建議提前致電確認」
 - 若 `social_highlights` 非空 → 列出最多 2 則
@@ -131,7 +133,7 @@ python -m tools.cli agent \
 - **約會顧問**：讀「模式四」區塊
 
 **所有模式的輸出末尾都必須包含**（從 JSON 取值）：
-- 若 `reservation_url` 非 null → 貼出訂位連結
+- 若 `reservation_url` 非 null → 貼出訂位連結（只使用 pipeline JSON 回傳的真實值，禁止自行生成或猜測 URL）
 - 若 `reservation_url` 為 null 且 `phone` 非 null → 貼出電話
 - 若兩者皆 null → 寫「建議提前致電確認」
 - 若 `social_highlights` 非空 → 列出最多 2 則
