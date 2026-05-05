@@ -80,7 +80,11 @@ class ThreadsScraper:
 
     def _scrape(self, name: str, max_posts: int) -> tuple[list[dict], dict[str, str]]:
         google_cx = os.environ.get("GOOGLE_SEARCH_CX", "")
-        google_key = os.environ.get("GOOGLE_MAPS_API_KEY", "")
+        # Prefer a dedicated key; fall back to the Maps key if not set
+        google_key = (
+            os.environ.get("GOOGLE_SEARCH_API_KEY")
+            or os.environ.get("GOOGLE_MAPS_API_KEY", "")
+        )
         if not google_cx or not google_key:
             return [], {"scrape": "GOOGLE_SEARCH_CX not configured"}
 

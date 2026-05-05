@@ -5,4 +5,5 @@ __pycache__/
 .cache/
 *.egg-info/
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
 threads_cookies.json

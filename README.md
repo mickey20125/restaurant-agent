@@ -1,23 +1,19 @@
 # Restaurant Agent
 
-這個 repo 是一個可直接執行的餐廳推薦工具鏈，由 9 個 skills 組成完整的 agent pipeline，支援 Google Maps 評論、Threads 社群熱度與線上訂位資訊整合。
+餐廳推薦工具鏈，由 9 個 skills 組成完整 agent pipeline，支援 Google Maps 評論、Threads 社群熱度、線上訂位資訊，以及四種角色模式輸出（美食 KOL / 健身教練 / 在地老饕 / 約會顧問）。
 
-## Quick Start (uv)
+---
 
-```bash
-uv lock
-uv sync
-```
-
-執行指令時使用 `uv run`：
+## Quick Start
 
 ```bash
+uv lock && uv sync
 uv run restaurant-agent --help
 ```
 
-## 環境設定
+---
 
-複製範本並填入金鑰：
+## 環境設定
 
 ```bash
 cp .env.example .env
@@ -27,43 +23,78 @@ cp .env.example .env
 
 ```env
 # Google Maps（必填）
-GOOGLE_MAPS_API_KEY=YOUR_KEY
+GOOGLE_MAPS_API_KEY=YOUR_MAPS_KEY
 
-# 預設出發地（選填，也可每次用 --user-lat / --user-lng 傳入）
+# Google Custom Search（Threads 搜尋用，必填）
+# 詳細設定步驟：THREADS_SEARCH_GUIDE.md
+GOOGLE_SEARCH_API_KEY=YOUR_SEARCH_KEY
+GOOGLE_SEARCH_CX=your_search_engine_id
+
+# 預設出發地（選填，--user-lat / --user-lng 可覆蓋）
 DEFAULT_USER_LAT=25.047094
 DEFAULT_USER_LNG=121.542698
 
 # Maps API 保護（選填）
 MAPS_DAILY_CALL_LIMIT=100
 MAPS_CACHE_TTL_SECONDS=86400
-AGENT_DAILY_USAGE_PATH=.cache/agent_daily_usage.json
-AGENT_SKILL_CACHE_PATH=.cache/agent_skill_cache.json
 
-# Threads 爬蟲（預設開啟，設 false 可關閉）
+# Threads（選填）
 THREADS_ENABLED=true
 THREADS_DAILY_CALL_LIMIT=50
 THREADS_CACHE_TTL_SECONDS=3600
 
-# Instagram（預設關閉，帳號驗證後設 true）
+# Instagram（預設關閉）
 # INSTAGRAM_ENABLED=true
 # INSTAGRAM_USERNAME=your_username
 # INSTAGRAM_PASSWORD=your_password
-# IG_DAILY_CALL_LIMIT=100
-# IG_CACHE_TTL_SECONDS=3600
+```
+
+> `GOOGLE_MAPS_API_KEY` 是 Maps Platform Key，`GOOGLE_SEARCH_API_KEY` 是另建的普通 Key，只允許 Custom Search API。詳見 [THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)。
+
+---
+
+## Foodie Agent（主要入口）
+
+### 角色模式
+
+使用 Foodie Agent 時，可以選擇以不同角色視角輸出推薦，也可以不選（預設情境分析模式）：
+
+| 模式 | 觸發方式 | 核心特色 |
+|------|---------|----------|
+| 🔥 美食 KOL | 「用 KOL 模式」「話題熱度」 | 社群聲量排序，強調「為什麼現在去」 |
+| 💪 健身教練 | 「健康」「卡路里」「減脂」 | 健康路線 + 罪惡路線雙軌，附卡路里換算 |
+| 📍 在地老饕 | 「在地人推薦」「隱藏餐廳」 | 外地人不知道、在地人才懂的選擇 |
+| ✨ 約會顧問 | 「約會」「帶另一半」 | 依感情狀態給不同方向，環境對話友好度優先 |
+| — 預設 | 未指定 | 情境分析 + 調性展開，`--markdown` 格式輸出 |
+
+角色模式詳細規格：[.claude/skills/character-simulation.md](.claude/skills/character-simulation.md)
+
+### Agent 工作流程
+
+```
+Step 0：角色模式選擇
+    ↓
+Step 1：情境判斷（場合識別 / 模糊指令解碼 / 調性展開）
+    ↓
+Step 2：呼叫 pipeline CLI
+    ├─ 有角色模式 → 取 JSON → Step 3 套入角色模板
+    └─ 無角色模式 → 加 --markdown → 直接貼輸出
+    ↓
+Step 3：角色模式格式化（含 phone / reservation_url / social_highlights）
 ```
 
 ---
 
 ## Skill Pipeline（9 Skills）
 
-### Workflow
+### 架構圖
 
 ```
 使用者查詢
     │
     ▼
 ┌─────────────────┐
-│  intent-parser  │  解析自然語言 → 結構化意圖
+│  intent-parser  │  自然語言 → 結構化意圖
 │                 │  （料理類型、步行時間、必點菜色、評分需求）
 └────────┬────────┘
          │
@@ -81,7 +112,7 @@ THREADS_CACHE_TTL_SECONDS=3600
          ▼
 ┌─────────────────┐
 │ review-fetcher  │  Google Maps Place Details →
-│                 │  評論文字 + 電話 + 網站 + reservable 旗標
+│                 │  評論 + 電話 + 網站 + reservable 旗標
 └────────┬────────┘
          │
          ▼
@@ -93,7 +124,7 @@ THREADS_CACHE_TTL_SECONDS=3600
          │
          ▼
 ┌──────────────────────┐
-│ social-text-adapter  │  整合本地檔案 / IG / Threads 貼文文字
+│ social-text-adapter  │  整合本地檔 / IG / Threads 貼文
 │                      │  Threads 貼文依 like_count 排序
 │                      │  → social_posts + social_highlights
 └────────┬─────────────┘
@@ -116,9 +147,6 @@ THREADS_CACHE_TTL_SECONDS=3600
 │ reason-composer  │  組合推薦理由、風格標籤、風險提醒
 │  + cost-guard    │  Threads 金句、訂位連結 / 電話
 └──────────────────┘
-         │
-         ▼
-    top-3 推薦
 ```
 
 ### 一次執行整條 pipeline
@@ -128,8 +156,7 @@ uv run restaurant-agent agent \
   --query "走路 30 分鐘內，韓式，評價高" \
   --user-lat 25.047094 \
   --user-lng 121.542698 \
-  --social-file .claude/resources/social_posts_by_store.txt \
-  --show-debug
+  --markdown
 ```
 
 ### 常用 CLI 選項
@@ -144,9 +171,11 @@ uv run restaurant-agent agent \
 | `--max-reviews-per-place` | 每店最多評論數 | `3` |
 | `--social-file` | 本地貼文文字檔路徑 | — |
 | `--social-text` | 直接傳入貼文文字（可重複） | — |
+| `--markdown` | 輸出格式化 markdown（含電話/訂位/金句） | `false` |
 | `--no-threads` | 停用 Threads 搜尋 | 預設開啟 |
 | `--threads-max-posts` | 每店最多抓幾則 Threads 貼文 | `10` |
 | `--threads-daily-limit` | Threads 每日查詢上限 | `50` |
+| `--no-instagram` | 停用 Instagram | 預設關閉 |
 | `--daily-limit` | Maps API 每日呼叫上限 | `100` |
 | `--show-debug` | 顯示各 skill 中間結果 | `false` |
 
@@ -159,7 +188,7 @@ uv run restaurant-agent agent \
   "score": 0.71,
   "reason": "Google 評分 4.6；1056 則地圖評價；預估步行 21 分鐘",
   "vibe_tags": ["#豆腐鍋專門", "#辣感"],
-  "social_highlights": ["超好吃的豆腐鍋，湯頭濃郁", "氣氛很韓系，推薦給朋友"],
+  "social_highlights": ["超好吃的豆腐鍋，湯頭濃郁", "氣氛很韓系推薦給朋友"],
   "phone": "02 2700 6868",
   "reservation_url": "https://inline.app/booking/xxx",
   "risks": ["部分菜色有辣，點餐時請說明"],
@@ -182,7 +211,7 @@ uv run restaurant-agent agent \
 ## Tool 1: Google Maps Parser
 
 ```bash
-# 查詢店家基本資料
+# 查詢基本資料
 uv run restaurant-agent maps --name "涓豆腐 台北復興店"
 
 # 抓評論
@@ -195,13 +224,7 @@ uv run restaurant-agent maps --name "涓豆腐 台北復興店" --show-meta
 uv run restaurant-agent maps --name "涓豆腐 台北復興店" --mock
 ```
 
-### Google Maps API 設定
-
-1. 在 Google Cloud 建立專案並開啟計費。
-2. 啟用 **Places API（New）**。
-3. 建立 API Key，建議限制只允許 Places API。
-
-Details API 使用的 field mask（含最新欄位）：
+Details API field mask：
 
 ```
 id, displayName, formattedAddress, location,
@@ -209,15 +232,9 @@ rating, userRatingCount, reviews,
 nationalPhoneNumber, websiteUri, reservable
 ```
 
-常見錯誤：
-- `Missing Google Maps API key`：未設定 `GOOGLE_MAPS_API_KEY`
-- `Google Places API error: 403`：未開啟 Places API 或 Billing 未啟用
-
 ---
 
 ## Tool 2: Vibe Summarizer
-
-關鍵字比對將貼文/評論轉為風格標籤。
 
 ```bash
 uv run restaurant-agent vibe \
@@ -230,13 +247,11 @@ uv run restaurant-agent vibe --file .claude/resources/sample_posts.txt
 
 目前支援 tags：`#出片` `#排隊` `#老字號` `#CP值` `#辣感` `#豆腐鍋專門`
 
-規則定義：`.claude/resources/vibe_tag_rules.md`
+規則定義：[.claude/resources/vibe_tag_rules.md](.claude/resources/vibe_tag_rules.md)
 
 ---
 
 ## Tool 3: Expert Prompt Template
-
-將非工程師定義的邏輯套入 prompt：
 
 ```bash
 uv run restaurant-agent prompt \
@@ -262,7 +277,7 @@ uv run restaurant-agent agent \
 # pipe-delimited
 韓味豆腐鍋|裝潢很韓系，很多人打卡
 韓味豆腐鍋|晚餐要排隊但很值得
-拍照很出片，氛圍好   ← 無 | 視為全域貼文
+拍照很出片，氛圍好        ← 無 | 視為全域貼文
 
 # JSON
 {"韓味豆腐鍋": ["裝潢很韓系", "晚餐要排隊"]}
@@ -270,20 +285,21 @@ uv run restaurant-agent agent \
 
 ### Threads 搜尋（預設開啟）
 
-透過 Google Custom Search API 搜尋 `site:threads.net`，無需 Threads 帳號。
+透過 **Google Custom Search API** 搜尋 `site:threads.net`，無需 Threads 帳號。
 
-詳細設定步驟：[THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)
+需設定 `GOOGLE_SEARCH_API_KEY` 與 `GOOGLE_SEARCH_CX`，詳細設定：[THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)
+
+Threads 貼文依 `like_count` 降序排序後取前 N 則為金句（`social_highlights`），已過濾 Threads 頁面 UI 字串。
 
 ```bash
 # 停用 Threads
 uv run restaurant-agent agent --query "韓式" --no-threads
 
-# 調整每店抓幾則
+# 調整每店最多抓幾則
 uv run restaurant-agent agent --query "韓式" --threads-max-posts 15
 ```
 
-Threads cache 路徑：`.cache/threads_cache.json`
-每日用量紀錄：`.cache/threads_daily_usage.json`
+Cache：`.cache/threads_cache.json` | 每日用量：`.cache/threads_daily_usage.json`
 
 ---
 
@@ -301,5 +317,5 @@ uv run python -m unittest discover -s tests
 
 1. `Ranker` 改成可配置權重檔，讓不同場景（聚餐 vs 快食）可調策略。
 2. `Reason Composer` 加上 LLM 版本，A/B test 規則式 vs 生成式推薦文案。
-3. `Reservation Checker` 擴充：若 website 不是已知平台，抓頁面內容做自動偵測。
-4. Threads 金句加上語言過濾（中文優先）與雜訊清理（去純 hashtag 行）。
+3. `Reservation Checker` 擴充：若 website 不是已知平台，抓頁面內容自動偵測。
+4. 角色模式加上使用者偏好記憶，跨對話累積排除條件。

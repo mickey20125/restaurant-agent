@@ -47,7 +47,15 @@ https://console.cloud.google.com/apis/api/customsearch.googleapis.com
 GOOGLE_SEARCH_CX=your_search_engine_id_here
 ```
 
-`GOOGLE_MAPS_API_KEY` 沿用既有的值，不需要另建新 key。
+**關於 API Key：** agent 預設沿用 `GOOGLE_MAPS_API_KEY`。若你的 Maps Key 是透過 Maps Platform 建立的（在 Cloud Console Credentials 顯示為 "Maps Platform API Key"），即使已在 API restrictions 加上 Custom Search，仍可能回傳 403。
+
+此時建議另建一把普通 API Key（不選 Maps Platform）並設定：
+
+```env
+GOOGLE_SEARCH_API_KEY=your_new_key_here
+```
+
+agent 會優先使用 `GOOGLE_SEARCH_API_KEY`，沒設定才 fallback 到 `GOOGLE_MAPS_API_KEY`。
 
 ---
 
@@ -55,8 +63,10 @@ GOOGLE_SEARCH_CX=your_search_engine_id_here
 
 ```bash
 uv run python -c "
-import shutil; shutil.rmtree('.cache', ignore_errors=True)
 from tools.env_loader import load_local_env; load_local_env()
+import os
+print('GOOGLE_SEARCH_API_KEY:', os.environ.get('GOOGLE_SEARCH_API_KEY', '(未設定)')[:16] + '...')
+print('GOOGLE_SEARCH_CX:', os.environ.get('GOOGLE_SEARCH_CX', '(未設定)'))
 from tools.threads_scraper import ThreadsScraper
 s = ThreadsScraper.from_env()
 posts, errors = s.fetch_for_candidate(name='建一食堂', max_posts=5)
@@ -83,8 +93,8 @@ posts: 3
 | 錯誤訊息 | 原因 | 解法 |
 |----------|------|------|
 | `GOOGLE_SEARCH_CX not configured` | 未設定 env var | 在 `.env` 加上 `GOOGLE_SEARCH_CX` |
-| `HTTP Error 403: Forbidden` + `API_KEY_SERVICE_BLOCKED` | API Key 沒開放 Custom Search | Step 2：在 API restrictions 加上 Custom Search API |
-| `HTTP Error 403: Forbidden` + `accessNotConfigured` | Custom Search API 未啟用 | Step 1：在 Cloud Console 啟用 API |
+| `Google Custom Search failed: HTTP Error 403` + `API_KEY_SERVICE_BLOCKED` | API Key 沒開放 Custom Search | Step 2：在 API restrictions 加上 Custom Search API |
+| `Google Custom Search failed: HTTP Error 403` + `accessNotConfigured` | Custom Search API 未啟用 | Step 1：在 Cloud Console 啟用 API |
 | `no Threads results found on Google` | Google 尚未索引該餐廳的 Threads 貼文 | 正常現象，不影響其他推薦邏輯 |
 
 ---
@@ -92,7 +102,7 @@ posts: 3
 ## 運作方式
 
 ```
-fetch_for_candidate("建一食堂")
+fetch_posts_with_engagement("建一食堂")
     │
     ▼
 Google Custom Search API
@@ -100,6 +110,9 @@ Google Custom Search API
     │
     ▼
 解析 snippet / title → list[{"text": str, "like_count": 0}]
+    │
+    ▼
+依長度過濾（>= 15 字）、去 UI 雜訊
     │
     ▼
 存入 .cache/threads_cache.json（TTL 1 小時）
