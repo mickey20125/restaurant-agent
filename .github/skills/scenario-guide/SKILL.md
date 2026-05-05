@@ -116,7 +116,7 @@ description: 在呼叫 pipeline 前，將使用者的自然語言需求翻譯成
 
 ## 六、輸出格式（傳給 pipeline 的參數）
 
-scenario-guide 完成後，輸出以下參數供 `python -m tools.cli agent --markdown` 使用：
+scenario-guide 完成後，輸出以下參數供 `uv run python -m tools.cli agent --markdown` 使用：
 
 ```
 --query  "<情境描述 + 解碼後的具體需求>"
@@ -126,7 +126,7 @@ scenario-guide 完成後，輸出以下參數供 `python -m tools.cli agent --ma
 
 範例（約會，安靜浪漫型）：
 ```bash
-python -m tools.cli agent \
+uv run python -m tools.cli agent \
   --query "約會，步行 20 分鐘內，日式或法式" \
   --logic "桌距寬鬆、燈光偏暖、背景音量適中、避免螃蟹龍蝦等需大動作的食材、服務細心、安靜浪漫型" \
   --user-lat 25.047094 --user-lng 121.542698 \

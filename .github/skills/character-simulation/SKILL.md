@@ -7,7 +7,7 @@ description: 定義四種角色模式（美食 KOL / 健身教練 / 在地老饕
 
 **Input**
 - `mode`: `"kol"` | `"fitness"` | `"local"` | `"date"`
-- `pipeline_json: dict` — `python -m tools.cli agent` 的 JSON 輸出
+- `pipeline_json: dict` — `uv run python -m tools.cli agent` 的 JSON 輸出
 - `scenario: str` — 情境描述（由 foodie-agent 的 Step 1 判斷產生）
 - `tone: str` — 調性（由 foodie-agent 的 Step 1 判斷產生）
 

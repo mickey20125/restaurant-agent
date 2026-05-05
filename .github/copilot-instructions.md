@@ -1,6 +1,6 @@
 # Restaurant Agent — Copilot Instructions
 
-這是一個繁體中文的餐廳推薦 Agent，核心是 Foodie Agent，透過 `python -m tools.cli agent` 執行本地 pipeline 搜尋、篩選並推薦餐廳。
+這是一個繁體中文的餐廳推薦 Agent，核心是 Foodie Agent，透過 `uv run python -m tools.cli agent` 執行本地 pipeline 搜尋、篩選並推薦餐廳。
 
 ## Agent 入口
 
@@ -9,7 +9,7 @@
 ## Pipeline 指令格式
 
 ```bash
-python -m tools.cli agent \
+uv run python -m tools.cli agent \
   --query "<情境 + 料理類型 + 具體需求>" \
   --user-lat 25.047094 \
   --user-lng 121.542698 \
