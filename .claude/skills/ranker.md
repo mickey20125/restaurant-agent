@@ -21,6 +21,8 @@ score = rating_score   × 0.50
 
 **懲罰**：評分低於 `intent.min_rating` 時 `−0.25`，同時加入 risk。
 
+**Normalization**：最終 `score` 會限制在 `0–1` 範圍（clamp）。
+
 ## 各維度說明
 
 | 維度 | 計算方式 |

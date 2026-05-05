@@ -1,6 +1,6 @@
 # Restaurant Agent
 
-餐廳推薦工具鏈，由 9 個 skills 組成完整 agent pipeline，支援 Google Maps 評論、Threads 社群熱度、線上訂位資訊，以及四種角色模式輸出（美食 KOL / 健身教練 / 在地老饕 / 約會顧問）。
+餐廳推薦工具鏈，由 9 個主要 stage 組成完整 agent pipeline（每個 stage 由對應 skill / 模組實作），支援 Google Maps 評論、Threads 社群熱度、線上訂位資訊，以及四種角色模式輸出（美食 KOL / 健身教練 / 在地老饕 / 約會顧問）。
 
 ---
 
@@ -85,7 +85,9 @@ Step 3：角色模式格式化（含 phone / reservation_url / social_highlights
 
 ---
 
-## Skill Pipeline（9 Skills）
+## Skill Pipeline（9 Stages）
+
+此處的「9」指 pipeline 的 9 個主要 stage（不是 repository 內所有技能描述檔數量）。
 
 ### 架構圖
 
@@ -138,8 +140,8 @@ Step 3：角色模式格式化（含 phone / reservation_url / social_highlights
          ▼
 ┌─────────────────┐
 │     ranker      │  多因子計分排序
-│                 │  評分(50%) + 人氣(15%) + 距離(15%)
-│                 │  + 必點符合度(20%) + vibe(10%)
+│                 │  基底權重：評分(50%) + 人氣(15%) + 距離(15%)
+│                 │  額外調整：must_have(+0.20/-0.30) + vibe(+0.10)
 └────────┬────────┘
          │
          ▼
@@ -148,6 +150,10 @@ Step 3：角色模式格式化（含 phone / reservation_url / social_highlights
 │  + cost-guard    │  Threads 金句、訂位連結 / 電話
 └──────────────────┘
 ```
+
+備註：`must_have` 與 `vibe` 為額外 bonus/penalty；最終 `score` 會做 normalization（限制在 `0–1` 範圍）。
+
+Pipeline stage ↔ 實作檔案：`intent-parser→tools/intent_parser.py | candidate-search→tools/candidate_search.py | hard-constraint-filter→tools/hard_constraint_filter.py | review-fetcher→tools/review_fetcher.py | reservation-checker→tools/reservation_checker.py | social-text-adapter→tools/social_text_adapter.py | vibe-summarizer→tools/vibe_summarizer.py | ranker→tools/ranker.py | reason-composer→tools/reason_composer.py`
 
 ### 一次執行整條 pipeline
 

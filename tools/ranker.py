@@ -27,7 +27,7 @@ class RankerSkill:
             if intent.min_rating is not None and candidate.rating is not None and candidate.rating < intent.min_rating:
                 total -= 0.25
                 candidate.risks.append(f"評分低於偏好門檻（{intent.min_rating}）")
-            candidate.score = round(total, 4)
+            candidate.score = round(max(0.0, min(1.0, total)), 4)
 
         return sorted(candidates, key=lambda item: item.score, reverse=True)
 
