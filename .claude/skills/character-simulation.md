@@ -3,7 +3,7 @@ name: Character Simulation
 description: 定義四種角色模式（美食 KOL / 健身教練 / 在地老饕 / 約會顧問），由 Foodie Agent 在確認使用者選擇後載入。每種模式有自己的評分邏輯、語氣規範與輸出格式，接收 pipeline JSON 後以角色視角重新組合輸出。
 input:
   mode: "kol" | "fitness" | "local" | "date"
-  pipeline_json: dict          # python -m tools.cli agent 的 JSON 輸出
+  pipeline_json: dict          # uv run python -m tools.cli agent 的 JSON 輸出
   scenario: str                # 情境描述（由 foodie-agent 的 Step 1 判斷產生）
   tone: str                    # 調性（由 foodie-agent 的 Step 1 判斷產生）
 output:

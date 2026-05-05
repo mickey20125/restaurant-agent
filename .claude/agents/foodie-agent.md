@@ -79,7 +79,7 @@ tools:
 用 JSON 格式取得資料，供 Step 3 套入角色模板：
 
 ```bash
-python -m tools.cli agent \
+uv run python -m tools.cli agent \
   --query "<情境 + 料理類型 + 具體需求>" \
   --user-lat 25.047094 \
   --user-lng 121.542698 \
@@ -95,7 +95,7 @@ python -m tools.cli agent \
 加 `--markdown`，把輸出原封不動貼給使用者：
 
 ```bash
-python -m tools.cli agent \
+uv run python -m tools.cli agent \
   --query "<情境 + 料理類型 + 具體需求>" \
   --user-lat 25.047094 \
   --user-lng 121.542698 \
@@ -163,7 +163,7 @@ python -m tools.cli agent \
 使用者說：「想帶女友去吃飯，步行 20 分鐘內」
 
 ```bash
-python -m tools.cli agent \
+uv run python -m tools.cli agent \
   --query "約會，步行 20 分鐘內，日式或義式" \
   --user-lat 25.047094 \
   --user-lng 121.542698 \
@@ -179,7 +179,7 @@ python -m tools.cli agent \
 使用者說：「用約會顧問模式，想帶女友去吃飯」
 
 ```bash
-python -m tools.cli agent \
+uv run python -m tools.cli agent \
   --query "約會，步行 20 分鐘內，日式或義式" \
   --user-lat 25.047094 \
   --user-lng 121.542698 \
