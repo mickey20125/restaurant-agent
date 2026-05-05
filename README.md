@@ -144,11 +144,9 @@ uv run restaurant-agent agent \
 | `--max-reviews-per-place` | 每店最多評論數 | `3` |
 | `--social-file` | 本地貼文文字檔路徑 | — |
 | `--social-text` | 直接傳入貼文文字（可重複） | — |
-| `--no-threads` | 停用 Threads 爬蟲 | 預設開啟 |
+| `--no-threads` | 停用 Threads 搜尋 | 預設開啟 |
 | `--threads-max-posts` | 每店最多抓幾則 Threads 貼文 | `10` |
-| `--threads-daily-limit` | Threads 每日爬取上限 | `50` |
-| `--no-instagram` | 停用 Instagram 爬蟲 | 預設關閉 |
-| `--ig-max-posts` | 每店最多抓幾則 IG 貼文 | `10` |
+| `--threads-daily-limit` | Threads 每日查詢上限 | `50` |
 | `--daily-limit` | Maps API 每日呼叫上限 | `100` |
 | `--show-debug` | 顯示各 skill 中間結果 | `false` |
 
@@ -270,11 +268,11 @@ uv run restaurant-agent agent \
 {"韓味豆腐鍋": ["裝潢很韓系", "晚餐要排隊"]}
 ```
 
-### Threads 即時爬取（預設開啟）
+### Threads 搜尋（預設開啟）
 
-Playwright 無頭 Chromium，無需登入：
-- 主路徑：GraphQL API 攔截（含 `like_count` → 金句排序）
-- 備用路徑：DOM 文字擷取
+透過 Google Custom Search API 搜尋 `site:threads.net`，無需 Threads 帳號。
+
+詳細設定步驟：[THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)
 
 ```bash
 # 停用 Threads
@@ -286,16 +284,6 @@ uv run restaurant-agent agent --query "韓式" --threads-max-posts 15
 
 Threads cache 路徑：`.cache/threads_cache.json`
 每日用量紀錄：`.cache/threads_daily_usage.json`
-
-### Instagram（預設關閉）
-
-需在 `.env` 設定帳號：
-
-```env
-INSTAGRAM_ENABLED=true
-INSTAGRAM_USERNAME=your_username
-INSTAGRAM_PASSWORD=your_password
-```
 
 ---
 

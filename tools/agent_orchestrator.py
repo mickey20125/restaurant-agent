@@ -8,7 +8,6 @@ from tools.google_maps_parser import GoogleMapsParser
 from tools.candidate_search import CandidateSearchSkill
 from tools.cost_guard import CostGuardSkill
 from tools.hard_constraint_filter import HardConstraintFilterSkill
-from tools.instagram_fetcher import InstagramFetcher
 from tools.threads_scraper import ThreadsScraper
 from tools.intent_parser import IntentParserSkill
 from tools.ranker import RankerSkill
@@ -26,11 +25,9 @@ class FoodieAgentOrchestrator:
     def __init__(
         self,
         maps_parser: GoogleMapsParser | None = None,
-        ig_fetcher: InstagramFetcher | None = None,
         threads_scraper: ThreadsScraper | None = None,
     ) -> None:
         self.maps_parser = maps_parser or GoogleMapsParser()
-        self.ig_fetcher = ig_fetcher  # None = auto-init from env at run time
         self.threads_scraper = threads_scraper  # None = auto-init from env at run time
 
     def run(
@@ -51,11 +48,6 @@ class FoodieAgentOrchestrator:
         daily_limit: int | None = None,
         usage_path: str | None = None,
         cache_path: str | None = None,
-        # Instagram options
-        disable_instagram: bool = False,
-        ig_max_posts: int = 10,
-        ig_daily_limit: int = 100,
-        ig_cache_ttl_seconds: int = 3600,
         # Threads options
         disable_threads: bool = False,
         threads_max_posts: int = 10,
@@ -70,14 +62,6 @@ class FoodieAgentOrchestrator:
             usage_path=effective_usage_path,
             cache_path=effective_cache_path,
         )
-
-        # Resolve Instagram fetcher: injected > env > disabled
-        ig_fetcher: InstagramFetcher | None = None
-        if not disable_instagram:
-            ig_fetcher = self.ig_fetcher or InstagramFetcher.from_env(
-                daily_limit=ig_daily_limit,
-                cache_ttl_seconds=ig_cache_ttl_seconds,
-            )
 
         # Resolve Threads scraper: injected > env > disabled
         threads_scraper: ThreadsScraper | None = None
@@ -132,14 +116,11 @@ class FoodieAgentOrchestrator:
             candidates=reservation_candidates,
             social_file=social_file,
             inline_posts=inline_social_posts,
-            ig_fetcher=ig_fetcher,
-            ig_max_posts=ig_max_posts,
             threads_scraper=threads_scraper,
             threads_max_posts=threads_max_posts,
         )
         debug_steps["social_adapter"] = {
             **social_meta,
-            "instagram": "enabled" if ig_fetcher else "disabled",
             "threads": "enabled" if threads_scraper else "disabled",
         }
 

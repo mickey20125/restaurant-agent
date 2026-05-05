@@ -9,7 +9,6 @@ description = "Foodie Agent — skill-based restaurant recommendation pipeline."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "instagrapi>=2.0",
     "playwright>=1.58.0",
 ]
 
@@ -22,3 +21,8 @@ package-dir = {"" = "."}
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["tools*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]

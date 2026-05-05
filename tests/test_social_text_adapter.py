@@ -118,30 +118,6 @@ class MockFetcherTests(unittest.TestCase):
     def setUp(self) -> None:
         self.skill = SocialTextAdapterSkill()
 
-    def test_ig_fetcher_posts_attached(self) -> None:
-        class FakeIG:
-            def fetch_for_candidate(self, *, name: str, lat, lng, max_posts: int):
-                return [f"IG:{name}"], {}
-
-        c = _candidate("A餐廳")
-        result, meta = self.skill.run(
-            candidates=[c], social_file=None, ig_fetcher=FakeIG(), ig_max_posts=5
-        )
-        self.assertIn("IG:A餐廳", result[0].social_posts)
-        self.assertEqual(meta["ig_fetched"], 1)
-
-    def test_ig_fetcher_error_appended_to_risks(self) -> None:
-        class ErrorIG:
-            def fetch_for_candidate(self, *, name: str, lat, lng, max_posts: int):
-                return [], {"budget": "daily limit reached"}
-
-        c = _candidate("A餐廳")
-        result, meta = self.skill.run(
-            candidates=[c], social_file=None, ig_fetcher=ErrorIG()
-        )
-        self.assertTrue(any("IG" in r for r in result[0].risks))
-        self.assertEqual(meta["ig_fetched"], 0)
-
     def test_threads_scraper_posts_attached(self) -> None:
         class FakeThreads:
             def fetch_posts_with_engagement(self, *, name: str, max_posts: int):
@@ -170,10 +146,6 @@ class MockFetcherTests(unittest.TestCase):
         self.assertEqual(meta["threads_fetched"], 0)
 
     def test_meta_counts_are_accurate(self) -> None:
-        class FakeIG:
-            def fetch_for_candidate(self, *, name: str, lat, lng, max_posts: int):
-                return ["IG貼文"], {}
-
         class FakeThreads:
             def fetch_posts_with_engagement(self, *, name: str, max_posts: int):
                 return [{"text": "Threads貼文", "like_count": 10}], {}
@@ -182,10 +154,8 @@ class MockFetcherTests(unittest.TestCase):
         _, meta = self.skill.run(
             candidates=candidates,
             social_file=None,
-            ig_fetcher=FakeIG(),
             threads_scraper=FakeThreads(),
         )
-        self.assertEqual(meta["ig_fetched"], 2)
         self.assertEqual(meta["threads_fetched"], 2)
         self.assertEqual(meta["stores_with_social_posts"], 2)
 

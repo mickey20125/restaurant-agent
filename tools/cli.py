@@ -115,10 +115,6 @@ def _cmd_agent(args: argparse.Namespace) -> int:
         daily_limit=args.daily_limit,
         usage_path=args.usage_path,
         cache_path=args.cache_path,
-        disable_instagram=args.no_instagram,
-        ig_max_posts=args.ig_max_posts,
-        ig_daily_limit=args.ig_daily_limit,
-        ig_cache_ttl_seconds=args.ig_cache_ttl_seconds,
         disable_threads=args.no_threads,
         threads_max_posts=args.threads_max_posts,
         threads_daily_limit=args.threads_daily_limit,
@@ -232,21 +228,7 @@ def build_parser() -> argparse.ArgumentParser:
     agent.set_defaults(safe_mode=True)
     agent.add_argument("--show-debug", action="store_true", help="Include skill-level debug output.")
     agent.add_argument("--markdown", action="store_true", help="Output formatted markdown instead of JSON.")
-    agent.add_argument("--no-instagram", action="store_true", help="Disable Instagram fetching even if credentials are set.")
-    agent.add_argument("--ig-max-posts", type=int, default=10, help="Max IG posts to fetch per candidate.")
-    agent.add_argument(
-        "--ig-daily-limit",
-        type=int,
-        default=int(os.environ.get("IG_DAILY_CALL_LIMIT", "100")),
-        help="Daily Instagram API call budget. Default from IG_DAILY_CALL_LIMIT or 100.",
-    )
-    agent.add_argument(
-        "--ig-cache-ttl-seconds",
-        type=int,
-        default=int(os.environ.get("IG_CACHE_TTL_SECONDS", "3600")),
-        help="Instagram cache TTL in seconds. Default from IG_CACHE_TTL_SECONDS or 3600.",
-    )
-    agent.add_argument("--no-threads", action="store_true", help="Disable Threads.net scraping.")
+    agent.add_argument("--no-threads", action="store_true", help="Disable Threads search.")
     agent.add_argument("--threads-max-posts", type=int, default=10, help="Max Threads posts to fetch per candidate.")
     agent.add_argument(
         "--threads-daily-limit",

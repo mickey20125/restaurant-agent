@@ -4,3 +4,5 @@ __pycache__/
 .env
 .cache/
 *.egg-info/
+.claude/settings.local.json
+threads_cookies.json

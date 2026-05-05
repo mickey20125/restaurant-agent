@@ -13,14 +13,14 @@ DEFAULT_THREADS_USAGE_PATH = ".cache/threads_daily_usage.json"
 
 
 class ThreadsScraper:
-    """Scrape Threads.net public search results (no login required).
+    """Fetch Threads post snippets for a restaurant via Google Custom Search.
 
-    Fetches post captions for a restaurant name via:
-      https://www.threads.net/search?q={name}&serp_type=keyword
+    Searches `site:threads.net "<name>"` using the Google Custom Search JSON API,
+    which requires no Threads authentication.
 
-    Uses Playwright (headless Chromium) with:
-    1. GraphQL/API response interception as the primary extraction path
-    2. DOM text extraction as fallback
+    Required env vars:
+      GOOGLE_MAPS_API_KEY  — existing Google API key (must have Custom Search API enabled)
+      GOOGLE_SEARCH_CX     — Custom Search Engine ID from programmablesearch.google.com
     """
 
     def __init__(
@@ -30,13 +30,13 @@ class ThreadsScraper:
         usage_path: str = DEFAULT_THREADS_USAGE_PATH,
         cache_ttl_seconds: int = 3600,
         daily_limit: int = 50,
+        # kept for call-site backward compat
         headless: bool = True,
     ) -> None:
         self.cache_path = Path(cache_path)
         self.usage_path = Path(usage_path)
         self.cache_ttl_seconds = cache_ttl_seconds
         self.daily_limit = daily_limit
-        self.headless = headless
 
     # ------------------------------------------------------------------
     # Public API
@@ -75,97 +75,63 @@ class ThreadsScraper:
         return posts, errors
 
     # ------------------------------------------------------------------
-    # Playwright scraping
+    # Scraping
     # ------------------------------------------------------------------
 
     def _scrape(self, name: str, max_posts: int) -> tuple[list[dict], dict[str, str]]:
+        google_cx = os.environ.get("GOOGLE_SEARCH_CX", "")
+        google_key = os.environ.get("GOOGLE_MAPS_API_KEY", "")
+        if not google_cx or not google_key:
+            return [], {"scrape": "GOOGLE_SEARCH_CX not configured"}
+
+        posts = self._scrape_via_google(name, google_key, google_cx, max_posts)
+        if posts:
+            return posts[:max_posts], {}
+        return [], {"scrape": "no Threads results found on Google"}
+
+    def _scrape_via_google(
+        self, name: str, api_key: str, cx: str, max_posts: int
+    ) -> list[dict]:
+        """Search site:threads.net via Google Custom Search API."""
+        import urllib.request
+        import urllib.parse
+
+        params = urllib.parse.urlencode({
+            "key": api_key,
+            "cx": cx,
+            "q": f'site:threads.net "{name}"',
+            "num": min(max_posts, 10),
+            "lr": "lang_zh-TW",
+        })
+        req = urllib.request.Request(
+            f"https://www.googleapis.com/customsearch/v1?{params}",
+            headers={"accept": "application/json"},
+        )
         try:
-            from playwright.sync_api import sync_playwright
-        except ImportError as exc:
-            raise RuntimeError(
-                "playwright is not installed. Run: pip install playwright && playwright install chromium"
-            ) from exc
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="ignore"))
+        except Exception as exc:
+            raise RuntimeError(f"Google Custom Search failed: {exc}") from exc
 
         posts: list[dict] = []
+        for item in data.get("items", []):
+            text = (item.get("snippet", "") or item.get("title", "")).replace("\n", " ").strip()
+            if len(text) >= 15:
+                posts.append({"text": text, "like_count": 0})
+        return posts
 
-        with sync_playwright() as pw:
-            browser = pw.chromium.launch(headless=self.headless)
-            ctx = browser.new_context(
-                user_agent=(
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/120.0.0.0 Safari/537.36"
-                ),
-                locale="zh-TW",
-            )
-            page = ctx.new_page()
-
-            # Intercept API / GraphQL JSON responses
-            captured: list[Any] = []
-
-            def _on_response(response: Any) -> None:
-                url = response.url
-                if not any(kw in url for kw in ("graphql", "/api/", "search")):
-                    return
-                ct = response.headers.get("content-type", "")
-                if "json" not in ct:
-                    return
-                try:
-                    captured.append(response.json())
-                except Exception:
-                    pass
-
-            page.on("response", _on_response)
-
-            url = self._build_search_url(name)
-            try:
-                page.goto(url, timeout=30_000, wait_until="networkidle")
-            except Exception:
-                try:
-                    page.goto(url, timeout=30_000, wait_until="domcontentloaded")
-                    page.wait_for_timeout(4000)
-                except Exception:
-                    pass
-
-            # Extract from captured API responses (with engagement)
-            seen: set[str] = set()
-            for body in captured:
-                for post in self._extract_posts_from_json(body):
-                    if post["text"] not in seen:
-                        seen.add(post["text"])
-                        posts.append(post)
-                    if len(posts) >= max_posts:
-                        break
-                if len(posts) >= max_posts:
-                    break
-
-            # DOM fallback when API extraction yielded nothing
-            if len(posts) < 3:
-                for text in self._extract_from_dom(page):
-                    if text not in seen:
-                        seen.add(text)
-                        posts.append({"text": text, "like_count": 0})
-                    if len(posts) >= max_posts:
-                        break
-
-            browser.close()
-
-        return posts[:max_posts], {}
+    # ------------------------------------------------------------------
+    # JSON extraction helpers (used by tests and future API integrations)
+    # ------------------------------------------------------------------
 
     @staticmethod
     def _build_search_url(name: str) -> str:
         return f"https://www.threads.net/search?q={quote(name)}&serp_type=keyword"
 
-    # ------------------------------------------------------------------
-    # JSON extraction helpers
-    # ------------------------------------------------------------------
+    def _extract_texts_from_json(self, obj: Any, depth: int = 0) -> list[str]:
+        return [p["text"] for p in self._extract_posts_from_json(obj, depth)]
 
     def _extract_posts_from_json(self, obj: Any, depth: int = 0) -> list[dict]:
-        """Recursively extract posts with engagement from Threads API JSON blobs.
-
-        Returns list of {"text": str, "like_count": int}.
-        like_count is 0 when the API response doesn't include engagement data.
-        """
         if depth > 12:
             return []
         results: list[dict] = []
@@ -185,54 +151,6 @@ class ThreadsScraper:
                 results.extend(self._extract_posts_from_json(item, depth + 1))
         return results
 
-    def _extract_texts_from_json(self, obj: Any, depth: int = 0) -> list[str]:
-        """Recursively find caption/text strings in Threads API JSON blobs."""
-        return [p["text"] for p in self._extract_posts_from_json(obj, depth)]
-
-    # ------------------------------------------------------------------
-    # DOM fallback
-    # ------------------------------------------------------------------
-
-    # Threads page UI strings that appear in DOM but are not user posts
-    _UI_NOISE: frozenset[str] = frozenset([
-        "查看人們談論的主題，並加入對話。",
-        "使用 Instagram 帳號繼續",
-        "繼續使用 Facebook",
-        "登入",
-        "Sign in",
-        "Log in",
-        "Join the conversation",
-        "See what people are talking about",
-        "Continue with Instagram",
-        "Continue with Facebook",
-    ])
-
-    def _is_ui_noise(self, text: str) -> bool:
-        return text in self._UI_NOISE or len(text) < 15
-
-    def _extract_from_dom(self, page: Any) -> list[str]:
-        selectors = [
-            "article span",
-            "[data-pressable-container] span",
-            "div[dir='auto']",
-            "span[class*='x1lliihq']",  # common Threads text class prefix
-        ]
-        texts: list[str] = []
-        seen: set[str] = set()
-        for sel in selectors:
-            try:
-                elements = page.query_selector_all(sel)
-                for el in elements:
-                    t = el.inner_text().strip()
-                    if t and not self._is_ui_noise(t) and t not in seen:
-                        seen.add(t)
-                        texts.append(t)
-            except Exception:
-                pass
-            if len(texts) >= 30:
-                break
-        return texts
-
     # ------------------------------------------------------------------
     # Cache
     # ------------------------------------------------------------------
@@ -250,7 +168,6 @@ class ThreadsScraper:
         if int(time.time()) - int(entry.get("cached_at", 0)) > self.cache_ttl_seconds:
             return None
         data = entry.get("data", [])
-        # Backward compat: old cache stored list[str], upgrade on read
         if data and isinstance(data[0], str):
             return [{"text": t, "like_count": 0} for t in data]
         return data
@@ -262,10 +179,7 @@ class ThreadsScraper:
                 payload = json.loads(self.cache_path.read_text(encoding="utf-8"))
             except (json.JSONDecodeError, OSError):
                 pass
-        payload[name] = {
-            "cached_at": int(time.time()),
-            "data": posts,
-        }
+        payload[name] = {"cached_at": int(time.time()), "data": posts}
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
         self.cache_path.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -315,5 +229,4 @@ class ThreadsScraper:
             usage_path=usage_path,
             cache_ttl_seconds=cache_ttl_seconds,
             daily_limit=daily_limit,
-            headless=headless,
         )

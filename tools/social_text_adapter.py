@@ -5,28 +5,14 @@ from pathlib import Path
 
 from tools.types import Candidate
 
-# InstagramFetcher is optional — imported lazily to avoid hard dependency at import time
-_InstagramFetcherType = None
-
-
-def _ig_fetcher_type() -> type | None:
-    global _InstagramFetcherType
-    if _InstagramFetcherType is None:
-        try:
-            from tools.instagram_fetcher import InstagramFetcher
-            _InstagramFetcherType = InstagramFetcher
-        except ImportError:
-            pass
-    return _InstagramFetcherType
-
 
 class SocialTextAdapterSkill:
     """Attach social text snippets to candidates.
 
     Data sources (all optional, combined and deduplicated):
-    1. Local file  — social_file path (JSON or pipe-delimited text)
-    2. Inline text — inline_posts list passed directly
-    3. Instagram   — ig_fetcher fetches via hashtag + location per candidate
+    1. Local file     — social_file path (JSON or pipe-delimited text)
+    2. Inline text    — inline_posts list passed directly
+    3. Threads search — threads_scraper fetches via Google Custom Search per candidate
     """
 
     def run(
@@ -35,8 +21,6 @@ class SocialTextAdapterSkill:
         candidates: list[Candidate],
         social_file: str | None,
         inline_posts: list[str] | None = None,
-        ig_fetcher: object | None = None,
-        ig_max_posts: int = 10,
         threads_scraper: object | None = None,
         threads_max_posts: int = 10,
     ) -> tuple[list[Candidate], dict]:
@@ -44,7 +28,6 @@ class SocialTextAdapterSkill:
         if inline_posts:
             global_posts.extend([item for item in inline_posts if item.strip()])
 
-        ig_fetched = 0
         threads_fetched = 0
         attached = 0
 
@@ -54,21 +37,6 @@ class SocialTextAdapterSkill:
             for store_name, posts in by_store.items():
                 if store_name and (store_name in candidate.name or candidate.name in store_name):
                     matched.extend(posts)
-
-            if ig_fetcher is not None:
-                ig_posts, ig_errors = ig_fetcher.fetch_for_candidate(
-                    name=candidate.name,
-                    lat=candidate.lat,
-                    lng=candidate.lng,
-                    max_posts=ig_max_posts,
-                )
-                if ig_errors:
-                    candidate.risks.extend(
-                        [f"IG({k}): {v}" for k, v in ig_errors.items()]
-                    )
-                if ig_posts:
-                    matched.extend(ig_posts)
-                    ig_fetched += 1
 
             th_posts_with_meta: list[dict] = []
             if threads_scraper is not None:
@@ -92,7 +60,6 @@ class SocialTextAdapterSkill:
         return candidates, {
             "stores_with_social_posts": attached,
             "global_posts": len(global_posts),
-            "ig_fetched": ig_fetched,
             "threads_fetched": threads_fetched,
         }
 
