@@ -1,11 +1,11 @@
 {
   "demo_name": "功能3-預算有限但要體面",
-  "query": "請客但預算有限，台式或日式，步行25分鐘內",
+  "query": "請客但預算有限，台式，步行25分鐘內",
   "logic": "看起來體面、不要一看就很便宜、實際價格中等合理",
   "saved_at": "2026-05-11",
   "intent": {
-    "raw_query": "請客但預算有限，台式或日式，步行25分鐘內",
-    "cuisine": "日式",
+    "raw_query": "請客但預算有限，台式，步行25分鐘內",
+    "cuisine": "台式",
     "must_have": null,
     "max_walk_minutes": 25,
     "min_rating": null,
@@ -14,53 +14,81 @@
   },
   "recommendations": [
     {
-      "place_id": "ChIJ9240AWGpQjQRYkqzSvuO47I",
-      "name": "今日魚市-南京店-原丼賞和食",
-      "address": "B1, No. 140號南京東路二段中山區臺北市台灣 10491",
-      "score": 0.7875,
-      "reason": "Google 評分 4.7；15150 則地圖評價；預估步行 14 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
+      "place_id": "ChIJ63TtzA2pQjQRYLTOoGVHw3g",
+      "name": "丰禾 台味風格料理 台北南京東店",
+      "address": "104台灣臺北市中山區南京東路二段146號2F",
+      "score": 0.7887,
+      "reason": "Google 評分 4.7；10711 則地圖評價；預估步行 14 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
       "vibe_tags": [
-        "#出片"
+        "#辣感",
+        "#排隊"
       ],
       "risks": [],
       "evidence": [
-        "評論摘錄：已經來吃好幾次了，店名雖換，但是品質還是一樣穩定。\n丼飯好吃、份量夠，配料也很新鮮，吃完很有滿足感。\n服務態度很好，整體體驗加分，之後還會再帶朋友來！",
-        "風格標籤：#出片"
+        "評論摘錄：因為10個人訂了包廂，有低消7000元，於是選了兩組套餐，套餐裡完全沒湯品，所以再單點個雞湯，可含服務費，就超過了。\n\n而且兩邊可選的菜色加起來也幾乎是單點菜單",
+        "風格標籤：#辣感 #排隊"
       ],
       "metrics": {
         "rating": 4.7,
-        "user_rating_count": 15150,
-        "walk_minutes": 13.741670429688456,
+        "user_rating_count": 10711,
+        "walk_minutes": 13.550296697294892,
         "must_have_match": false
       },
-      "phone": "02 2517 5526",
-      "reservation_url": "https://www.facebook.com/140B1/",
+      "phone": "02 2507 6808",
+      "reservation_url": "https://www.veggtable.com/",
       "social_highlights": []
     },
     {
-      "place_id": "ChIJu5NcQ2-pQjQRLklL1NptpjQ",
-      "name": "松日本料理",
-      "address": "104台灣臺北市中山區林森北路102號",
-      "score": 0.4679,
-      "reason": "Google 評分 4.1；551 則地圖評價；預估步行 25 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
+      "place_id": "ChIJY3SpVBqpQjQR2n727CJgCuk",
+      "name": "北棲 邸家 North house -｜華山必吃美食｜忠孝新生必吃美食｜台式定食｜台灣必吃美食｜華山餐酒館|",
+      "address": "100台灣臺北市中正區忠孝東路二段40號1樓",
+      "score": 0.7179,
+      "reason": "Google 評分 4.5；1406 則地圖評價；預估步行 20 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
       "vibe_tags": [
-        "#資訊不足",
-        "#待補社群資料",
-        "#先看地圖評價"
+        "#辣感",
+        "#老字號"
       ],
       "risks": [],
       "evidence": [
-        "評論摘錄：商業午餐150就有生魚片小6片，蘿蔔，生菜，口感不錯。溫蔬菜，蒸蛋，算好吃。\n只能現金。\n很多人，吧台很緊，老歌，生魚片不能選",
-        "風格標籤：#資訊不足 #待補社群資料 #先看地圖評價"
+        "評論摘錄：🍚定食均附3樣時蔬/有機黑糙米/點心/飲品\n黑糙米還包含半顆糖心蛋和地瓜\n\n#剝皮辣椒雞湯 $338\n4-5塊雞腿肉和花蓮剝皮辣椒和各種菇菇\n口感微辣開胃🌶️冬",
+        "風格標籤：#辣感 #老字號"
       ],
       "metrics": {
-        "rating": 4.1,
-        "user_rating_count": 551,
-        "walk_minutes": 24.53591736509553,
+        "rating": 4.5,
+        "user_rating_count": 1406,
+        "walk_minutes": 20.44284473867713,
         "must_have_match": false
       },
-      "phone": "02 2581 6970",
-      "reservation_url": "https://www.facebook.com/pages/%E6%9D%BE%E6%9B%B0%E6%9C%AC%E6%96%99%E7%90%86/150554205007879/",
+      "phone": "02 3343 3587",
+      "reservation_url": "https://instagram.com/87northhouse?igshid=1ujtdazqe2hux",
+      "social_highlights": []
+    },
+    {
+      "place_id": "ChIJwQzJo2-pQjQRyBD-ecnA09Y",
+      "name": "款待台菜/華燈初上 台日料理",
+      "address": "10491台灣臺北市中山區長安東路一段59號",
+      "score": 0.6595,
+      "reason": "Google 評分 3.9；1471 則地圖評價；預估步行 21 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
+      "vibe_tags": [
+        "#CP值",
+        "#出片",
+        "#辣感"
+      ],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
+      "evidence": [
+        "評論摘錄：想說爸爸生日他又愛吃台菜，就特地選了這間餐廳為爸爸慶生，而整體用餐體驗失望居多，首先包廂煙味非常明顯，一打開包廂門就聞到濃厚菸味，對於期待乾淨用餐環境的客人來說",
+        "風格標籤：#CP值 #出片 #辣感"
+      ],
+      "metrics": {
+        "rating": 3.9,
+        "user_rating_count": 1471,
+        "walk_minutes": 21.271740883626823,
+        "must_have_match": false
+      },
+      "phone": "02 2567 5567",
+      "reservation_url": "https://www.facebook.com/kt25676097/",
       "social_highlights": []
     }
   ]

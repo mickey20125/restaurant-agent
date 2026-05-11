@@ -63,7 +63,48 @@ class CandidateSearchSkill:
         )
         return candidates, {"source": "live_api", "query": query, **usage_meta}
 
+    # Maps surface-form keywords (found in raw_query / logic) to canonical
+    # Google Maps search terms.  Longer strings must come first so that
+    # "台灣料理" is matched before the substring "料理".
+    _VENUE_KEYWORD_MAP: tuple[tuple[str, str], ...] = (
+        ("餐酒館", "餐酒館"),
+        ("小酒館", "餐酒館"),
+        ("居酒屋", "居酒屋"),
+        ("熱炒",   "熱炒"),
+        ("快炒",   "熱炒"),
+        ("台灣料理", "台菜"),
+        ("台式料理", "台菜"),
+        ("台灣味",  "台菜"),
+        ("台味",   "台菜"),
+        ("台菜",   "台菜"),
+        ("燒肉",   "燒肉"),
+        ("燒烤",   "燒烤"),
+        ("烤肉",   "燒烤"),
+        ("丼飯",   "丼飯"),
+        ("咖哩",   "咖哩"),
+        ("壽司",   "壽司"),
+        ("和食",   "和食"),
+        ("懷石",   "和食"),
+    )
+
     @staticmethod
     def _build_query(intent: AgentIntent) -> str:
-        parts = [intent.cuisine or "", intent.must_have or "", "餐廳"]
-        return " ".join([part for part in parts if part]).strip() or intent.raw_query
+        parts: list[str] = []
+        if intent.cuisine:
+            parts.append(intent.cuisine)
+        if intent.must_have:
+            parts.append(intent.must_have)
+
+        # When no structured cuisine, scan raw_query + logic for venue/food keywords
+        if not intent.cuisine:
+            text = f"{intent.raw_query} {intent.non_engineer_logic}"
+            for surface, canonical in CandidateSearchSkill._VENUE_KEYWORD_MAP:
+                if surface in text:
+                    parts.append(canonical)
+                    break
+
+        parts.append("餐廳")
+        # deduplicate while preserving order (e.g. cuisine == canonical)
+        seen: set[str] = set()
+        deduped = [p for p in parts if not (p in seen or seen.add(p))]  # type: ignore[func-returns-value]
+        return " ".join(deduped)

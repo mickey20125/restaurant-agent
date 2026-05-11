@@ -1,11 +1,11 @@
 {
   "demo_name": "情境3-帶長輩早鳥晚餐",
-  "query": "帶長輩吃晚餐，台式或日式，步行25分鐘內",
+  "query": "帶長輩吃晚餐，和食，步行25分鐘內",
   "logic": "五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
   "saved_at": "2026-05-11",
   "intent": {
-    "raw_query": "帶長輩吃晚餐，台式或日式，步行25分鐘內",
-    "cuisine": "日式",
+    "raw_query": "帶長輩吃晚餐，和食，步行25分鐘內",
+    "cuisine": null,
     "must_have": null,
     "max_walk_minutes": 25,
     "min_rating": null,
@@ -14,53 +14,81 @@
   },
   "recommendations": [
     {
-      "place_id": "ChIJ9240AWGpQjQRYkqzSvuO47I",
-      "name": "今日魚市-南京店-原丼賞和食",
-      "address": "B1, No. 140號南京東路二段中山區臺北市台灣 10491",
-      "score": 0.7875,
-      "reason": "Google 評分 4.7；15150 則地圖評價；預估步行 14 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
+      "place_id": "ChIJN9ucPgqrQjQRR_NUGhFiJHE",
+      "name": "旭集 和食集錦 微風店",
+      "address": "105台灣臺北市松山區復興南路一段39號6樓",
+      "score": 0.8514,
+      "reason": "Google 評分 4.7；2150 則地圖評價；預估步行 3 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
+      "vibe_tags": [
+        "#排隊"
+      ],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
+      "evidence": [
+        "評論摘錄：微風旭集有一些跟其他店不一樣的獨家料理，菜色如同集團一樣品質穩定，美味可口。只是比起同集團的饗饗菜色豐富度較少，有點可惜。\n\n喜歡鐵板區煎干貝、肋眼牛排、麵包蟹",
+        "風格標籤：#排隊"
+      ],
+      "metrics": {
+        "rating": 4.7,
+        "user_rating_count": 2150,
+        "walk_minutes": 3.1070556807442973,
+        "must_have_match": false
+      },
+      "phone": "02 8772 9988",
+      "reservation_url": "http://www.xujisunrise.com.tw/",
+      "social_highlights": []
+    },
+    {
+      "place_id": "ChIJxXX-hDCrQjQRE9_b286Jl9A",
+      "name": "小新 和食 酒場",
+      "address": "106台灣臺北市大安區市民大道三段246號No",
+      "score": 0.7413,
+      "reason": "Google 評分 4.7；472 則地圖評價；預估步行 4 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
       "vibe_tags": [
         "#出片"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
       "evidence": [
-        "評論摘錄：已經來吃好幾次了，店名雖換，但是品質還是一樣穩定。\n丼飯好吃、份量夠，配料也很新鮮，吃完很有滿足感。\n服務態度很好，整體體驗加分，之後還會再帶朋友來！",
+        "評論摘錄：大推鹹蛋絲瓜、干貝黑松露蒸蛋還有鮭魚大腹，好吃的讓人回味！櫛瓜的料理方式也很不錯~\n老闆親切又健談，整體而言是非常愉快的體驗。比較可惜的是洗手間，如果潔淨度和氛",
         "風格標籤：#出片"
       ],
       "metrics": {
         "rating": 4.7,
-        "user_rating_count": 15150,
-        "walk_minutes": 13.741670429688456,
+        "user_rating_count": 472,
+        "walk_minutes": 4.319195176731436,
         "must_have_match": false
       },
-      "phone": "02 2517 5526",
-      "reservation_url": "https://www.facebook.com/140B1/",
+      "phone": "02 2775 1902",
+      "reservation_url": "https://www.facebook.com/Ashin036/",
       "social_highlights": []
     },
     {
-      "place_id": "ChIJu5NcQ2-pQjQRLklL1NptpjQ",
-      "name": "松日本料理",
-      "address": "104台灣臺北市中山區林森北路102號",
-      "score": 0.4679,
-      "reason": "Google 評分 4.1；551 則地圖評價；預估步行 25 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
+      "place_id": "ChIJAaBnrtCrQjQRtLmLHe378j4",
+      "name": "和食EN 日本料理｜東區 大安區 忠孝復興站 日本定食 ｜遠東SOGO復興店",
+      "address": "106台灣台北市大安区忠孝东路三段300號SOGO復興館11樓",
+      "score": 0.6764,
+      "reason": "Google 評分 3.9；917 則地圖評價；預估步行 9 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
       "vibe_tags": [
-        "#資訊不足",
-        "#待補社群資料",
-        "#先看地圖評價"
+        "#CP值"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
       "evidence": [
-        "評論摘錄：商業午餐150就有生魚片小6片，蘿蔔，生菜，口感不錯。溫蔬菜，蒸蛋，算好吃。\n只能現金。\n很多人，吧台很緊，老歌，生魚片不能選",
-        "風格標籤：#資訊不足 #待補社群資料 #先看地圖評價"
+        "評論摘錄：三大一小第一次來用餐就幸運坐到包廂，餐點好吃、每道都很精緻以外，服務超親切，還會叮嚀某些湯底有酒或有味醂，貼心到不行！\n今天用餐體驗一級棒，還會再來回訪，也祝霏",
+        "風格標籤：#CP值"
       ],
       "metrics": {
-        "rating": 4.1,
-        "user_rating_count": 551,
-        "walk_minutes": 24.53591736509553,
+        "rating": 3.9,
+        "user_rating_count": 917,
+        "walk_minutes": 9.21030036150331,
         "must_have_match": false
       },
-      "phone": "02 2581 6970",
-      "reservation_url": "https://www.facebook.com/pages/%E6%9D%BE%E6%9B%B0%E6%9C%AC%E6%96%99%E7%90%86/150554205007879/",
+      "phone": "02 7745 0796",
+      "reservation_url": "https://www.facebook.com/entaipei.com.tw/",
       "social_highlights": []
     }
   ]

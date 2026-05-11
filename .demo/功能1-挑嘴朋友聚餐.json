@@ -38,29 +38,28 @@
       "social_highlights": []
     },
     {
-      "place_id": "ChIJu5NcQ2-pQjQRLklL1NptpjQ",
-      "name": "松日本料理",
-      "address": "104台灣臺北市中山區林森北路102號",
-      "score": 0.4679,
-      "reason": "Google 評分 4.1；551 則地圖評價；預估步行 25 分鐘；符合設定邏輯：排除牛肉料理，辣度可調或無辣，有蔬食選項但非素食專門店，有質感不無聊",
+      "place_id": "ChIJJ1Hcl7OpQjQR3Aj7-220DyA",
+      "name": "山上走走 日式燒肉台北華山店",
+      "address": "100台灣臺北市中正區金山南路一段8號",
+      "score": 0.7642,
+      "reason": "Google 評分 4.8；14334 則地圖評價；預估步行 19 分鐘；符合設定邏輯：排除牛肉料理，辣度可調或無辣，有蔬食選項但非素食專門店，有質感不無聊",
       "vibe_tags": [
-        "#資訊不足",
-        "#待補社群資料",
-        "#先看地圖評價"
+        "#出片",
+        "#排隊"
       ],
       "risks": [],
       "evidence": [
-        "評論摘錄：商業午餐150就有生魚片小6片，蘿蔔，生菜，口感不錯。溫蔬菜，蒸蛋，算好吃。\n只能現金。\n很多人，吧台很緊，老歌，生魚片不能選",
-        "風格標籤：#資訊不足 #待補社群資料 #先看地圖評價"
+        "評論摘錄：看網路好評預約了去用餐慶生，吃過其實還好，特別是燒肉分量沒有過癮(感覺才開始就吃完了)，$1580+一成（酒水另計）倒不如直接去吃和牛火鍋。吃賣相和噱頭很多，但",
+        "風格標籤：#出片 #排隊"
       ],
       "metrics": {
-        "rating": 4.1,
-        "user_rating_count": 551,
-        "walk_minutes": 24.53591736509553,
+        "rating": 4.8,
+        "user_rating_count": 14334,
+        "walk_minutes": 19.305528076978042,
         "must_have_match": false
       },
-      "phone": "02 2581 6970",
-      "reservation_url": "https://www.facebook.com/pages/%E6%9D%BE%E6%9B%B0%E6%9C%AC%E6%96%99%E7%90%86/150554205007879/",
+      "phone": "02 2397 1777",
+      "reservation_url": "https://inline.app/booking/-Ll6KebqTaG9qa0eLrqY:inline-live-1/-NXV5pScQif96V_2MTAv?fbclid=IwAR19HmHXftFj1cpSA261VHQWE3QVxGXAQn_fV8rpceihdqVrZOtx__iUslM",
       "social_highlights": []
     }
   ]

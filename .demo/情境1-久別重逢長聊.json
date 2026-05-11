@@ -1,11 +1,11 @@
 {
   "demo_name": "情境1-久別重逢長聊",
-  "query": "朋友聚餐，可以聊很久，步行25分鐘內",
+  "query": "朋友聚餐，可以聊很久，義式，步行25分鐘內",
   "logic": "久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
   "saved_at": "2026-05-11",
   "intent": {
-    "raw_query": "朋友聚餐，可以聊很久，步行25分鐘內",
-    "cuisine": null,
+    "raw_query": "朋友聚餐，可以聊很久，義式，步行25分鐘內",
+    "cuisine": "義式",
     "must_have": null,
     "max_walk_minutes": 25,
     "min_rating": null,
@@ -14,77 +14,81 @@
   },
   "recommendations": [
     {
-      "place_id": "ChIJOSE2gtGrQjQRELgaM9JC63U",
-      "name": "莎瓦迪卡海鮮.泰",
-      "address": "10491台灣臺北市中山區松江路8號",
-      "score": 0.8095,
-      "reason": "Google 評分 4.9；7820 則地圖評價；預估步行 13 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
-      "vibe_tags": [
-        "#辣感",
-        "#CP值"
-      ],
-      "risks": [],
-      "evidence": [
-        "評論摘錄：食物的精緻度和份量都很不錯。\n\n軟殼蟹看起來很澎湃，但其實蟹的外頭裹了厚厚的粉皮，入口蟹的部分很單薄，沒什麼蟹味。咖哩的部分整體是濃郁厚重的，小辣，個人比較重口",
-        "風格標籤：#辣感 #CP值"
-      ],
-      "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 7820,
-        "walk_minutes": 13.414870630340339,
-        "must_have_match": false
-      },
-      "phone": "0975 925 688",
-      "reservation_url": "https://www.facebook.com/sawadicaintaipei",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJC8ObMXqpQjQRXnbI0Upn_4Y",
-      "name": "大嗑西式餐館",
-      "address": "100台灣臺北市中正區濟南路二段18-3號",
-      "score": 0.7313,
-      "reason": "Google 評分 4.6；2991 則地圖評價；預估步行 21 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+      "place_id": "ChIJxdRGEdirQjQRKLWOk-uOq5k",
+      "name": "DOMANI 義式餐廳",
+      "address": "106台灣臺北市大安區建國南路一段65巷7號",
+      "score": 0.7377,
+      "reason": "Google 評分 4.3；1059 則地圖評價；預估步行 8 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
       "vibe_tags": [
         "#出片"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
       "evidence": [
-        "評論摘錄：服務的夥伴非常的用心又real\n沒有跌倒真的是太好了！\n\n因為我不是一個味蕾很纖細的人，所以非常欣賞這家店的調味搭配，帶去吃飯的朋友本來不愛吃沙拉的都開開心心的",
+        "評論摘錄：這次的用餐體驗真的非常令人失望。以餐廳菜單價位來說，屬中高價位，但不論是服務或餐點都未達到應有的水準。\n\n一進門時，店員的問候語氣就讓人明顯感受到不友善，連同行",
         "風格標籤：#出片"
       ],
       "metrics": {
-        "rating": 4.6,
-        "user_rating_count": 2991,
-        "walk_minutes": 21.442790810680382,
+        "rating": 4.3,
+        "user_rating_count": 1059,
+        "walk_minutes": 8.032633536439876,
         "must_have_match": false
       },
-      "phone": "02 2394 8810",
-      "reservation_url": "https://m.facebook.com/duckyrestaurant/",
+      "phone": "02 8772 3355",
+      "reservation_url": "https://www.domanitaipei.com/ch/domani-restaurant.php",
       "social_highlights": []
     },
     {
-      "place_id": "ChIJ2coWQQCpQjQRZDRsLpEb9tw",
-      "name": "享聚餐廳",
-      "address": "106台灣臺北市大安區新生南路一段1號2樓",
-      "score": 0.7233,
-      "reason": "Google 評分 4.9；644 則地圖評價；預估步行 14 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+      "place_id": "ChIJDzK-NGKpQjQRxBnvBhlgRgc",
+      "name": "SABATINI 深庭義式餐廳",
+      "address": "10455台灣臺北市中山區長安東路二段84號1-2樓",
+      "score": 0.701,
+      "reason": "Google 評分 4.5；691 則地圖評價；預估步行 11 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
       "vibe_tags": [
-        "#CP值",
         "#辣感"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
       "evidence": [
-        "評論摘錄：看到這家餐廳資訊時，很驚訝在科技大學裡，竟然有這麼一家大眾化餐廳，日前去試試後，簡單通俗的說是家熱炒平價餐廳，\n菜在幾位老師傅掌理下（開放式廚房），口味還蠻夠水",
-        "風格標籤：#CP值 #辣感"
+        "評論摘錄：第一次到訪，印象非常好，絕對會再帶友人或家人到訪。\n食物很有水準，義大麵軟硬適中，也跟湯汁混合得很好，龍蝦義大利麵微辣，敢吃辣的人推薦嘗試；奶油蘑菇也很不錯，就",
+        "風格標籤：#辣感"
       ],
       "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 644,
-        "walk_minutes": 13.51361535002983,
+        "rating": 4.5,
+        "user_rating_count": 691,
+        "walk_minutes": 11.344512657424314,
         "must_have_match": false
       },
-      "phone": "02 8772 9786",
-      "reservation_url": "https://www.facebook.com/profile.php?id=61576505497387",
+      "phone": "0916 265 652",
+      "reservation_url": "http://www.sabatinicucina.com.tw/",
+      "social_highlights": []
+    },
+    {
+      "place_id": "ChIJkwGS1rKpQjQRo0NNQ1Kop3U",
+      "name": "轉角義式餐坊_89 Corner",
+      "address": "104台灣臺北市中山區四平街89號",
+      "score": 0.6511,
+      "reason": "Google 評分 4.8；64 則地圖評價；預估步行 14 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+      "vibe_tags": [
+        "#CP值"
+      ],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
+      "evidence": [
+        "評論摘錄：點了番茄紅醬鮮味蛤蜊麵，怕吃不飽又+10加麵總共 $160，結果吃的超飽，也有放一點點點起司，蛤蜊有12顆算蠻多的，份量很夠味道也不錯，這裡義大利麵最便宜只要$",
+        "風格標籤：#CP值"
+      ],
+      "metrics": {
+        "rating": 4.8,
+        "user_rating_count": 64,
+        "walk_minutes": 14.22451638491945,
+        "must_have_match": false
+      },
+      "phone": "0981 066 891",
+      "reservation_url": null,
       "social_highlights": []
     }
   ]

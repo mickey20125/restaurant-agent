@@ -14,84 +14,92 @@
   },
   "recommendations": [
     {
-      "place_id": "ChIJOSE2gtGrQjQRELgaM9JC63U",
-      "name": "莎瓦迪卡海鮮.泰",
-      "address": "10491台灣臺北市中山區松江路8號",
-      "score": 0.8095,
-      "reason": "Google 評分 4.9；7820 則地圖評價；預估步行 13 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
+      "place_id": "ChIJk4jCMEurQjQR3vnyZGQDQrY",
+      "name": "Cozy Taipei餐酒館",
+      "address": "106台灣臺北市大安區敦化南路一段190巷17號1樓19號2樓",
+      "score": 0.8432,
+      "reason": "Google 評分 5.0；9291 則地圖評價；預估步行 9 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
       "vibe_tags": [
-        "#辣感",
-        "#CP值"
-      ],
-      "risks": [
-        "Threads(scrape): no Threads results found on Brave Search"
-      ],
-      "evidence": [
-        "評論摘錄：食物的精緻度和份量都很不錯。\n\n軟殼蟹看起來很澎湃，但其實蟹的外頭裹了厚厚的粉皮，入口蟹的部分很單薄，沒什麼蟹味。咖哩的部分整體是濃郁厚重的，小辣，個人比較重口",
-        "風格標籤：#辣感 #CP值"
-      ],
-      "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 7820,
-        "walk_minutes": 13.414870630340339,
-        "must_have_match": false
-      },
-      "phone": "0975 925 688",
-      "reservation_url": "https://www.facebook.com/sawadicaintaipei",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJC8ObMXqpQjQRXnbI0Upn_4Y",
-      "name": "大嗑西式餐館",
-      "address": "100台灣臺北市中正區濟南路二段18-3號",
-      "score": 0.7313,
-      "reason": "Google 評分 4.6；2991 則地圖評價；預估步行 21 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
-      "vibe_tags": [
-        "#出片"
-      ],
-      "risks": [
-        "Threads(scrape): no Threads results found on Brave Search"
-      ],
-      "evidence": [
-        "評論摘錄：服務的夥伴非常的用心又real\n沒有跌倒真的是太好了！\n\n因為我不是一個味蕾很纖細的人，所以非常欣賞這家店的調味搭配，帶去吃飯的朋友本來不愛吃沙拉的都開開心心的",
-        "風格標籤：#出片"
-      ],
-      "metrics": {
-        "rating": 4.6,
-        "user_rating_count": 2991,
-        "walk_minutes": 21.442790810680382,
-        "must_have_match": false
-      },
-      "phone": "02 2394 8810",
-      "reservation_url": "https://m.facebook.com/duckyrestaurant/",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJ2coWQQCpQjQRZDRsLpEb9tw",
-      "name": "享聚餐廳",
-      "address": "106台灣臺北市大安區新生南路一段1號2樓",
-      "score": 0.7233,
-      "reason": "Google 評分 4.9；644 則地圖評價；預估步行 14 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
-      "vibe_tags": [
+        "#出片",
         "#CP值",
         "#辣感"
       ],
-      "risks": [
-        "Threads(scrape): no Threads results found on Brave Search"
-      ],
+      "risks": [],
       "evidence": [
-        "評論摘錄：看到這家餐廳資訊時，很驚訝在科技大學裡，竟然有這麼一家大眾化餐廳，日前去試試後，簡單通俗的說是家熱炒平價餐廳，\n菜在幾位老師傅掌理下（開放式廚房），口味還蠻夠水",
-        "風格標籤：#CP值 #辣感"
+        "評論摘錄：路過看到菜單感覺很好吃加上很多評論還是5星就訂位了\n結果超級盤 牛肋條390只有5小塊左右的肉 一口都不到 然後紅蘿蔔很多馬鈴薯很大塊 也沒有特別嫩特別好吃 這",
+        "風格標籤：#出片 #CP值 #辣感",
+        "Threads 金句：“Cozy” (or “cosy” in British English) describes something ...",
+        "Threads 金句：COZY™ (@cozy) • Threads, Say more"
       ],
       "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 644,
-        "walk_minutes": 13.51361535002983,
+        "rating": 5,
+        "user_rating_count": 9291,
+        "walk_minutes": 9.468205911411665,
         "must_have_match": false
       },
-      "phone": "02 8772 9786",
-      "reservation_url": "https://www.facebook.com/profile.php?id=61576505497387",
+      "phone": "02 8771 6754",
+      "reservation_url": "https://instagram.com/cozy_taipei?igshid=NTc4MTIwNjQ2YQ==",
+      "social_highlights": [
+        "“Cozy” (or “cosy” in British English) describes something ...",
+        "COZY™ (@cozy) • Threads, Say more",
+        "The Cozy Mozy (@thecozymozy)"
+      ]
+    },
+    {
+      "place_id": "ChIJCRKASPSrQjQRBwl5Ls2HO5k",
+      "name": "醉好 Another Round",
+      "address": "106台灣臺北市大安區大安路一段19巷13號",
+      "score": 0.8287,
+      "reason": "Google 評分 4.7；1878 則地圖評價；預估步行 7 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
+      "vibe_tags": [
+        "#出片",
+        "#排隊",
+        "#老字號"
+      ],
+      "risks": [],
+      "evidence": [
+        "評論摘錄：食物很好吃！價格也很合理\n但是當天發生了很多事\n\n2025/12/31當天用餐 旁邊的客人一直開閃光燈 還對我說把外套移開 因為她們要拍照 覺得很不合理 店家有",
+        "風格標籤：#出片 #排隊 #老字號"
+      ],
+      "metrics": {
+        "rating": 4.7,
+        "user_rating_count": 1878,
+        "walk_minutes": 6.876681380174047,
+        "must_have_match": false
+      },
+      "phone": "02 2776 6069",
+      "reservation_url": "https://mpea.me/anotherround",
       "social_highlights": []
+    },
+    {
+      "place_id": "ChIJL8XQG96rQjQR3Pefv2NemuQ",
+      "name": "Joiny Taipei 招台北餐酒館",
+      "address": "106台灣臺北市大安區大安路一段73號2樓",
+      "score": 0.8283,
+      "reason": "Google 評分 4.8；1555 則地圖評價；預估步行 9 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
+      "vibe_tags": [
+        "#辣感",
+        "#出片"
+      ],
+      "risks": [],
+      "evidence": [
+        "評論摘錄：環境舒適、夜晚窗景好，餐食很多元的餐酒館～\n我們點了沙拉、燉飯、炸物都不錯，還有甜點跟主菜都可以點，如果很多人來點餐應該可以很盡興\n特別有印象的是空間環境，城市",
+        "風格標籤：#辣感 #出片",
+        "Threads 金句：JOINY Taipei 招台北餐酒館｜酒吧｜早午餐(@joiny_taipei)",
+        "Threads 金句：環境很術系（Joiny Taipei 招台北餐酒館"
+      ],
+      "metrics": {
+        "rating": 4.8,
+        "user_rating_count": 1555,
+        "walk_minutes": 8.609827800519994,
+        "must_have_match": false
+      },
+      "phone": "02 2771 0915",
+      "reservation_url": null,
+      "social_highlights": [
+        "JOINY Taipei 招台北餐酒館｜酒吧｜早午餐(@joiny_taipei)",
+        "環境很術系（Joiny Taipei 招台北餐酒館"
+      ]
     }
   ]
 }

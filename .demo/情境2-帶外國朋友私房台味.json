@@ -14,77 +14,80 @@
   },
   "recommendations": [
     {
-      "place_id": "ChIJOSE2gtGrQjQRELgaM9JC63U",
-      "name": "莎瓦迪卡海鮮.泰",
-      "address": "10491台灣臺北市中山區松江路8號",
-      "score": 0.8095,
-      "reason": "Google 評分 4.9；7820 則地圖評價；預估步行 13 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
+      "place_id": "ChIJ63TtzA2pQjQRYLTOoGVHw3g",
+      "name": "丰禾 台味風格料理 台北南京東店",
+      "address": "104台灣臺北市中山區南京東路二段146號2F",
+      "score": 0.7887,
+      "reason": "Google 評分 4.7；10711 則地圖評價；預估步行 14 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
       "vibe_tags": [
         "#辣感",
-        "#CP值"
+        "#排隊"
       ],
       "risks": [],
       "evidence": [
-        "評論摘錄：食物的精緻度和份量都很不錯。\n\n軟殼蟹看起來很澎湃，但其實蟹的外頭裹了厚厚的粉皮，入口蟹的部分很單薄，沒什麼蟹味。咖哩的部分整體是濃郁厚重的，小辣，個人比較重口",
-        "風格標籤：#辣感 #CP值"
+        "評論摘錄：因為10個人訂了包廂，有低消7000元，於是選了兩組套餐，套餐裡完全沒湯品，所以再單點個雞湯，可含服務費，就超過了。\n\n而且兩邊可選的菜色加起來也幾乎是單點菜單",
+        "風格標籤：#辣感 #排隊"
       ],
       "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 7820,
-        "walk_minutes": 13.414870630340339,
+        "rating": 4.7,
+        "user_rating_count": 10711,
+        "walk_minutes": 13.550296697294892,
         "must_have_match": false
       },
-      "phone": "0975 925 688",
-      "reservation_url": "https://www.facebook.com/sawadicaintaipei",
+      "phone": "02 2507 6808",
+      "reservation_url": "https://www.veggtable.com/",
       "social_highlights": []
     },
     {
-      "place_id": "ChIJC8ObMXqpQjQRXnbI0Upn_4Y",
-      "name": "大嗑西式餐館",
-      "address": "100台灣臺北市中正區濟南路二段18-3號",
-      "score": 0.7313,
-      "reason": "Google 評分 4.6；2991 則地圖評價；預估步行 21 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
+      "place_id": "ChIJaUrfNC-rQjQRVxQmSZzFKJ8",
+      "name": "輝葉台菜",
+      "address": "10491台灣臺北市中山區長安東路二段169-5號",
+      "score": 0.7217,
+      "reason": "Google 評分 4.4；498 則地圖評價；預估步行 3 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
       "vibe_tags": [
-        "#出片"
-      ],
-      "risks": [],
-      "evidence": [
-        "評論摘錄：服務的夥伴非常的用心又real\n沒有跌倒真的是太好了！\n\n因為我不是一個味蕾很纖細的人，所以非常欣賞這家店的調味搭配，帶去吃飯的朋友本來不愛吃沙拉的都開開心心的",
-        "風格標籤：#出片"
-      ],
-      "metrics": {
-        "rating": 4.6,
-        "user_rating_count": 2991,
-        "walk_minutes": 21.442790810680382,
-        "must_have_match": false
-      },
-      "phone": "02 2394 8810",
-      "reservation_url": "https://m.facebook.com/duckyrestaurant/",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJ2coWQQCpQjQRZDRsLpEb9tw",
-      "name": "享聚餐廳",
-      "address": "106台灣臺北市大安區新生南路一段1號2樓",
-      "score": 0.7233,
-      "reason": "Google 評分 4.9；644 則地圖評價；預估步行 14 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
-      "vibe_tags": [
-        "#CP值",
         "#辣感"
       ],
       "risks": [],
       "evidence": [
-        "評論摘錄：看到這家餐廳資訊時，很驚訝在科技大學裡，竟然有這麼一家大眾化餐廳，日前去試試後，簡單通俗的說是家熱炒平價餐廳，\n菜在幾位老師傅掌理下（開放式廚房），口味還蠻夠水",
-        "風格標籤：#CP值 #辣感"
+        "評論摘錄：這次來吃 輝葉台菜 覺得很滿意。招牌臭豆腐香辣夠味、金沙蝦球不油膩，太陽蛋滷肉拌飯超加分，老菜脯雞湯溫潤耐喝。整體口味細緻、有家常感，服務也不錯，很適合家庭或朋",
+        "風格標籤：#辣感"
       ],
       "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 644,
-        "walk_minutes": 13.51361535002983,
+        "rating": 4.4,
+        "user_rating_count": 498,
+        "walk_minutes": 3.015366583342261,
         "must_have_match": false
       },
-      "phone": "02 8772 9786",
-      "reservation_url": "https://www.facebook.com/profile.php?id=61576505497387",
+      "phone": "02 2776 6618",
+      "reservation_url": "https://www.facebook.com/hytwcuisine/",
+      "social_highlights": []
+    },
+    {
+      "place_id": "ChIJRy7kxmipQjQRACw5aOpSyLI",
+      "name": "山海樓",
+      "address": "100台灣臺北市中正區仁愛路二段94號",
+      "score": 0.6881,
+      "reason": "Google 評分 4.1；2388 則地圖評價；預估步行 20 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
+      "vibe_tags": [
+        "#老字號",
+        "#出片",
+        "#CP值"
+      ],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
+      "evidence": [
+        "評論摘錄：蟬聯多年的米其林一星，更因其對在地食材與永續實踐的堅持，獲得了米其林綠星的肯定。這裡不僅是一間餐廳，更像是一座保存台灣 1930 年代宴客菜風華的時光機。亮點特",
+        "風格標籤：#老字號 #出片 #CP值"
+      ],
+      "metrics": {
+        "rating": 4.1,
+        "user_rating_count": 2388,
+        "walk_minutes": 20.31205792217513,
+        "must_have_match": false
+      },
+      "phone": "02 2351 3345",
+      "reservation_url": "http://www.mountain-n-seahouse.com/",
       "social_highlights": []
     }
   ]

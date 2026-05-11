@@ -1,11 +1,11 @@
 {
   "demo_name": "情境4-曖昧初次約飯",
-  "query": "曖昧對象第一次單獨吃飯，步行25分鐘內",
+  "query": "曖昧對象第一次單獨吃飯，泰式，步行25分鐘內",
   "logic": "不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
   "saved_at": "2026-05-11",
   "intent": {
-    "raw_query": "曖昧對象第一次單獨吃飯，步行25分鐘內",
-    "cuisine": null,
+    "raw_query": "曖昧對象第一次單獨吃飯，泰式，步行25分鐘內",
+    "cuisine": "泰式",
     "must_have": null,
     "max_walk_minutes": 25,
     "min_rating": null,
@@ -13,6 +13,33 @@
     "non_engineer_logic": "不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴"
   },
   "recommendations": [
+    {
+      "place_id": "ChIJDx0AoturQjQRcjBVU5fQEUg",
+      "name": "香茅廚泰式餐廳微風復興店Chef Lemongrass Thai Bistro",
+      "address": "105台灣臺北市松山區復興南路一段39號微風廣場GF",
+      "score": 0.844,
+      "reason": "Google 評分 4.6；2689 則地圖評價；預估步行 3 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
+      "vibe_tags": [
+        "#老字號",
+        "#辣感"
+      ],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
+      "evidence": [
+        "評論摘錄：偏中式的泰菜。看到評分4.7分，抱著一定要試試的心態前往，結果略失望。\n青木瓜沙拉，涼拌海鮮，酸甜鹹辣都不明顯，失去泰菜對味蕾的衝擊感。金沙小卷吃不出金沙味，倒",
+        "風格標籤：#老字號 #辣感"
+      ],
+      "metrics": {
+        "rating": 4.6,
+        "user_rating_count": 2689,
+        "walk_minutes": 2.658683004797142,
+        "must_have_match": false
+      },
+      "phone": "02 6600 3210",
+      "reservation_url": "https://www.facebook.com/cheflemongrasstw/",
+      "social_highlights": []
+    },
     {
       "place_id": "ChIJOSE2gtGrQjQRELgaM9JC63U",
       "name": "莎瓦迪卡海鮮.泰",
@@ -39,52 +66,31 @@
       "social_highlights": []
     },
     {
-      "place_id": "ChIJC8ObMXqpQjQRXnbI0Upn_4Y",
-      "name": "大嗑西式餐館",
-      "address": "100台灣臺北市中正區濟南路二段18-3號",
-      "score": 0.7313,
-      "reason": "Google 評分 4.6；2991 則地圖評價；預估步行 21 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
+      "place_id": "ChIJjav5Hi2pQjQRiFVpwOl7kps",
+      "name": "泰滾 Rolling Thai 泰式火鍋(南京店）",
+      "address": "10491台灣臺北市中山區南京東路二段178號B1, No",
+      "score": 0.7857,
+      "reason": "Google 評分 4.6；6176 則地圖評價；預估步行 12 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
       "vibe_tags": [
-        "#出片"
+        "#出片",
+        "#老字號",
+        "#辣感"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(budget): daily limit reached (50/50)"
+      ],
       "evidence": [
-        "評論摘錄：服務的夥伴非常的用心又real\n沒有跌倒真的是太好了！\n\n因為我不是一個味蕾很纖細的人，所以非常欣賞這家店的調味搭配，帶去吃飯的朋友本來不愛吃沙拉的都開開心心的",
-        "風格標籤：#出片"
+        "評論摘錄：慶祝家人生日到訪，第一次來，一抵達就被充滿輕鬆渡假海灘棕櫚樹風格的裝潢所吸引，湯頭濃郁，還有一款隱藏版的特殊辣醬超級好吃😋 壽星蝦子雖然小，但是吃的出來是新鮮的",
+        "風格標籤：#出片 #老字號 #辣感"
       ],
       "metrics": {
         "rating": 4.6,
-        "user_rating_count": 2991,
-        "walk_minutes": 21.442790810680382,
+        "user_rating_count": 6176,
+        "walk_minutes": 12.389805375035726,
         "must_have_match": false
       },
-      "phone": "02 2394 8810",
-      "reservation_url": "https://m.facebook.com/duckyrestaurant/",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJ2coWQQCpQjQRZDRsLpEb9tw",
-      "name": "享聚餐廳",
-      "address": "106台灣臺北市大安區新生南路一段1號2樓",
-      "score": 0.7233,
-      "reason": "Google 評分 4.9；644 則地圖評價；預估步行 14 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
-      "vibe_tags": [
-        "#CP值",
-        "#辣感"
-      ],
-      "risks": [],
-      "evidence": [
-        "評論摘錄：看到這家餐廳資訊時，很驚訝在科技大學裡，竟然有這麼一家大眾化餐廳，日前去試試後，簡單通俗的說是家熱炒平價餐廳，\n菜在幾位老師傅掌理下（開放式廚房），口味還蠻夠水",
-        "風格標籤：#CP值 #辣感"
-      ],
-      "metrics": {
-        "rating": 4.9,
-        "user_rating_count": 644,
-        "walk_minutes": 13.51361535002983,
-        "must_have_match": false
-      },
-      "phone": "02 8772 9786",
-      "reservation_url": "https://www.facebook.com/profile.php?id=61576505497387",
+      "phone": "02 2500 7333",
+      "reservation_url": "https://rollingthai.tw/",
       "social_highlights": []
     }
   ]
