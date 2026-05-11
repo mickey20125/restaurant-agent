@@ -123,6 +123,15 @@ def _cmd_agent(args: argparse.Namespace) -> int:
     if not args.show_debug:
         payload.pop("debug", None)
 
+    if args.save_demo:
+        _save_demo(
+            name=args.save_demo,
+            query=args.query,
+            logic=args.logic,
+            payload=payload,
+            demo_dir=args.demo_dir,
+        )
+
     if args.markdown:
         recs = payload.get("recommendations", [])
         if not recs:
@@ -135,6 +144,62 @@ def _cmd_agent(args: argparse.Namespace) -> int:
         return 0
 
     print(json.dumps(payload, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _save_demo(*, name: str, query: str, logic: str, payload: dict, demo_dir: str) -> None:
+    import datetime
+    from pathlib import Path
+
+    demo_path = Path(demo_dir)
+    demo_path.mkdir(parents=True, exist_ok=True)
+    safe_name = name.replace("/", "_").replace(" ", "_")
+    out_file = demo_path / f"{safe_name}.json"
+    envelope = {
+        "demo_name": name,
+        "query": query,
+        "logic": logic,
+        "saved_at": datetime.date.today().isoformat(),
+        **payload,
+    }
+    out_file.write_text(json.dumps(envelope, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[demo saved] {out_file}", file=sys.stderr)
+
+
+def _cmd_demo(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    demo_path = Path(args.demo_dir)
+    files = sorted(demo_path.glob("*.json")) if demo_path.exists() else []
+
+    if args.demo_command == "list":
+        if not files:
+            print("（尚無預存的 demo case，請先用 agent --save-demo 儲存）")
+            return 0
+        items = []
+        for f in files:
+            try:
+                d = json.loads(f.read_text(encoding="utf-8"))
+                items.append({
+                    "file": f.stem,
+                    "demo_name": d.get("demo_name", f.stem),
+                    "query": d.get("query", ""),
+                    "saved_at": d.get("saved_at", ""),
+                    "rec_count": len(d.get("recommendations", [])),
+                })
+            except (json.JSONDecodeError, OSError):
+                pass
+        print(json.dumps(items, ensure_ascii=False, indent=2))
+        return 0
+
+    if args.demo_command == "show":
+        target = demo_path / f"{args.case_name}.json"
+        if not target.exists():
+            print(f"找不到 demo case: {args.case_name}", file=sys.stderr)
+            return 1
+        print(target.read_text(encoding="utf-8"))
+        return 0
+
     return 0
 
 
@@ -242,7 +307,15 @@ def build_parser() -> argparse.ArgumentParser:
         default=int(os.environ.get("THREADS_CACHE_TTL_SECONDS", "3600")),
         help="Threads cache TTL in seconds. Default from THREADS_CACHE_TTL_SECONDS or 3600.",
     )
+    agent.add_argument("--save-demo", metavar="NAME", default=None, help="Save result as a named demo case.")
+    agent.add_argument("--demo-dir", default=".demo", help="Directory for demo case files (default: .demo).")
     agent.set_defaults(func=_cmd_agent)
+
+    demo = sub.add_parser("demo", help="Manage pre-stored demo cases.")
+    demo.add_argument("demo_command", choices=["list", "show"], help="list: show all cases; show: output one case.")
+    demo.add_argument("case_name", nargs="?", help="Case file stem (required for 'show').")
+    demo.add_argument("--demo-dir", default=".demo", help="Directory for demo case files (default: .demo).")
+    demo.set_defaults(func=_cmd_demo)
 
     return parser
 

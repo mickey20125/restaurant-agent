@@ -86,36 +86,61 @@ class DailyLimitTests(unittest.TestCase):
     def tearDown(self) -> None:
         self._tmp.cleanup()
 
-    def _make_scraper(self, limit: int) -> ThreadsScraper:
+    def _make_scraper(self, *, daily_limit: int = 50, monthly_limit: int = 2000) -> ThreadsScraper:
         return ThreadsScraper(
             cache_path=self.cache_path,
             usage_path=self.usage_path,
-            daily_limit=limit,
+            daily_limit=daily_limit,
+            monthly_limit=monthly_limit,
         )
 
     def test_within_limit_allows_usage(self) -> None:
-        scraper = self._make_scraper(limit=3)
-        self.assertTrue(scraper._allow_usage())
-        self.assertTrue(scraper._allow_usage())
-        self.assertTrue(scraper._allow_usage())
+        scraper = self._make_scraper(daily_limit=3)
+        allowed, _ = scraper._allow_usage()
+        self.assertTrue(allowed)
+        allowed, _ = scraper._allow_usage()
+        self.assertTrue(allowed)
+        allowed, _ = scraper._allow_usage()
+        self.assertTrue(allowed)
 
-    def test_over_limit_blocks_usage(self) -> None:
-        scraper = self._make_scraper(limit=2)
+    def test_over_daily_limit_blocks_usage(self) -> None:
+        scraper = self._make_scraper(daily_limit=2)
         scraper._allow_usage()
         scraper._allow_usage()
-        self.assertFalse(scraper._allow_usage())
+        allowed, msg = scraper._allow_usage()
+        self.assertFalse(allowed)
+        self.assertIn("daily limit", msg)
+
+    def test_over_monthly_limit_blocks_usage(self) -> None:
+        scraper = self._make_scraper(daily_limit=100, monthly_limit=2)
+        scraper._allow_usage()
+        scraper._allow_usage()
+        allowed, msg = scraper._allow_usage()
+        self.assertFalse(allowed)
+        self.assertIn("monthly limit", msg)
 
     def test_over_limit_returns_budget_error(self) -> None:
-        scraper = self._make_scraper(limit=0)
+        scraper = self._make_scraper(daily_limit=0)
         _, errors = scraper.fetch_for_candidate(name="X餐廳", max_posts=5)
         self.assertIn("budget", errors)
 
     def test_scrape_exception_returns_error(self) -> None:
-        scraper = self._make_scraper(limit=10)
-        with patch.object(scraper, "_scrape", side_effect=RuntimeError("playwright missing")):
+        scraper = self._make_scraper()
+        with patch.object(scraper, "_scrape", side_effect=RuntimeError("api error")):
             result, errors = scraper.fetch_for_candidate(name="X餐廳", max_posts=5)
         self.assertEqual(result, [])
         self.assertIn("scrape", errors)
+
+    def test_get_monthly_usage_counts_current_month(self) -> None:
+        scraper = self._make_scraper(daily_limit=10, monthly_limit=100)
+        scraper._allow_usage()
+        scraper._allow_usage()
+        scraper._allow_usage()
+        self.assertEqual(scraper.get_monthly_usage(), 3)
+
+    def test_get_monthly_usage_empty(self) -> None:
+        scraper = self._make_scraper()
+        self.assertEqual(scraper.get_monthly_usage(), 0)
 
 
 class FromEnvTests(unittest.TestCase):
@@ -134,62 +159,12 @@ class FromEnvTests(unittest.TestCase):
             scraper = ThreadsScraper.from_env()
         self.assertIsInstance(scraper, ThreadsScraper)
 
-
-class ExtractTextsFromJsonTests(unittest.TestCase):
-    def setUp(self) -> None:
-        self.scraper = ThreadsScraper.__new__(ThreadsScraper)
-
-    def test_extracts_text_key(self) -> None:
-        obj = {"text": "這是一則完整的貼文內容，超過十個字元"}
-        results = self.scraper._extract_texts_from_json(obj)
-        self.assertIn("這是一則完整的貼文內容，超過十個字元", results)
-
-    def test_extracts_caption_key(self) -> None:
-        obj = {"caption": "美食打卡文，今天來吃韓式料理超好吃"}
-        results = self.scraper._extract_texts_from_json(obj)
-        self.assertIn("美食打卡文，今天來吃韓式料理超好吃", results)
-
-    def test_ignores_short_strings(self) -> None:
-        obj = {"text": "短"}
-        results = self.scraper._extract_texts_from_json(obj)
-        self.assertNotIn("短", results)
-
-    def test_recurses_into_nested_dict(self) -> None:
-        obj = {"data": {"node": {"text": "巢狀文字內容，已經超過十個字元了"}}}
-        results = self.scraper._extract_texts_from_json(obj)
-        self.assertIn("巢狀文字內容，已經超過十個字元了", results)
-
-    def test_recurses_into_list(self) -> None:
-        obj = [{"text": "列表中的貼文文字，已超過十個字元"}]
-        results = self.scraper._extract_texts_from_json(obj)
-        self.assertIn("列表中的貼文文字，已超過十個字元", results)
-
-    def test_depth_limit_prevents_infinite_recursion(self) -> None:
-        # Root text should be extracted; deeply nested text beyond depth 12 is skipped
-        obj: dict = {"text": "根層文字，已超過十個字元可被提取"}
-        node = obj
-        for _ in range(15):
-            node["child"] = {"text": "深層文字，已超過十個字元但超過深度限制"}
-            node = node["child"]
-        results = self.scraper._extract_texts_from_json(obj)
-        self.assertIn("根層文字，已超過十個字元可被提取", results)
-
-
-class UrlEncodingTests(unittest.TestCase):
-    """Verify that Chinese store names are URL-encoded in the search URL."""
-
-    def test_chinese_name_is_url_encoded(self) -> None:
-        url = ThreadsScraper._build_search_url("韓川館")
-        self.assertNotIn("韓川館", url)
-        self.assertIn("%", url)
-
-    def test_ascii_name_preserved(self) -> None:
-        url = ThreadsScraper._build_search_url("RestaurantA")
-        self.assertIn("RestaurantA", url)
-
-    def test_url_contains_serp_type(self) -> None:
-        url = ThreadsScraper._build_search_url("any")
-        self.assertIn("serp_type=keyword", url)
+    def test_brave_monthly_limit_from_env(self) -> None:
+        with patch.dict(os.environ, {"BRAVE_MONTHLY_LIMIT": "500"}):
+            scraper = ThreadsScraper.from_env()
+        self.assertIsNotNone(scraper)
+        assert scraper is not None
+        self.assertEqual(scraper.monthly_limit, 500)
 
 
 if __name__ == "__main__":

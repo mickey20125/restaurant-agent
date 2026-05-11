@@ -1,26 +1,23 @@
 from __future__ import annotations
 
+import gzip
 import json
 import os
 import time
 from datetime import date
 from pathlib import Path
-from typing import Any
-from urllib.parse import quote
 
 DEFAULT_THREADS_CACHE_PATH = ".cache/threads_cache.json"
 DEFAULT_THREADS_USAGE_PATH = ".cache/threads_daily_usage.json"
 
 
 class ThreadsScraper:
-    """Fetch Threads post snippets for a restaurant via Google Custom Search.
+    """Fetch Threads post snippets for a restaurant via Brave Search API.
 
-    Searches `site:threads.net "<name>"` using the Google Custom Search JSON API,
-    which requires no Threads authentication.
+    Searches `site:threads.net "<name>"` using the Brave Search API.
 
     Required env vars:
-      GOOGLE_MAPS_API_KEY  — existing Google API key (must have Custom Search API enabled)
-      GOOGLE_SEARCH_CX     — Custom Search Engine ID from programmablesearch.google.com
+      BRAVE_SEARCH_API_KEY — Brave Search API key (free tier: 2000 queries/month)
     """
 
     def __init__(
@@ -30,13 +27,15 @@ class ThreadsScraper:
         usage_path: str = DEFAULT_THREADS_USAGE_PATH,
         cache_ttl_seconds: int = 3600,
         daily_limit: int = 50,
-        # kept for call-site backward compat
-        headless: bool = True,
+        monthly_limit: int = 2000,
+        headless: bool = True,  # kept for call-site backward compat
     ) -> None:
+        del headless
         self.cache_path = Path(cache_path)
         self.usage_path = Path(usage_path)
         self.cache_ttl_seconds = cache_ttl_seconds
         self.daily_limit = daily_limit
+        self.monthly_limit = monthly_limit
 
     # ------------------------------------------------------------------
     # Public API
@@ -63,8 +62,9 @@ class ThreadsScraper:
         if cached is not None:
             return cached, {}
 
-        if not self._allow_usage():
-            return [], {"budget": "daily limit reached"}
+        allowed, budget_error = self._allow_usage()
+        if not allowed:
+            return [], {"budget": budget_error}
 
         try:
             posts, errors = self._scrape(name, max_posts)
@@ -74,86 +74,69 @@ class ThreadsScraper:
         self._put_cached(name, posts)
         return posts, errors
 
+    def get_monthly_usage(self) -> int:
+        """Return total Brave Search API calls made this calendar month."""
+        if not self.usage_path.exists():
+            return 0
+        try:
+            payload = json.loads(self.usage_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            return 0
+        month = date.today().isoformat()[:7]  # YYYY-MM
+        return sum(int(v) for k, v in payload.items() if k.startswith(month))
+
     # ------------------------------------------------------------------
     # Scraping
     # ------------------------------------------------------------------
 
     def _scrape(self, name: str, max_posts: int) -> tuple[list[dict], dict[str, str]]:
-        google_cx = os.environ.get("GOOGLE_SEARCH_CX", "")
-        # Prefer a dedicated key; fall back to the Maps key if not set
-        google_key = (
-            os.environ.get("GOOGLE_SEARCH_API_KEY")
-            or os.environ.get("GOOGLE_MAPS_API_KEY", "")
-        )
-        if not google_cx or not google_key:
-            return [], {"scrape": "GOOGLE_SEARCH_CX not configured"}
+        brave_key = os.environ.get("BRAVE_SEARCH_API_KEY", "")
+        if not brave_key:
+            return [], {"scrape": "BRAVE_SEARCH_API_KEY not configured"}
 
-        posts = self._scrape_via_google(name, google_key, google_cx, max_posts)
+        posts = self._scrape_via_brave(name, brave_key, max_posts)
         if posts:
             return posts[:max_posts], {}
-        return [], {"scrape": "no Threads results found on Google"}
+        return [], {"scrape": "no Threads results found on Brave Search"}
 
-    def _scrape_via_google(
-        self, name: str, api_key: str, cx: str, max_posts: int
-    ) -> list[dict]:
-        """Search site:threads.net via Google Custom Search API."""
+    def _scrape_via_brave(self, name: str, api_key: str, max_posts: int) -> list[dict]:
+        """Search site:threads.net via Brave Search API."""
         import urllib.request
         import urllib.parse
 
         params = urllib.parse.urlencode({
-            "key": api_key,
-            "cx": cx,
             "q": f'site:threads.net "{name}"',
-            "num": min(max_posts, 10),
-            "lr": "lang_zh-TW",
+            "count": min(max_posts, 20),
+            "search_lang": "zh-hant",
         })
         req = urllib.request.Request(
-            f"https://www.googleapis.com/customsearch/v1?{params}",
-            headers={"accept": "application/json"},
+            f"https://api.search.brave.com/res/v1/web/search?{params}",
+            headers={
+                "Accept": "application/json",
+                "Accept-Encoding": "gzip",
+                "X-Subscription-Token": api_key,
+            },
         )
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
-                data = json.loads(resp.read().decode("utf-8", errors="ignore"))
+                raw = resp.read()
+                if resp.info().get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                data = json.loads(raw.decode("utf-8", errors="ignore"))
         except Exception as exc:
-            raise RuntimeError(f"Google Custom Search failed: {exc}") from exc
+            raise RuntimeError(f"Brave Search failed: {exc}") from exc
 
         posts: list[dict] = []
-        for item in data.get("items", []):
-            text = (item.get("snippet", "") or item.get("title", "")).replace("\n", " ").strip()
+        _generic = ("join threads to share", "we cannot provide a description")
+        for item in data.get("web", {}).get("results", []):
+            desc = (item.get("description", "") or "").strip()
+            title = (item.get("title", "") or "").strip()
+            # description is often Threads' generic login prompt; prefer title
+            text = title if any(g in desc.lower() for g in _generic) else (desc or title)
+            text = text.replace("\n", " ").strip()
             if len(text) >= 15:
                 posts.append({"text": text, "like_count": 0})
         return posts
-
-    # ------------------------------------------------------------------
-    # JSON extraction helpers (used by tests and future API integrations)
-    # ------------------------------------------------------------------
-
-    @staticmethod
-    def _build_search_url(name: str) -> str:
-        return f"https://www.threads.net/search?q={quote(name)}&serp_type=keyword"
-
-    def _extract_texts_from_json(self, obj: Any, depth: int = 0) -> list[str]:
-        return [p["text"] for p in self._extract_posts_from_json(obj, depth)]
-
-    def _extract_posts_from_json(self, obj: Any, depth: int = 0) -> list[dict]:
-        if depth > 12:
-            return []
-        results: list[dict] = []
-        if isinstance(obj, dict):
-            for key in ("text", "caption", "body", "content", "message"):
-                val = obj.get(key)
-                if isinstance(val, str) and len(val) > 10:
-                    like_count = obj.get("like_count", 0)
-                    results.append({
-                        "text": val,
-                        "like_count": like_count if isinstance(like_count, int) else 0,
-                    })
-            for val in obj.values():
-                results.extend(self._extract_posts_from_json(val, depth + 1))
-        elif isinstance(obj, list):
-            for item in obj:
-                results.extend(self._extract_posts_from_json(item, depth + 1))
-        return results
 
     # ------------------------------------------------------------------
     # Cache
@@ -190,26 +173,35 @@ class ThreadsScraper:
         )
 
     # ------------------------------------------------------------------
-    # Daily usage guard
+    # Usage guard (daily + monthly)
     # ------------------------------------------------------------------
 
-    def _allow_usage(self) -> bool:
+    def _allow_usage(self) -> tuple[bool, str]:
+        """Return (allowed, error_message). Enforces both daily and monthly limits."""
         payload: dict = {}
         if self.usage_path.exists():
             try:
                 payload = json.loads(self.usage_path.read_text(encoding="utf-8"))
             except (json.JSONDecodeError, OSError):
                 pass
+
         today = date.today().isoformat()
-        current = int(payload.get(today, 0))
-        if current >= self.daily_limit:
-            return False
-        payload[today] = current + 1
+        month = today[:7]  # YYYY-MM
+
+        current_day = int(payload.get(today, 0))
+        if current_day >= self.daily_limit:
+            return False, f"daily limit reached ({current_day}/{self.daily_limit})"
+
+        current_month = sum(int(v) for k, v in payload.items() if k.startswith(month))
+        if current_month >= self.monthly_limit:
+            return False, f"monthly limit reached ({current_month}/{self.monthly_limit})"
+
+        payload[today] = current_day + 1
         self.usage_path.parent.mkdir(parents=True, exist_ok=True)
         self.usage_path.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        return True
+        return True, ""
 
     # ------------------------------------------------------------------
     # Factory
@@ -223,14 +215,18 @@ class ThreadsScraper:
         usage_path: str = DEFAULT_THREADS_USAGE_PATH,
         cache_ttl_seconds: int = 3600,
         daily_limit: int = 50,
-        headless: bool = True,
+        monthly_limit: int = 2000,
+        headless: bool = True,  # kept for call-site backward compat
     ) -> "ThreadsScraper | None":
         """Return a ThreadsScraper unless THREADS_ENABLED=false."""
+        del headless
         if os.environ.get("THREADS_ENABLED", "true").lower() == "false":
             return None
+        monthly_limit = int(os.environ.get("BRAVE_MONTHLY_LIMIT", monthly_limit))
         return cls(
             cache_path=cache_path,
             usage_path=usage_path,
             cache_ttl_seconds=cache_ttl_seconds,
             daily_limit=daily_limit,
+            monthly_limit=monthly_limit,
         )

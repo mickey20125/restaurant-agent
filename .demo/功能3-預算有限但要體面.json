@@ -1,0 +1,67 @@
+{
+  "demo_name": "功能3-預算有限但要體面",
+  "query": "請客但預算有限，台式或日式，步行25分鐘內",
+  "logic": "看起來體面、不要一看就很便宜、實際價格中等合理",
+  "saved_at": "2026-05-11",
+  "intent": {
+    "raw_query": "請客但預算有限，台式或日式，步行25分鐘內",
+    "cuisine": "日式",
+    "must_have": null,
+    "max_walk_minutes": 25,
+    "min_rating": null,
+    "needs_high_rating": false,
+    "non_engineer_logic": "看起來體面、不要一看就很便宜、實際價格中等合理"
+  },
+  "recommendations": [
+    {
+      "place_id": "ChIJ9240AWGpQjQRYkqzSvuO47I",
+      "name": "今日魚市-南京店-原丼賞和食",
+      "address": "B1, No. 140號南京東路二段中山區臺北市台灣 10491",
+      "score": 0.7875,
+      "reason": "Google 評分 4.7；15150 則地圖評價；預估步行 14 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
+      "vibe_tags": [
+        "#出片"
+      ],
+      "risks": [],
+      "evidence": [
+        "評論摘錄：已經來吃好幾次了，店名雖換，但是品質還是一樣穩定。\n丼飯好吃、份量夠，配料也很新鮮，吃完很有滿足感。\n服務態度很好，整體體驗加分，之後還會再帶朋友來！",
+        "風格標籤：#出片"
+      ],
+      "metrics": {
+        "rating": 4.7,
+        "user_rating_count": 15150,
+        "walk_minutes": 13.741670429688456,
+        "must_have_match": false
+      },
+      "phone": "02 2517 5526",
+      "reservation_url": "https://www.facebook.com/140B1/",
+      "social_highlights": []
+    },
+    {
+      "place_id": "ChIJu5NcQ2-pQjQRLklL1NptpjQ",
+      "name": "松日本料理",
+      "address": "104台灣臺北市中山區林森北路102號",
+      "score": 0.4679,
+      "reason": "Google 評分 4.1；551 則地圖評價；預估步行 25 分鐘；符合設定邏輯：看起來體面、不要一看就很便宜、實際價格中等合理",
+      "vibe_tags": [
+        "#資訊不足",
+        "#待補社群資料",
+        "#先看地圖評價"
+      ],
+      "risks": [],
+      "evidence": [
+        "評論摘錄：商業午餐150就有生魚片小6片，蘿蔔，生菜，口感不錯。溫蔬菜，蒸蛋，算好吃。\n只能現金。\n很多人，吧台很緊，老歌，生魚片不能選",
+        "風格標籤：#資訊不足 #待補社群資料 #先看地圖評價"
+      ],
+      "metrics": {
+        "rating": 4.1,
+        "user_rating_count": 551,
+        "walk_minutes": 24.53591736509553,
+        "must_have_match": false
+      },
+      "phone": "02 2581 6970",
+      "reservation_url": "https://www.facebook.com/pages/%E6%9D%BE%E6%9B%B0%E6%9C%AC%E6%96%99%E7%90%86/150554205007879/",
+      "social_highlights": []
+    }
+  ]
+}

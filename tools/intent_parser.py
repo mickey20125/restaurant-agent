@@ -51,15 +51,29 @@ class IntentParserSkill:
             return None
         return float(match.group(1))
 
+    _KNOWN_DISHES: tuple[str, ...] = ("豆腐鍋", "海鮮煎餅", "韓式炸雞", "拉麵", "火鍋")
+
+    # Person/quantity/adverb words that indicate the regex captured a constraint phrase,
+    # not a dish name — used to reject false-positive must_have matches.
+    _MUST_HAVE_REJECT: re.Pattern = re.compile(
+        r"^(?:人|大家|我們|朋友|同事|長輩|只吃|不吃|不要|太|很|也|都|一定|可以|需要)"
+    )
+
     @staticmethod
     def _extract_must_have(query: str) -> str | None:
-        match = re.search(r"(?:有|要有|一定要有)\s*([^，,。.；;]+)", query)
-        if match:
-            return match.group(1).strip()
-
-        for keyword in ("豆腐鍋", "海鮮煎餅", "韓式炸雞", "拉麵", "火鍋"):
+        # Check known dishes first (highest precision)
+        for keyword in IntentParserSkill._KNOWN_DISHES:
             if keyword in query:
                 return keyword
+
+        # Regex: only accept short captured terms (≤5 chars) that don't start with
+        # person/constraint words — avoids capturing "人只吃健康食物", "素食者" etc.
+        match = re.search(r"(?:一定要有|要有)\s*([^，,。.；;\s]{2,5})", query)
+        if match:
+            term = match.group(1).strip()
+            if not IntentParserSkill._MUST_HAVE_REJECT.search(term):
+                return term
+
         return None
 
     @staticmethod

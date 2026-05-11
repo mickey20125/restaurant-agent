@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from tools.types import Candidate
@@ -40,8 +41,9 @@ class SocialTextAdapterSkill:
 
             th_posts_with_meta: list[dict] = []
             if threads_scraper is not None:
+                search_name = self._short_name(candidate.name)
                 th_posts_with_meta, th_errors = threads_scraper.fetch_posts_with_engagement(
-                    name=candidate.name,
+                    name=search_name,
                     max_posts=threads_max_posts,
                 )
                 if th_errors:
@@ -62,6 +64,24 @@ class SocialTextAdapterSkill:
             "global_posts": len(global_posts),
             "threads_fetched": threads_fetched,
         }
+
+    @staticmethod
+    def _short_name(name: str) -> str:
+        """Extract a short searchable name from a full Google Maps store name.
+
+        Google Maps names often include extra descriptors after separators like
+        "-", "（", "/", or space-delimited suffixes ("台北南京東店").
+        We strip those to improve Brave/Threads hit rate.
+        """
+        # Split on hard separators first
+        short = re.split(r"[-（(｜|/]", name)[0].strip()
+        # Drop trailing space-separated tokens that look like location/branch suffixes
+        # (e.g. "台北南京東店", "南京店", "三創市場", "部隊")
+        parts = short.split()
+        while len(parts) > 1 and re.search(r"[店路區號館樓層分場隊]$", parts[-1]):
+            parts.pop()
+        short = " ".join(parts)
+        return short[:20]
 
     # Threads UI strings that should never appear as highlights
     _HIGHLIGHT_NOISE: frozenset[str] = frozenset([

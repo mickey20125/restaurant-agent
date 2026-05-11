@@ -25,10 +25,9 @@ cp .env.example .env
 # Google Maps（必填）
 GOOGLE_MAPS_API_KEY=YOUR_MAPS_KEY
 
-# Google Custom Search（Threads 搜尋用，必填）
+# Brave Search API（Threads 搜尋用，必填）
 # 詳細設定步驟：THREADS_SEARCH_GUIDE.md
-GOOGLE_SEARCH_API_KEY=YOUR_SEARCH_KEY
-GOOGLE_SEARCH_CX=your_search_engine_id
+BRAVE_SEARCH_API_KEY=YOUR_BRAVE_KEY
 
 # 預設出發地（選填，--user-lat / --user-lng 可覆蓋）
 DEFAULT_USER_LAT=25.047094
@@ -49,7 +48,7 @@ THREADS_CACHE_TTL_SECONDS=3600
 # INSTAGRAM_PASSWORD=your_password
 ```
 
-> `GOOGLE_MAPS_API_KEY` 是 Maps Platform Key，`GOOGLE_SEARCH_API_KEY` 是另建的普通 Key，只允許 Custom Search API。詳見 [THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)。
+> Threads 搜尋透過 Brave Search API（免費 2000 次/月），申請 key 及詳細設定見 [THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)。
 
 ---
 
@@ -72,16 +71,40 @@ THREADS_CACHE_TTL_SECONDS=3600
 ### Agent 工作流程
 
 ```
-Step 0：角色模式選擇
-    ↓
+Step 0：開場選單（先查 demo list）
+    ├─ 有預存 demo → 顯示 D1–Dn + 1–5 混合選單
+    │       └─ 選 Dn → Step 0-D（載入 demo，選角色 → Step 3）
+    └─ 無 demo → 純角色選單 1–5
+           ↓
 Step 1：情境判斷（場合識別 / 模糊指令解碼 / 調性展開）
-    ↓
+           ↓
 Step 2：呼叫 pipeline CLI
     ├─ 有角色模式 → 取 JSON → Step 3 套入角色模板
     └─ 無角色模式 → 加 --markdown → 直接貼輸出
-    ↓
+           ↓
 Step 3：角色模式格式化（含 phone / reservation_url / social_highlights）
 ```
+
+### Demo 模式
+
+Demo 模式讓你事先預跑查詢、存檔，demo 當天直接載入結果不消耗 API 額度。
+
+```bash
+# 預跑並存為 demo case
+uv run python -m tools.cli agent \
+  --query "帶外國朋友吃台灣味，步行25分鐘內" \
+  --user-lat 25.047094 --user-lng 121.542698 \
+  --logic "有台灣特色，非觀光客店" \
+  --top-k 3 --save-demo "情境2-帶外國朋友私房台味"
+
+# 列出所有 demo case
+uv run python -m tools.cli demo list
+
+# 取出特定 case（供 Foodie Agent 呼叫）
+uv run python -m tools.cli demo show 情境2-帶外國朋友私房台味
+```
+
+Demo 檔案存於 `.demo/`，格式為 JSON，包含 `demo_name`、`query`、`logic`、`saved_at`、`recommendations` 等欄位。
 
 ---
 
@@ -181,9 +204,10 @@ uv run restaurant-agent agent \
 | `--no-threads` | 停用 Threads 搜尋 | 預設開啟 |
 | `--threads-max-posts` | 每店最多抓幾則 Threads 貼文 | `10` |
 | `--threads-daily-limit` | Threads 每日查詢上限 | `50` |
-| `--no-instagram` | 停用 Instagram | 預設關閉 |
 | `--daily-limit` | Maps API 每日呼叫上限 | `100` |
 | `--show-debug` | 顯示各 skill 中間結果 | `false` |
+| `--save-demo NAME` | 儲存結果為 demo case（存入 `.demo/`） | — |
+| `--demo-dir` | demo case 存放目錄 | `.demo` |
 
 ### 輸出欄位（每間推薦店）
 
@@ -210,6 +234,18 @@ uv run restaurant-agent agent \
     "must_have_match": true
   }
 }
+```
+
+---
+
+## Tool 0: Demo Case 管理
+
+```bash
+# 列出所有預存 case（JSON 陣列，含 demo_name / query / rec_count / saved_at）
+uv run python -m tools.cli demo list
+
+# 取出完整 JSON（Foodie Agent 在 Step 0-D 呼叫）
+uv run python -m tools.cli demo show 情境1-久別重逢長聊
 ```
 
 ---
@@ -291,9 +327,9 @@ uv run restaurant-agent agent \
 
 ### Threads 搜尋（預設開啟）
 
-透過 **Google Custom Search API** 搜尋 `site:threads.net`，無需 Threads 帳號。
+透過 **Brave Search API** 搜尋 `site:threads.net`，無需 Threads 帳號。免費 2000 次/月。
 
-需設定 `GOOGLE_SEARCH_API_KEY` 與 `GOOGLE_SEARCH_CX`，詳細設定：[THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)
+需設定 `BRAVE_SEARCH_API_KEY`，詳細設定：[THREADS_SEARCH_GUIDE.md](THREADS_SEARCH_GUIDE.md)
 
 Threads 貼文依 `like_count` 降序排序後取前 N 則為金句（`social_highlights`），已過濾 Threads 頁面 UI 字串。
 
