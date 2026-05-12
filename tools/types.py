@@ -13,6 +13,7 @@ class AgentIntent:
     min_rating: float | None
     needs_high_rating: bool
     non_engineer_logic: str
+    location: str | None = None
 
 
 @dataclass

@@ -83,6 +83,17 @@ class FoodieAgentOrchestrator:
 
         debug_steps: dict[str, Any] = {}
         intent = intent_skill.run(query=query, non_engineer_logic=non_engineer_logic)
+
+        if user_lat is None and user_lng is None and intent.location:
+            coords = IntentParserSkill.get_location_coords(intent.location)
+            if coords:
+                user_lat, user_lng = coords
+                debug_steps["location_geocoded"] = {
+                    "location": intent.location,
+                    "lat": user_lat,
+                    "lng": user_lng,
+                }
+
         debug_steps["intent"] = asdict(intent)
 
         candidates, search_meta = candidate_skill.run(

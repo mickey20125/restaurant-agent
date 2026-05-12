@@ -90,6 +90,10 @@ class CandidateSearchSkill:
     @staticmethod
     def _build_query(intent: AgentIntent) -> str:
         parts: list[str] = []
+
+        if intent.location:
+            parts.append(intent.location)
+
         if intent.cuisine:
             parts.append(intent.cuisine)
         if intent.must_have:

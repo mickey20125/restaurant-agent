@@ -184,12 +184,22 @@ def _cmd_demo(args: argparse.Namespace) -> int:
                     "file": f.stem,
                     "demo_name": d.get("demo_name", f.stem),
                     "query": d.get("query", ""),
-                    "saved_at": d.get("saved_at", ""),
                     "rec_count": len(d.get("recommendations", [])),
                 })
             except (json.JSONDecodeError, OSError):
                 pass
-        print(json.dumps(items, ensure_ascii=False, indent=2))
+        if getattr(args, "format", None) == "text":
+            lines = [
+                "嗨嗨！我是美食達人 Agent，不知道怎麼下指令的話，這邊有一些情境可以參考：",
+                "",
+                "── 預設情境（預存結果，不消耗 API 額度）──",
+            ]
+            for i, x in enumerate(items, 1):
+                lines.append(f"D{i}) {x['demo_name']}（{x['query']}）")
+            lines += ["", "── 即時搜尋 ──", "直接輸入需求，例：「想帶女友吃飯，步行 20 分鐘內」"]
+            print("\n".join(lines))
+        else:
+            print(json.dumps(items, ensure_ascii=False, indent=2))
         return 0
 
     if args.demo_command == "show":
@@ -315,6 +325,7 @@ def build_parser() -> argparse.ArgumentParser:
     demo.add_argument("demo_command", choices=["list", "show"], help="list: show all cases; show: output one case.")
     demo.add_argument("case_name", nargs="?", help="Case file stem (required for 'show').")
     demo.add_argument("--demo-dir", default=".demo", help="Directory for demo case files (default: .demo).")
+    demo.add_argument("--format", choices=["json", "text"], default="text", help="Output format for 'list' (default: text).")
     demo.set_defaults(func=_cmd_demo)
 
     return parser
