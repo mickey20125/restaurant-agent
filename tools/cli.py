@@ -166,6 +166,34 @@ def _save_demo(*, name: str, query: str, logic: str, payload: dict, demo_dir: st
     print(f"[demo saved] {out_file}", file=sys.stderr)
 
 
+def _cmd_social(args: argparse.Namespace) -> int:
+    from tools.threads_scraper import ThreadsScraper
+    from tools.social_text_adapter import SocialTextAdapterSkill
+
+    scraper = ThreadsScraper.from_env(
+        daily_limit=args.daily_limit,
+        cache_ttl_seconds=args.cache_ttl_seconds,
+    )
+    if scraper is None:
+        print(json.dumps({"error": "Threads disabled (THREADS_ENABLED=false)"}), ensure_ascii=False)
+        return 1
+
+    posts_with_meta, errors = scraper.fetch_posts_with_engagement(
+        name=args.name,
+        max_posts=args.max_posts,
+    )
+    highlights = SocialTextAdapterSkill._pick_highlights(posts_with_meta)
+    payload: dict = {
+        "name": args.name,
+        "posts": [p["text"] for p in posts_with_meta],
+        "highlights": highlights,
+    }
+    if errors:
+        payload["errors"] = errors
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    return 0
+
+
 def _cmd_demo(args: argparse.Namespace) -> int:
     from pathlib import Path
 
@@ -320,6 +348,23 @@ def build_parser() -> argparse.ArgumentParser:
     agent.add_argument("--save-demo", metavar="NAME", default=None, help="Save result as a named demo case.")
     agent.add_argument("--demo-dir", default=".demo", help="Directory for demo case files (default: .demo).")
     agent.set_defaults(func=_cmd_agent)
+
+    social = sub.add_parser("social", help="Fetch Threads posts for a restaurant by name.")
+    social.add_argument("--name", required=True, help="Restaurant name to search on Threads.")
+    social.add_argument("--max-posts", type=int, default=10, help="Max posts to fetch (default: 10).")
+    social.add_argument(
+        "--daily-limit",
+        type=int,
+        default=int(os.environ.get("THREADS_DAILY_CALL_LIMIT", "50")),
+        help="Daily Brave Search budget. Default from THREADS_DAILY_CALL_LIMIT or 50.",
+    )
+    social.add_argument(
+        "--cache-ttl-seconds",
+        type=int,
+        default=int(os.environ.get("THREADS_CACHE_TTL_SECONDS", "3600")),
+        help="Cache TTL in seconds (default: 3600).",
+    )
+    social.set_defaults(func=_cmd_social)
 
     demo = sub.add_parser("demo", help="Manage pre-stored demo cases.")
     demo.add_argument("demo_command", choices=["list", "show"], help="list: show all cases; show: output one case.")

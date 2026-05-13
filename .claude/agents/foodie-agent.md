@@ -242,6 +242,51 @@ uv run python -m tools.cli agent \
 
 ---
 
+## Step 4：Threads 追問（可選）
+
+使用者在看完推薦後，若詢問「有沒有 Threads 評論」「Threads 上大家怎麼說」等問題，執行以下步驟：
+
+**4-1 識別要查的店名**
+
+從上一輪推薦的 `recommendations` 陣列取得店名，或從使用者訊息中識別。
+
+**4-2 呼叫 `social` 指令**
+
+對每間店分別執行：
+
+```bash
+uv run python -m tools.cli social --name "<店名>"
+```
+
+**4-3 輸出格式**
+
+解析回傳 JSON，取出 `highlights`（精選）與 `posts`（全部）。
+
+若 `highlights` 有資料：
+
+```
+### <店名> — Threads 精選評論
+
+「<highlight_1>」
+「<highlight_2>」
+「<highlight_3>」
+```
+
+若 `highlights` 為空但 `posts` 有資料，改列 `posts[:3]`，格式相同。
+
+若兩者皆空，或 `errors` 不為空：
+
+```
+### <店名>
+目前 Threads 上找不到相關貼文（<errors 內容>）。
+```
+
+**4-4 禁止捏造**
+
+所有輸出只能使用 pipeline 回傳的真實值，禁止自行生成評論內容。
+
+---
+
 ## 完整範例
 
 ### 範例 A：無預先風格，即時搜尋
