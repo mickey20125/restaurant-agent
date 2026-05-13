@@ -2,7 +2,7 @@
   "demo_name": "情境4-曖昧初次約飯",
   "query": "曖昧對象第一次單獨吃飯，泰式，步行25分鐘內",
   "logic": "不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
-  "saved_at": "2026-05-11",
+  "saved_at": "2026-05-13",
   "intent": {
     "raw_query": "曖昧對象第一次單獨吃飯，泰式，步行25分鐘內",
     "cuisine": "泰式",
@@ -10,13 +10,14 @@
     "max_walk_minutes": 25,
     "min_rating": null,
     "needs_high_rating": false,
-    "non_engineer_logic": "不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴"
+    "non_engineer_logic": "不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
+    "location": null
   },
   "recommendations": [
     {
       "place_id": "ChIJDx0AoturQjQRcjBVU5fQEUg",
       "name": "香茅廚泰式餐廳微風復興店Chef Lemongrass Thai Bistro",
-      "address": "105台灣臺北市松山區復興南路一段39號微風廣場GF",
+      "address": "105台灣臺北市松山區中崙里復興南路一段39號微風廣場GF",
       "score": 0.844,
       "reason": "Google 評分 4.6；2689 則地圖評價；預估步行 3 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
       "vibe_tags": [
@@ -24,7 +25,7 @@
         "#辣感"
       ],
       "risks": [
-        "Threads(budget): daily limit reached (50/50)"
+        "Threads(scrape): no Threads results found on Brave Search"
       ],
       "evidence": [
         "評論摘錄：偏中式的泰菜。看到評分4.7分，抱著一定要試試的心態前往，結果略失望。\n青木瓜沙拉，涼拌海鮮，酸甜鹹辣都不明顯，失去泰菜對味蕾的衝擊感。金沙小卷吃不出金沙味，倒",
@@ -38,60 +39,139 @@
       },
       "phone": "02 6600 3210",
       "reservation_url": "https://www.facebook.com/cheflemongrasstw/",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "Trilobite",
+          "rating": 4,
+          "text": "偏中式的泰菜。看到評分4.7分，抱著一定要試試的心態前往，結果略失望。\n青木瓜沙拉，涼拌海鮮，酸甜鹹辣都不明顯，失去泰菜對味蕾的衝擊感。金沙小卷吃不出金沙味，倒是黃咖哩味明顯。羅望子排骨肉質軟嫩，但骨頭可以吃出些許不新鮮的怪味。",
+          "relative_publish_time": "8 個月前",
+          "publish_time": "2025-08-25T16:02:21.682148142Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pCd1gxSk9TVUZZYlVRdE0wTnFaRk4xWkhSMVRVRRAB!2m1!1s0x3442abdba2001d0f:0x4811d09753553072"
+        },
+        {
+          "author_name": "PAt. PAn.",
+          "rating": 2,
+          "text": "香茅廚泰式餐廳微風復興店與其姊妹品牌「真心台菜」並設於同一空間，兩者不僅共享部分營運資源，亦開放客人可自由跨點菜色，形成一種結合泰式與台式料理的複合式用餐模式。雖然此一安排具備彈性與創意，但在實際體驗中卻暴露出營運端在人流安排與用餐體驗之間的協調不足——如本次平日用餐時被安排至隔壁真心台菜用餐區，即讓人感到流程略顯混亂。\n\n從菜色表現來看，台式料理部分表現較為兩極。白斬雞與涼筍屬於基本穩定的菜色，表現稱職，涼筍新鮮爽脆，甜度佳。但菜脯蛋與焦糖松阪豬則明顯偏離傳統台菜口味。前者使用自家醃製的甜味菜脯，搭配如烘蛋般的蛋體，與一般熟悉的鹹香煎蛋有明顯落差，若以「台式烘蛋」命名或許更為恰當；後者雖肉質處理得宜，但甜膩感過重，缺乏層次與鹹香平衡，導致整體風味失衡。\n\n泰式料理方面，整體略顯平淡。多數菜色香料風味不彰，欠缺泰菜應有的辛香層次。綠咖哩奶香不足且鹹味偏重，生蝦口味單薄，缺乏辛香料支撐。沙嗲串燒的碳香處理尚可，但沙嗲醬風味表現普通，缺乏東南亞料理中常見的濃郁花生香氣與香料複合感。整體而言，泰菜表現未能有效傳達出品牌名稱所預期的「香茅」調性與特色。\n\n服務方面亦為此次用餐經驗中的主要扣分項。雖上菜速度尚可，但服務人員明顯缺乏積極度與專業訓練。包括紙巾供應未及時補充、收桌動作拖沓等，皆顯示人員在工作態度與流程管理上尚有待加強。\n\n綜合而言，香茅廚與真心台菜的「雙品牌交錯經營」雖具新意，但若未能搭配相應的餐飲品質與服務水準，恐難以支撐其在高消費區位中長期穩定經營。以本次體驗為例，不僅菜色在味覺層次與風味表現上仍有進步空間，服務細節亦亟待強化，整體與線上評價落差甚大，確實令人失望。在目前狀況下，並不建議重訪。",
+          "relative_publish_time": "10 個月前",
+          "publish_time": "2025-06-20T06:27:20.040869503Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25aMU1HUkNURmhRZUdwMlNtMVdhVzQxZVRWWlZHYxAB!2m1!1s0x3442abdba2001d0f:0x4811d09753553072"
+        },
+        {
+          "author_name": "Cacy168",
+          "rating": 4,
+          "text": "生意蠻好，建議先訂位，掃碼點餐，今天第一次吃有點鹹，但菜單是可以選擇少油少鹹的，在微風復興店GF，服務人員很親切（加分）",
+          "relative_publish_time": "1 年前",
+          "publish_time": "2025-04-30T09:22:37.512775Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChZDSUhNMG9nS0VJQ0FnTUNZa052LUtnEAE!2m1!1s0x3442abdba2001d0f:0x4811d09753553072"
+        }
+      ]
     },
     {
       "place_id": "ChIJOSE2gtGrQjQRELgaM9JC63U",
       "name": "莎瓦迪卡海鮮.泰",
-      "address": "10491台灣臺北市中山區松江路8號",
+      "address": "10491台灣臺北市中山區興亞里松江路8號",
       "score": 0.8095,
-      "reason": "Google 評分 4.9；7820 則地圖評價；預估步行 13 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
+      "reason": "Google 評分 4.9；7821 則地圖評價；預估步行 13 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
       "vibe_tags": [
         "#辣感",
         "#CP值"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(scrape): no Threads results found on Brave Search"
+      ],
       "evidence": [
         "評論摘錄：食物的精緻度和份量都很不錯。\n\n軟殼蟹看起來很澎湃，但其實蟹的外頭裹了厚厚的粉皮，入口蟹的部分很單薄，沒什麼蟹味。咖哩的部分整體是濃郁厚重的，小辣，個人比較重口",
         "風格標籤：#辣感 #CP值"
       ],
       "metrics": {
         "rating": 4.9,
-        "user_rating_count": 7820,
+        "user_rating_count": 7821,
         "walk_minutes": 13.414870630340339,
         "must_have_match": false
       },
       "phone": "0975 925 688",
       "reservation_url": "https://www.facebook.com/sawadicaintaipei",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "Ellie PHY",
+          "rating": 4,
+          "text": "食物的精緻度和份量都很不錯。\n\n軟殼蟹看起來很澎湃，但其實蟹的外頭裹了厚厚的粉皮，入口蟹的部分很單薄，沒什麼蟹味。咖哩的部分整體是濃郁厚重的，小辣，個人比較重口味所以很喜歡，但因為蟹的處理方式，下次會考慮改點蝦咖哩。\n\n蝦醬空心菜和涼拌海鮮是最喜歡的兩道，打拋豬肉和金錢蝦餅也非常有記憶點。\n\n涼拌海鮮的蔬菜每一口都好吃，調味好又極入味，整盤幾乎上桌就停不下來。海鮮的部分也是新鮮份量也足夠。\n\n打拋豬肉的絞肉部分，肉質Q彈，調味超級喜歡，和其他餐廳有明顯區別。份量很足。\n\n當天的座位是比較裡面的大圓桌，個人覺得比較悶，也比較不明亮，不是很喜歡。\n\n服務人員整體來說中規中矩。",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-01-24T02:45:06.345749536Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xKRGNGTnhSMUpsTldoblJXd3pWbGsyTkdwbWNYYxAB!2m1!1s0x3442abd182362139:0x75eb42d2331ab810"
+        },
+        {
+          "author_name": "Tseng Joyce",
+          "rating": 4,
+          "text": "打拋脆皮略鹹，嫩蛋黃咖喱軟殼蟹～軟殼蟹含油量極高，蛋黃醬膩，吐司也太濕，最貴的一道餐點，表現最令人失望！羅望子烤豬可能是我吃不慣，也不喜歡，白飯也很硬！",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-28T12:00:44.971190421Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT201Tk1XaDVRVWszZUZnNVdVRkdWMU5HVTBORk1tYxAB!2m1!1s0x3442abd182362139:0x75eb42d2331ab810"
+        },
+        {
+          "author_name": "Ink",
+          "rating": 5,
+          "text": "平價美食，5星綠咖哩牛肉、蝦醬水蓮跟金錢蝦餅！\n\n❗特別提醒：火山排骨湯辣味釋放較慢，但是是真的會辣，不善吃辣的話建議先淺嚐一小口試試就好，千萬別鐵齒！\n\n🔸手打金錢蝦餅\n甜甜圈形狀，口感厚實，外皮酥脆油甘，內裡味鮮，没惱人的鹼味，好吃！\n\n🔸泰炒鮮蔬 蝦醬 水蓮\n蝦米相當大隻，雖說是蝦醬口味，但主味仍是清炒蒜香為主，好吃！\n\n🔸泰經典綠咖哩 牛肉\n小辣，奶甜帶香茅味，榴槤煮到透爛吃起來有點蘋果味，牛肉超級軟嫩，好吃必點！\n\n🔸炭香烤羅望豬\n豬肉外焦內脆，肉脂味鮮，還不錯；但醬汁一般。\n\n🔸嫩蛋黃咖哩軟殼蟹\n微辣，味淡，沒什麼調味感。\n\n🔸艷夏鳳梨炒飯\n炒飯盛放在鳳梨裡，小辣，黃咖哩味；視覺效果不差，但味道一般。\n\n🔸泰國叔叔爐烤全雞 需要預訂\n雞皮很韌，頗難咬，但雞肉相當潤嫩，單吃說實話就是一般的烤雞而已，要沾隨附的泰式酸辣醬跟甜麵醬(?)才比較有異國風味。\n\n🔸火山排骨湯 需要預訂\n真的會辣，一定要慢慢喝！剛入口大家都表示無感，但後續辣味釋放真的很刺激，是那種從胃部跟喉嚨慢慢釋放熱量辣上來的感覺，可惜沒有一般辣椒的香氣油甘，不喜歡，但喝了真的完全不怕冷，比什麼藥膳湯都強大😂；排骨肉偏乾，肉食者表示差評。\n\n🔸泰式手標奶茶\n甜味鮮明，微茶澀，茶奶味道配比不差，還不錯喝。",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-08T15:08:37.319417396Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xSVmRYaHdZM05CTXpsUFRrVklYelJmYlRjeVdXYxAB!2m1!1s0x3442abd182362139:0x75eb42d2331ab810"
+        }
+      ]
     },
     {
-      "place_id": "ChIJjav5Hi2pQjQRiFVpwOl7kps",
-      "name": "泰滾 Rolling Thai 泰式火鍋(南京店）",
-      "address": "10491台灣臺北市中山區南京東路二段178號B1, No",
-      "score": 0.7857,
-      "reason": "Google 評分 4.6；6176 則地圖評價；預估步行 12 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
+      "place_id": "ChIJYTYD2p6pQjQRnAnwEGs0XIE",
+      "name": "許雪莉泰國時尚餐廳 / 8位以上訂位請來電",
+      "address": "10442台灣臺北市中山區新生北路一段66號1樓",
+      "score": 0.7701,
+      "reason": "Google 評分 4.7；2286 則地圖評價；預估步行 17 分鐘；符合設定邏輯：不太浪漫避免尷尬但也不像朋友聚餐、有設計感但不是純網美店、餐點有記憶點不要太貴",
       "vibe_tags": [
-        "#出片",
-        "#老字號",
-        "#辣感"
+        "#辣感",
+        "#出片"
       ],
       "risks": [
-        "Threads(budget): daily limit reached (50/50)"
+        "Threads(scrape): no Threads results found on Brave Search"
       ],
       "evidence": [
-        "評論摘錄：慶祝家人生日到訪，第一次來，一抵達就被充滿輕鬆渡假海灘棕櫚樹風格的裝潢所吸引，湯頭濃郁，還有一款隱藏版的特殊辣醬超級好吃😋 壽星蝦子雖然小，但是吃的出來是新鮮的",
-        "風格標籤：#出片 #老字號 #辣感"
+        "評論摘錄：裝潢很漂亮有質感，很像Lounge餐酒館，有投影播放泰國mv 歌曲，店內氣氛很好，也有布置生日快樂的氣球🎈很適合朋友聚餐聊天或慶生會，我的生日剛好快到了，所以就",
+        "風格標籤：#辣感 #出片"
       ],
       "metrics": {
-        "rating": 4.6,
-        "user_rating_count": 6176,
-        "walk_minutes": 12.389805375035726,
+        "rating": 4.7,
+        "user_rating_count": 2286,
+        "walk_minutes": 16.651623919139514,
         "must_have_match": false
       },
-      "phone": "02 2500 7333",
-      "reservation_url": "https://rollingthai.tw/",
-      "social_highlights": []
+      "phone": "02 2523 3367",
+      "reservation_url": "https://thaibysherry.com/",
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "陳婷",
+          "rating": 5,
+          "text": "裝潢很漂亮有質感，很像Lounge餐酒館，有投影播放泰國mv 歌曲，店內氣氛很好，也有布置生日快樂的氣球🎈很適合朋友聚餐聊天或慶生會，我的生日剛好快到了，所以就跟妹妹來這邊吃飯慶生😂\n餐點都是單點制，服務親切用心，店員有跟我們介紹蝦子都是每天進貨的活蝦，打拋豬用的是正統的打拋葉，香氣清新迷人，上菜也算蠻快的🌝👍🏻\n金沙咖哩泰國蝦佐法國麵包，跟酸辣椰汁魚都超級超級好吃，蝦新鮮大隻，肉質好，醬料有椰漿咖哩的香甜濃郁。\n酸辣椰汁魚口感調味都讚，魚軟嫩好吃，香氣十足，醬汁被我挖去配飯了，真是白飯殺手。\n香料蘿蔓鮭魚，沾醬是酸甜獨特的羅望子醬跟香辣有層次的青辣椒醬，很夠味又很道地。\n這裡的餐點酸鹹香辣的恰恰好🌶️又能品嘗到食材本身的鮮美，而且不油膩～🍋🐟\n醬汁說是泰式料理的靈魂，許雪莉泰國時尚餐廳的調味真的讚，把食材精華跟美味層次都濃縮在醬料裡，怕辣的朋友也可以跟他們調整辣度喔！\n餐點品項豐富多樣，好吃又適合聚餐享用，推薦有興趣的朋友快來試看看！\n\n❤️金沙咖哩泰國蝦佐法國麵包\n❤️酸辣椰汁魚\n❤️香料蘿蔓鮭魚\n❤️泰式打拋豬\n❤️椰漿芋頭紫米\n❤️泰式奶茶\n\n#台北美食 #美食 #台北餐廳 #泰式料理 #許雪莉泰國時尚餐廳 #捷運美食 #餐廳 #美食地圖 #餐廳推薦 #忠孝新生 #忠孝新生美食 #松江南京 #松江南京美食 #好吃 #泰國美食 #泰國菜 #金沙咖哩泰國蝦 #美食分享 #咖哩 #約會餐廳 #慶生餐廳 #酸辣椰汁魚 #台灣美食 #香料蘿蔓鮭魚 #泰式打拋豬 #必吃 #聚餐首選 #酸辣 #蝦餅 #生日",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-03-09T14:23:31.587680123Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pWU1RGSllOV1pRVEhZeGRtZHFhRzVTWmpNMFZHYxAB!2m1!1s0x3442a99eda033661:0x815c346b10f0099c"
+        },
+        {
+          "author_name": "阿東",
+          "rating": 5,
+          "text": "泰式酸辣醬汁調味的鮑魚清爽不膩，咖哩蝦好吃之外，咖哩醬還能沾麵包吃，松阪豬略肥(有幾片只吃到油脂的感覺)，清蒸檸檬石斑魚十分地道，湯汁還能拌飯，最後的酸辣蝦清湯更是原汁原味，整體而言配餐的份量是足夠一個成年大胖吃撐的(172cm、90kg)，就是除夕夜價格比較高一點...吃起來大概是瓦城的2~3倍價格",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-17T00:17:54.132443477Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT205YVNYTkRkV2d4ZFc1c1h6RlBjSGhtTkdoQmJuYxAB!2m1!1s0x3442a99eda033661:0x815c346b10f0099c"
+        },
+        {
+          "author_name": "Exploding Tiger",
+          "rating": 4,
+          "text": "包廂位置還蠻特別的\n是在旅館的邊間\n有床有浴室\n隱密性佳\n\n關於菜色的部分\n就還不錯中規中矩\n普通好吃的程度\n少了些許層次\n菜色的份量感覺也是較少一些",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-08T13:42:56.262299574Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT213MVQxZzFaMk5MVDFCeFdXcGtVMDVoWnpBMmEyYxAB!2m1!1s0x3442a99eda033661:0x815c346b10f0099c"
+        }
+      ]
     }
   ]
 }

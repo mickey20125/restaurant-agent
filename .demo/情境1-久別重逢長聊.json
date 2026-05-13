@@ -2,7 +2,7 @@
   "demo_name": "情境1-久別重逢長聊",
   "query": "朋友聚餐，可以聊很久，義式，步行25分鐘內",
   "logic": "久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
-  "saved_at": "2026-05-11",
+  "saved_at": "2026-05-13",
   "intent": {
     "raw_query": "朋友聚餐，可以聊很久，義式，步行25分鐘內",
     "cuisine": "義式",
@@ -10,20 +10,21 @@
     "max_walk_minutes": 25,
     "min_rating": null,
     "needs_high_rating": false,
-    "non_engineer_logic": "久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆"
+    "non_engineer_logic": "久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+    "location": null
   },
   "recommendations": [
     {
       "place_id": "ChIJxdRGEdirQjQRKLWOk-uOq5k",
       "name": "DOMANI 義式餐廳",
-      "address": "106台灣臺北市大安區建國南路一段65巷7號",
-      "score": 0.7377,
-      "reason": "Google 評分 4.3；1059 則地圖評價；預估步行 8 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+      "address": "106台灣臺北市大安區昌隆里建國南路一段65巷7號",
+      "score": 0.7378,
+      "reason": "Google 評分 4.3；1060 則地圖評價；預估步行 8 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
       "vibe_tags": [
         "#出片"
       ],
       "risks": [
-        "Threads(budget): daily limit reached (50/50)"
+        "Threads(scrape): no Threads results found on Brave Search"
       ],
       "evidence": [
         "評論摘錄：這次的用餐體驗真的非常令人失望。以餐廳菜單價位來說，屬中高價位，但不論是服務或餐點都未達到應有的水準。\n\n一進門時，店員的問候語氣就讓人明顯感受到不友善，連同行",
@@ -31,25 +32,108 @@
       ],
       "metrics": {
         "rating": 4.3,
-        "user_rating_count": 1059,
+        "user_rating_count": 1060,
         "walk_minutes": 8.032633536439876,
         "must_have_match": false
       },
       "phone": "02 8772 3355",
       "reservation_url": "https://www.domanitaipei.com/ch/domani-restaurant.php",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "愛吃喵",
+          "rating": 1,
+          "text": "這次的用餐體驗真的非常令人失望。以餐廳菜單價位來說，屬中高價位，但不論是服務或餐點都未達到應有的水準。\n\n一進門時，店員的問候語氣就讓人明顯感受到不友善，連同行的友人也有同樣感受，讓我一度懷疑是不是自己的問題。餐點介紹的聲音偏小，內容也略顯不專業。這樣的價位加上另收服務費，本應該提供更貼心、細緻的用餐體驗，但即使我們座位靠近料理區，想尋求協助時仍需多次招呼服務人員，整體服務品質實在有待加強。\n\n餐點方面，口味普通，沒有什麼驚艷之處。以份量與價格相比，實在不符合期待。若是想找適合約會、慶生或重視氛圍的餐廳，只能說還有相當大的進步空間。\n\n特別要提的是甜點提拉米蘇，濕潤到幾乎有「返潮」的感覺，入口的口感極度不適，真的是滿不合格。剩下真的無法再繼續吃下去，問了店員他也笑笑的說是正常😅😅，真心建議餐廳重新檢視這道甜點。\n\n整體而言，這次的經驗可以說是近期最糟的一次用餐體驗，無論是餐點、服務還是整體氛圍，都遠不如預期。真心希望貴店能重視每一位顧客來店用餐的感受並且改進。",
+          "relative_publish_time": "7 個月前",
+          "publish_time": "2025-10-14T15:57:42.219506650Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21wTU5VRlJWell3WVZWUVNWbERMWEZPVG1KTlZGRRAB!2m1!1s0x3442abd81146d4c5:0x99ab8eeb938eb528"
+        },
+        {
+          "author_name": "CJ Hung",
+          "rating": 5,
+          "text": "選了週日的中午用餐，位置沒有到滿座，雖然旁邊客人是有小孩的有一點吵雜但還算舒適。另提醒服務人員一開始會先詢問要不要氣泡水還是一般的水，氣泡水是要付費的喔！會有一瓶1000ml的份量。\n\n餐點的部分，我們兩個女生除了前菜剩下一點點，其他都完食！以下是詳細心得。\n\n⭐️沙拉-山火腿果醋沙拉：沙拉除了生菜，裡面的山火腿、果醋、乾酪球味道都剛剛好，火腿不會太鹹、果醋的酸甜及份量也適中、乾酪咀嚼後奶酪般的奶香慢慢出現，覺得是很清爽但又不無聊的一道生菜！\n\n⭐️前菜-羅馬燉牛肚：看評論都說是義大利的特色料理，雖然平時不太吃內臟就也點來試試。紅醬當基底基本上就是蠻親切的一道料理，裡面有牛肚、黑橄欖、蕃茄、白豆，可能因為紅醬的關係覺得牛肚沒什麼強烈的味道，很有彈性與嚼勁，是可以接受的料理，但建議趁熱吃，放冷後牛肚的味道會浮上來一些。\n\n⭐️主菜-盤客夏黑豬帶骨里肌：與友人一致認同第一名的一道料理！豬肉非常嫩，本身味道就蠻夠味，一旁還有兩種鹽跟芥末籽搭配可以變換口味，旁邊配菜搭配一旁的肉汁與醬料也很美味，覺得有跟吃牛排一樣的享受。\n\n⭐️義大利麵-茴香肉腸貓耳朵義大利麵：貓耳朵像迷你的麵疙瘩，澱粉控會喜歡！然後原本以為肉腸是會像香腸一樣，結果很像絞肉的樣子，整道就是不踩雷，好吃～\n\n⭐️飲品-新鮮水果茶：好喝解膩。\n\n⭐️甜點-提拉米蘇：以前只喜歡底部有餅乾底台式提拉米蘇，吃不太習慣提拉米蘇那種軟軟的口感，但我覺得這道是可以點的！馬茲卡彭乳酪搭配底部吸滿咖啡液的蛋糕體，不會過於甜膩～另外因為當初定位有特別選聚餐理由是慶生，所以餐廳有很貼心的畫了盤還有插蠟燭，讓我們多了一點儀式感！\n\n整體來說餐點幾乎無雷吃光光，服務人員態度也很友善，是會想再回訪的餐廳👍",
+          "relative_publish_time": "7 個月前",
+          "publish_time": "2025-10-12T14:29:42.241525016Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2psbFZXdG9OV2hETFhWVFV6YzFXaTEwTTJwelNsRRAB!2m1!1s0x3442abd81146d4c5:0x99ab8eeb938eb528"
+        },
+        {
+          "author_name": "Chen",
+          "rating": 2,
+          "text": "第一次給低評，因為不知道吃個晚餐還要被服務生羞辱。\n\n進店時櫃檯無人，我主動向一位戴眼鏡的男性店員打招呼，態度明顯冷淡。雖然距離訂位時間尚早仍讓我們入座，這點感謝。\n\n原本點熱紅酒慶生取暖，卻被告知售完，只好改點酒單上的「義大利葡萄酒」選項內的酒品，因上酒時紅、白酒都有，與預期不符，加上酒款介紹聽不清楚，想再次與新手服務生確認各自點的酒是哪一杯，不過我們並未要求更換。\n\n而新手服務生請戴眼鏡的男店員協助時，對方竟回應：\n「一般正常人都知道那是什麼酒。」\n只是確認餐點，卻被這樣言語對待，實在令人錯愕與不適。\n\n另外自備蛋糕請店家協助上桌，戴眼鏡男店員又說：「你們蛋糕是有撞到嗎？」\n實際送上來時蛋糕確實歪斜，但我們一路小心提著，無法確認是否為我們自身造成或哪個環節造成，但整體應對與語氣仍令人感到不受尊重⋯\n\n整場用餐體驗不佳，店內溫度偏低、反應後仍寒冷，且不時有蚊子與飛蛾在店內飛舞，環境與衛生也有待加強，食物偏普通。\n\n雖來店前已看到關於服務態度差的評論，實際體驗後只能說名不虛傳。不確定是教育訓練不足，或個別員工態度問題，都不該由客人承受。\n\n不會再訪，也不會推薦。\n\n原本只想給一顆星，多給的一顆星是因為結帳時的女服務生態度良好、願意協助拍照；也希望給新手服務生一點鼓勵！",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2025-12-15T13:32:59.797281492Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21oRVRtNTZOWGswV1c1RVgyeERjR2RaUTBSNVlXYxAB!2m1!1s0x3442abd81146d4c5:0x99ab8eeb938eb528"
+        }
+      ]
+    },
+    {
+      "place_id": "ChIJk8-Zk9mrQjQRBEnxj2z9AG0",
+      "name": "J&R義法",
+      "address": "106台灣臺北市大安區誠安里忠孝東路三段251巷13弄2號1樓",
+      "score": 0.7071,
+      "reason": "Google 評分 4.7；1172 則地圖評價；預估步行 5 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+      "vibe_tags": [
+        "#資訊不足",
+        "#待補社群資料",
+        "#先看地圖評價"
+      ],
+      "risks": [],
+      "evidence": [
+        "評論摘錄：想不到在台北能吃到這麼好吃的法式薄餅!!鹹的甜的都很好吃，價格也很合理! 有機會一定要再去品嚐其它口味的薄餅~👍",
+        "風格標籤：#資訊不足 #待補社群資料 #先看地圖評價",
+        "Threads 金句：J&R義法義大利麵、燉飯跟薄餅都神好吃！",
+        "Threads 金句：久々ガレット食べました〜 J&R義法"
+      ],
+      "metrics": {
+        "rating": 4.7,
+        "user_rating_count": 1172,
+        "walk_minutes": 5.021087640947667,
+        "must_have_match": false
+      },
+      "phone": "02 2778 8701",
+      "reservation_url": "https://www.facebook.com/JR%E7%BE%A9%E6%B3%95-464650933930921/",
+      "social_highlights": [
+        "J&R義法義大利麵、燉飯跟薄餅都神好吃！",
+        "久々ガレット食べました〜 J&R義法"
+      ],
+      "review_records": [
+        {
+          "author_name": "Vanessa Hsieh",
+          "rating": 5,
+          "text": "想不到在台北能吃到這麼好吃的法式薄餅!!鹹的甜的都很好吃，價格也很合理! 有機會一定要再去品嚐其它口味的薄餅~👍",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-06T14:05:33.821089036Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pCUmMySklTbVIyTFZadmR6aFFXVGx3ZGt0MFNVRRAB!2m1!1s0x3442abd99399cf93:0x6d00fd6c8ff14904"
+        },
+        {
+          "author_name": "Zix",
+          "rating": 5,
+          "text": "非常好吃！份量看起來普通，但其實可以吃得滿飽的\n\n義大利麵醬汁濃厚，緊緊扒在麵條上很入味，硬度適中，肉類軟嫩多汁吃得到食材本身的味道\n\n烤餅鬆鬆脆脆的很香，甜的鹹的都很讚\n\n店家只能付現金，吃得太開心差點湊不出錢",
+          "relative_publish_time": "6 個月前",
+          "publish_time": "2025-10-24T09:09:30.768349690Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pCUVRYcHBTRTExYVVzNVVUYzJabXRtZFU5V1ZXYxAB!2m1!1s0x3442abd99399cf93:0x6d00fd6c8ff14904"
+        },
+        {
+          "author_name": "Mina",
+          "rating": 2,
+          "text": "漁夫干貝海鮮義大利麵$430🌕🌗🌑🌑🌑\n海鮮新鮮，但是義大利麵體是使用比較粗的那種沒有口感軟軟的，醬汁和麵是分開的，沒有融合感，很失望\n青醬漁夫干貝海鮮燉飯$430🌕🌕🌕🌗🌑\n相較於義大利麵，燉飯好一些\n酥炸牡蠣(4顆)$220 🌕🌗🌑🌑🌑\n牡蠣超級無敵小～根本是一般蚵仔煎的蚵仔大小（附圖）完全沒有這個價位應有的價值\n套餐(濃湯 麵包 沙拉 飲品)$180🌕🌕🌕🌗🌑\n濃湯蠻好喝的，麵包也好吃，沙拉飲品一般\n焦糖香蕉薄餅$230🌕🌕🌕🌑🌑\n餅皮酥中帶軟，焦糖醬很多，香蕉上也有烤焦糖，冰淇淋也甜，所以吃到後來會有點膩",
+          "relative_publish_time": "5 個月前",
+          "publish_time": "2025-11-15T08:19:09.299970763Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xSYVdEVktiMEp4WDBob1UzUkVTbE5SVldaSmVsRRAB!2m1!1s0x3442abd99399cf93:0x6d00fd6c8ff14904"
+        }
+      ]
     },
     {
       "place_id": "ChIJDzK-NGKpQjQRxBnvBhlgRgc",
       "name": "SABATINI 深庭義式餐廳",
-      "address": "10455台灣臺北市中山區長安東路二段84號1-2樓",
-      "score": 0.701,
-      "reason": "Google 評分 4.5；691 則地圖評價；預估步行 11 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
+      "address": "10455台灣臺北市中山區朱園里長安東路二段84號1-2樓",
+      "score": 0.7011,
+      "reason": "Google 評分 4.5；692 則地圖評價；預估步行 11 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
       "vibe_tags": [
         "#辣感"
       ],
       "risks": [
-        "Threads(budget): daily limit reached (50/50)"
+        "Threads(scrape): no Threads results found on Brave Search"
       ],
       "evidence": [
         "評論摘錄：第一次到訪，印象非常好，絕對會再帶友人或家人到訪。\n食物很有水準，義大麵軟硬適中，也跟湯汁混合得很好，龍蝦義大利麵微辣，敢吃辣的人推薦嘗試；奶油蘑菇也很不錯，就",
@@ -57,39 +141,39 @@
       ],
       "metrics": {
         "rating": 4.5,
-        "user_rating_count": 691,
+        "user_rating_count": 692,
         "walk_minutes": 11.344512657424314,
         "must_have_match": false
       },
       "phone": "0916 265 652",
       "reservation_url": "http://www.sabatinicucina.com.tw/",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJkwGS1rKpQjQRo0NNQ1Kop3U",
-      "name": "轉角義式餐坊_89 Corner",
-      "address": "104台灣臺北市中山區四平街89號",
-      "score": 0.6511,
-      "reason": "Google 評分 4.8；64 則地圖評價；預估步行 14 分鐘；符合設定邏輯：久坐不趕人、安靜、朋友不吃牛我想吃，桌距寬鬆",
-      "vibe_tags": [
-        "#CP值"
-      ],
-      "risks": [
-        "Threads(budget): daily limit reached (50/50)"
-      ],
-      "evidence": [
-        "評論摘錄：點了番茄紅醬鮮味蛤蜊麵，怕吃不飽又+10加麵總共 $160，結果吃的超飽，也有放一點點點起司，蛤蜊有12顆算蠻多的，份量很夠味道也不錯，這裡義大利麵最便宜只要$",
-        "風格標籤：#CP值"
-      ],
-      "metrics": {
-        "rating": 4.8,
-        "user_rating_count": 64,
-        "walk_minutes": 14.22451638491945,
-        "must_have_match": false
-      },
-      "phone": "0981 066 891",
-      "reservation_url": null,
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "林佳容",
+          "rating": 5,
+          "text": "第一次到訪，印象非常好，絕對會再帶友人或家人到訪。\n食物很有水準，義大麵軟硬適中，也跟湯汁混合得很好，龍蝦義大利麵微辣，敢吃辣的人推薦嘗試；奶油蘑菇也很不錯，就是吃多了會有點小膩。\n餐廳內的服務更是恰到好處，會注意到客人小需求並主動提供服務。餐廳燈光也很適合商務或是約會或是朋友相聚。客人們都頗有水準，輕聲細語交談，整個餐廳氣質都好起來。",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-12T08:37:50.556378985Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21GWGJXVnlWVkZsTlZsdVpsUjRSRkYxWkc5SFUyYxAB!2m1!1s0x3442a96234be320f:0x746601906ef19c4"
+        },
+        {
+          "author_name": "Hui Yu Wang",
+          "rating": 5,
+          "text": "學生時期老師曾邀請我們到店用餐，時隔七年，這次終於到訪。\n餐點與服務都很到位，用餐過程輕鬆自在、毫無壓力。\n離開時還能見到老師，雖然沒有被認出已出社會的我，但仍讓人感到非常開心。\n協助訂位的友人也對今日的餐點相當滿意。\n生日月能吃到這麼棒的美食，實在太幸福了 ♪( ´▽｀)",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2026-01-10T15:35:59.104487145Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25ObmIwaHFhblpNTkV0RFFtdFROM0JOYWxjNFkwRRAB!2m1!1s0x3442a96234be320f:0x746601906ef19c4"
+        },
+        {
+          "author_name": "鄭宇軒",
+          "rating": 5,
+          "text": "二樓6桌+1大圓桌、一樓3桌\n\n11點4X分進餐廳，用餐時間約90分鐘\n\n義大利麵是清炒的香辣帶勁，份量多\n\n燉飯微硬帶微微蕃茄味，蝦子新鮮脆甜\n\n牛排5分熟，肉質非常軟嫩調味也都剛好\n\n飲品我們點拿鐵，建議要點的人看能愈早上愈好，如此主餐吃完就可以完整沒冰塊又冰涼的拿鐵；因裡面是放咖啡冰塊，即使融完也不會變淡\n\n甜點甜度適中，芝麻香濃郁",
+          "relative_publish_time": "8 個月前",
+          "publish_time": "2025-09-14T05:02:24.115850342Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pWSGIxVjVkVFpIZWpCdFIwdE9RbGczYTFwTE9XYxAB!2m1!1s0x3442a96234be320f:0x746601906ef19c4"
+        }
+      ]
     }
   ]
 }

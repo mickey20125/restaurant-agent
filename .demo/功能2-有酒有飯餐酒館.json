@@ -2,7 +2,7 @@
   "demo_name": "功能2-有酒有飯餐酒館",
   "query": "餐酒館或熱炒，步行25分鐘內",
   "logic": "可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
-  "saved_at": "2026-05-11",
+  "saved_at": "2026-05-13",
   "intent": {
     "raw_query": "餐酒館或熱炒，步行25分鐘內",
     "cuisine": null,
@@ -10,7 +10,8 @@
     "max_walk_minutes": 25,
     "min_rating": null,
     "needs_high_rating": false,
-    "non_engineer_logic": "可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格"
+    "non_engineer_logic": "可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
+    "location": null
   },
   "recommendations": [
     {
@@ -18,7 +19,7 @@
       "name": "Cozy Taipei餐酒館",
       "address": "106台灣臺北市大安區敦化南路一段190巷17號1樓19號2樓",
       "score": 0.8432,
-      "reason": "Google 評分 5.0；9291 則地圖評價；預估步行 9 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
+      "reason": "Google 評分 5.0；9294 則地圖評價；預估步行 9 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
       "vibe_tags": [
         "#出片",
         "#CP值",
@@ -33,7 +34,7 @@
       ],
       "metrics": {
         "rating": 5,
-        "user_rating_count": 9291,
+        "user_rating_count": 9294,
         "walk_minutes": 9.468205911411665,
         "must_have_match": false
       },
@@ -43,33 +44,87 @@
         "“Cozy” (or “cosy” in British English) describes something ...",
         "COZY™ (@cozy) • Threads, Say more",
         "The Cozy Mozy (@thecozymozy)"
+      ],
+      "review_records": [
+        {
+          "author_name": "洪子璇",
+          "rating": 1,
+          "text": "路過看到菜單感覺很好吃加上很多評論還是5星就訂位了\n結果超級盤 牛肋條390只有5小塊左右的肉 一口都不到 然後紅蘿蔔很多馬鈴薯很大塊 也沒有特別嫩特別好吃 這個價格可以吃兩碗牛肉麵\n\n佐藤醬義大利麵吃不懂他的醬 但是麵本身口感不會軟爛還算可以\n\n蝦膏燉飯很好吃 味道很夠 但飯粒不夠硬 沒米心 感覺像在吃粥 上面的蝦子好吃\n\n松露烘蛋很香也蠻好吃的 但沒什麼味道 感覺應該再加一點鹽巴或胡椒鹽\n\n酒中規中矩 但茶壺太太很像在喝水 沒什麼味道\n\n整體來說 就是一次店\n如果是喝酒聊天續攤可以考慮 但吃飯就不用了份量很少根本不會飽 價格跟味道和份量沒有成正比\n慶生的情緒價值給的倒是很夠啦",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2025-12-24T15:24:21.600389763Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pSbVVFTTRkVGhyYkMwNWVrbG5NbGRtZFhobmQxRRAB!2m1!1s0x3442ab4b30c28893:0xb642036464f2f9de"
+        },
+        {
+          "author_name": "Tristan Chen",
+          "rating": 5,
+          "text": "燉飯都不錯吃，主題性調酒趣味十足，牛小排燉飯很辣喔，蝦膏燉飯建議多人享用，不然吃到後面會很膩。",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-09T03:18:55.553689848Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pOdGJVUkdkMFE0TlVkVGNFUkpPQzA0WmxGUGQzYxAB!2m1!1s0x3442ab4b30c28893:0xb642036464f2f9de"
+        },
+        {
+          "author_name": "Orli Chu",
+          "rating": 5,
+          "text": "餐點：貼心男友蝦膏燉飯、明太子鮭魚奶油義大利麵真的必點！\n蝦膏燉飯入口就是滿滿的濃郁感，很好吃也不會過膩口；明太子鮭魚奶油義大利麵給了完整的鮭魚，很實在，真的讓人覺得CP值很高\n酒類：茶壺太太、爺爺泡的茶，喜歡茶酒的很推薦爺爺泡的茶\n服務：服務態度超級好，也很細心看到我們拍照，還提供補光燈，豪讚！🤩",
+          "relative_publish_time": "5 個月前",
+          "publish_time": "2025-11-22T11:52:09.977407648Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xwUWVIcDFTbkJOV0dwb2QxUnpjMDVxYzBScVYxRRAB!2m1!1s0x3442ab4b30c28893:0xb642036464f2f9de"
+        }
       ]
     },
     {
       "place_id": "ChIJCRKASPSrQjQRBwl5Ls2HO5k",
       "name": "醉好 Another Round",
-      "address": "106台灣臺北市大安區大安路一段19巷13號",
+      "address": "106台灣臺北市大安區光武里大安路一段19巷13號",
       "score": 0.8287,
-      "reason": "Google 評分 4.7；1878 則地圖評價；預估步行 7 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
+      "reason": "Google 評分 4.7；1880 則地圖評價；預估步行 7 分鐘；符合設定邏輯：可以點酒、不要太貴、份量要吃飽、台式熱炒或小酒館風格",
       "vibe_tags": [
         "#出片",
         "#排隊",
         "#老字號"
       ],
-      "risks": [],
+      "risks": [
+        "Threads(scrape): no Threads results found on Brave Search"
+      ],
       "evidence": [
         "評論摘錄：食物很好吃！價格也很合理\n但是當天發生了很多事\n\n2025/12/31當天用餐 旁邊的客人一直開閃光燈 還對我說把外套移開 因為她們要拍照 覺得很不合理 店家有",
         "風格標籤：#出片 #排隊 #老字號"
       ],
       "metrics": {
         "rating": 4.7,
-        "user_rating_count": 1878,
+        "user_rating_count": 1880,
         "walk_minutes": 6.876681380174047,
         "must_have_match": false
       },
       "phone": "02 2776 6069",
       "reservation_url": "https://mpea.me/anotherround",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "丁善敏",
+          "rating": 3,
+          "text": "食物很好吃！價格也很合理\n但是當天發生了很多事\n\n2025/12/31當天用餐 旁邊的客人一直開閃光燈 還對我說把外套移開 因為她們要拍照 覺得很不合理 店家有沒有要管 後來我就要求換位置了\n換到另一個位置 在吃晚飯的時候 旁邊的客人直接喝醉把我們桌上的一盒衛生紙掉在地上\n店家有沒有跟我們有任何的道歉\n覺得當天用餐的心情真的糟透了☹️\n甚至位置是2025/11/16 訂位的\n真的搞不懂為什麼位子被分配的這麼爛\n要求換大一點的位子 說有其他人訂位\n但離開的時候位子還是空的\n身為也是餐飲業 安排位子通常是按照訂位順序\n真的需要改進！",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2026-01-01T18:01:52.841860546Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21ZdGNsTnJOalI1Y2xKbGRtSjRSRnBIV2pGcGFtYxAB!2m1!1s0x3442abf448801209:0x993b87cd2e790907"
+        },
+        {
+          "author_name": "帥Dodd哥",
+          "rating": 1,
+          "text": "簡而言之難吃\n不知道服務生幹嘛一直跑過來進包廂是為什麼？？根本沒有叫他\n那個肉丸是怎樣啊\n裡面都是香料吃下去根本在吃草\n還有一個烤雞是點半雞小到可憐還以為送上來鴿子🐦\n可憐到不想拍 自己比裝雞的盤子還盤\n雜菜煲超級小沒啥味道（口紅比例尺）\n滷肉飯也超級小上面還放韓式蘿蔔？？沒啥味道\n海膽義大利麵很普 沒海膽的感覺",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-04T05:18:34.137088981Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pOSlpXaGhOMDVFVkdaV04wUjJibmhTZUdGSWFuYxAB!2m1!1s0x3442abf448801209:0x993b87cd2e790907"
+        },
+        {
+          "author_name": "戴小戴",
+          "rating": 5,
+          "text": "黑碳炸雞🐔-$250\n雖然外表呈黑漆漆的樣子，但並非是烤至焦黑了~\n品嘗起來外酥內嫩的質感，本身調味上已經有一定的鹹度~非常多汁~👌\n搭配胡椒粉會讓鹹度提升一個檔次，以及附上解膩的蘿菠片\n喜歡吃炸雞的朋友一定要試試🤣\n\n料理鼠王普羅旺斯燉蔬菜🐭-$280\n沒看錯~是來自《料理鼠王》的普羅旺斯燉蔬菜🥬\n醬汁微微的鹹度讓蔬菜感覺鮮甜可口，味道走一個清淡路線，非常不錯的開胃菜~\n(所以這家店也有...撈鼠?)\n\n醉好松露薯條🍟-$250\n撒上一點點的松露與起司絲\n讓薯條整體看起來有一點奢華感💰\n味道上也因為松露相當突出，覺得還不錯吃~\n\n洋風蘋果生牛肉薄片🥩-$330\n生牛肉片、蘋果片、洋蔥與其他辛香料一起搭配入口\n口感清爽又帶點微酸的水果香氣🍎\n讓味道上有著豐富的層次感\n味道很清爽，算是很開胃的一道前菜\n感覺也是適合當下酒菜～👍\n\n其餘還有木村哥私房番茄牛肉麵🍜、金沙豬排三明治🥪與金沙杏鮑菇🍄‍🟫這些餐點都還算挺推的\n不過我這邊就沒有特別拍了~🤣\n\n整體來說，除了店內的酒類🍹非常豐富之外\n餐點都意外的不錯吃，也有幾到相當適合當下酒菜~\n店內氣氛相當不錯，很適合下班同事朋友聚會\n要是人數夠多，地下室也有KTV包廂(共2間)可以唱歌歡樂🎵🎤",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2025-12-21T14:24:43.539476138Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xBMlluQkVhRjh6UjBjeFdIazRaWHBJWWtJM1VGRRAB!2m1!1s0x3442abf448801209:0x993b87cd2e790907"
+        }
+      ]
     },
     {
       "place_id": "ChIJL8XQG96rQjQR3Pefv2NemuQ",
@@ -99,6 +154,32 @@
       "social_highlights": [
         "JOINY Taipei 招台北餐酒館｜酒吧｜早午餐(@joiny_taipei)",
         "環境很術系（Joiny Taipei 招台北餐酒館"
+      ],
+      "review_records": [
+        {
+          "author_name": "Carbs • Pro • Fat • Alc",
+          "rating": 5,
+          "text": "環境舒適、夜晚窗景好，餐食很多元的餐酒館～\n我們點了沙拉、燉飯、炸物都不錯，還有甜點跟主菜都可以點，如果很多人來點餐應該可以很盡興\n特別有印象的是空間環境，城市view極好，沙發位寬敞，刻意區隔的包廂型空間非常用心，適合多人聚餐聊天的好地方\n環境也非常舒適適合聊天，vibe很鬆弛，即使坐吧台也可以很放鬆的享受，坐在調酒師前面可以享受吧台工作氛圍\n酸甜系的酒很好喝，點了三杯都無雷，也有許多有趣的巧思，例如泰坦尼克號的沈船遊戲\n持續點餐過程也有一些店家招待，都有新意\n是個整體綜合評分很好的餐酒館～非常推薦一群朋友聚會可以選擇這裡👍\n環境特別不錯特別拍了許多照片，餐酒放後面😊",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-22T10:43:08.605814034Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pWMllVaHJRV2RIVEVJd2RpMVNUM05KV201blNGRRAB!2m1!1s0x3442abde1bd0c52f:0xe49a5e63bf9ff7dc"
+        },
+        {
+          "author_name": "雞不擇食",
+          "rating": 5,
+          "text": "忠孝復興餐酒館推薦！隱身在巷弄 2 樓，食物好吃無雷\nGoogle Maps 4.8 顆星超高評價！\n還有提供戶外吸菸區，真的超貼心\n-\n在忠孝復興站的三角公園旁\n藏著一家超好吃的餐酒館！\n調酒顏值每一杯都超高\n有的調酒上面還會放棉花糖，超可愛\n\n｜ 叁峇辣醬炸雞 💰420\n外皮炸到酥脆，叁峇辣醬又香又辣\n甜、鹹、微微辣感，超級下酒！！\n\n｜ 香煎雞腿排與三種起司燉飯 💰480\n雞腿外皮煎得脆脆、恰恰的程度，軟嫩厚實又很多汁\n燉飯奶香很重，起司很邪惡，吃完會超快樂\n\n｜ 美國安格斯 12oz 肋眼牛排 💰1290\n最喜歡的一道！可以選擇 3、5、7 分熟\n油花分布均勻，中間剖面的色澤也太美\n不用太多調味就很夠，一上桌就被掃空，超讚\n\n｜ 生蠔三拼 💰460\n喜歡吃生蠔的也有！新鮮度很可以\n沒有腥味，配酒超搭！\n\n｜ 蟹黃炒鮮蝦豆腐 💰390\n有三隻新鮮大蝦，而且還是剝好殼的，超貼心\n豆腐滑嫩、沾覆滿滿蟹黃香\n旁邊還有一塊麵包可以沾醬吃，很可以！\n\n｜ JOINY 專屬提拉米蘇 💰280\n有濃濃酒香＋咖啡香\n店家自己做的提拉米蘇，是濕潤型\n吃起來不會太甜，很適合重口味後來一盤\n\n｜ 曖昧的木質夜景 💰420\n一入口是木頭跟茶的香氣\n洋梨跟蘋果的果香慢慢浮出來\n酒感比較重，喝起來很沉穩的一杯\n\n｜ 原諒我這一生不羈放縱愛自由 💰420\n這杯必點！上面會放棉花糖，超可愛\n屬於清爽型果香調酒，不甜不膩\n尾巴帶一點白酒感，妹酒認證！\n\n｜ 烏龜烏龜翹 💰400\n偏大人系的一杯，第一口有煙燻味，非常有個性\n接著椰子糖跟紅豆的甜慢慢把苦拉回來\n平衡了煙燻和甘甜味\n裡面還有一顆紅豆粿，可以直接吃\n\n｜ 牧羊人的夢 💰400\n這杯也是妹酒！超愛！\n入口是葡萄＋芭樂的甜香，甜甜的很好喝\n酒感不重\n加上奶油跟蛋白泡泡，口感超綿\n很適合不想醉的人 XD",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2026-01-10T08:05:35.543373673Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT214SmVYUk5RazR5UVhoa2JHSmpOMHgxTVdWVlRVRRAB!2m1!1s0x3442abde1bd0c52f:0xe49a5e63bf9ff7dc"
+        },
+        {
+          "author_name": "Lazarus Hung",
+          "rating": 5,
+          "text": "鄰近忠孝復興捷運站，店面雖然位於二樓，但從路邊看卻是非常明顯。\n\n白天是賣早午餐，晚上則是餐酒館，來過幾次，各種餐點口味都還不錯，沒有遇到不合口味的。\n\n店內多處設有投影設備，在大型賽事期間，也可以來此看比賽，像是之前的12強，以及最近的經典賽預賽，餐廳也都有播放。訂位時，可以請店員協助優先安排在較佳的觀賞位置。",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-03-08T22:19:35.523652548Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21GdloyVm5ZWEZQVEVwTk9GQldORGR5U1d4TVNFRRAB!2m1!1s0x3442abde1bd0c52f:0xe49a5e63bf9ff7dc"
+        }
       ]
     }
   ]

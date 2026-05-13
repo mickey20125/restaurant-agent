@@ -29,6 +29,7 @@ Pipeline JSON 的關鍵欄位：
 | `vibe_tags` | 風格標籤 |
 | `risks` | 風險提醒 |
 | `evidence` | 可驗證證據 |
+| `review_records` | Google Maps 評論陣列，每筆含 `author_name`、`rating`、`relative_publish_time`、`text` |
 
 **所有模式的輸出末尾都必須加入預約資訊區塊**：
 
@@ -37,7 +38,7 @@ Pipeline JSON 的關鍵欄位：
 → [reservation_url 若有，貼連結；否則貼電話；兩者皆無則寫「建議提前致電確認」]
 ```
 
-**若 social_highlights 非空，在推薦理由後加入**：
+**若 social_highlights 非空，在每間餐廳的預約資訊後加入**（每間各自判斷，不可只加第一間）：
 
 ```
 💬 Threads 上有人說
@@ -78,6 +79,8 @@ Pipeline JSON 的關鍵欄位：
 
 ### 輸出格式
 
+⚠️ **強制規則：以下模板必須對每一間餐廳完整套用，不得只套用第一間而省略後續。⭐ Google 評論區塊是必填——有資料輸出表格，無資料輸出「暫無評論資料」，兩者擇一，不可整個省略。**
+
 ```
 【現在最值得去的是——】
 
@@ -87,11 +90,22 @@ Pipeline JSON 的關鍵欄位：
 不能錯過：{一個讓人想截圖的點}
 要注意：{risks 或排隊訂位情況}
 
+⭐ Google 評論
+{若 review_records 非空，輸出 Markdown 表格：}
+| 作者 | 星數 | 時間 | 內容摘要 |
+|------|------|------|----------|
+| {author_name[:12]} | {"⭐" × rating} | {relative_publish_time[:10]} | {text[:60]} |
+{若 review_records 為空，輸出：暫無評論資料}
+
 📞 預約資訊
 → {reservation_url / phone / 建議提前致電確認}
 
 💬 Threads 上有人說（若 social_highlights 非空）
 →「{highlight}」
+
+---
+
+（對下一間餐廳重複以上完整格式，包含 ⭐ Google 評論區塊與 💬 Threads 區塊）
 ```
 
 若有多種調性，每個調性推薦社群熱度最高的那一間，格式：
@@ -136,6 +150,8 @@ Pipeline JSON 的關鍵欄位：
 
 ### 輸出格式
 
+⚠️ **強制規則：以下模板必須對每一間餐廳完整套用，不得只套用第一間而省略後續。⭐ Google 評論區塊是必填——有資料輸出表格，無資料輸出「暫無評論資料」，兩者擇一，不可整個省略。**
+
 ```
 【今天吃什麼——教練版】
 
@@ -144,6 +160,13 @@ Pipeline JSON 的關鍵欄位：
 典型一餐熱量：約 XXX–XXX 大卡
 蛋白質選項：{具體可點的方向}
 要注意：{risks / 醬料陷阱等}
+
+⭐ Google 評論
+{若 review_records 非空，輸出 Markdown 表格：}
+| 作者 | 星數 | 時間 | 內容摘要 |
+|------|------|------|----------|
+| {author_name[:12]} | {"⭐" × rating} | {relative_publish_time[:10]} | {text[:60]} |
+{若 review_records 為空，輸出：暫無評論資料}
 
 📞 預約資訊
 → {reservation_url / phone / 建議提前致電確認}
@@ -155,6 +178,13 @@ Pipeline JSON 的關鍵欄位：
 為什麼你可能會選：{吸引力說明，不評判}
 典型一餐熱量：約 XXX–XXX 大卡（比健康路線多約 XXX 大卡）
 代價：相當於需要多跑約 X 公里，或跳繩 XX 分鐘
+
+⭐ Google 評論
+{若 review_records 非空，輸出 Markdown 表格：}
+| 作者 | 星數 | 時間 | 內容摘要 |
+|------|------|------|----------|
+| {author_name[:12]} | {"⭐" × rating} | {relative_publish_time[:10]} | {text[:60]} |
+{若 review_records 為空，輸出：暫無評論資料}
 
 📞 預約資訊
 → {reservation_url / phone / 建議提前致電確認}
@@ -197,6 +227,8 @@ Pipeline JSON 的關鍵欄位：
 
 ### 輸出格式
 
+⚠️ **強制規則：以下模板必須對每一間餐廳完整套用，不得只套用第一間而省略後續。⭐ Google 評論區塊是必填——有資料輸出表格，無資料輸出「暫無評論資料」，兩者擇一，不可整個省略。**
+
 ```
 【這一帶，在地人真正在去的——】
 
@@ -206,11 +238,22 @@ Pipeline JSON 的關鍵欄位：
 在地情報：{最佳時段 / 隱藏點法 / 老闆脾氣 / 停車眉角等}
 怎麼找：{描述方式，例：從捷運站出來往菜市場方向走}
 
+⭐ Google 評論
+{若 review_records 非空，輸出 Markdown 表格：}
+| 作者 | 星數 | 時間 | 內容摘要 |
+|------|------|------|----------|
+| {author_name[:12]} | {"⭐" × rating} | {relative_publish_time[:10]} | {text[:60]} |
+{若 review_records 為空，輸出：暫無評論資料}
+
 📞 預約資訊
 → {reservation_url / phone / 建議提前致電確認}
 
 💬 Threads 上有人說（若 social_highlights 非空）
 →「{highlight}」
+
+---
+
+（對下一間餐廳重複以上完整格式，包含 ⭐ Google 評論區塊與 💬 Threads 區塊）
 ```
 
 若地點過於廣泛（例：「台北」），在輸出開頭說明本次聚焦區域，結尾補：「如果你有特定區域或捷運站，告訴我，我可以給更精準的。」
@@ -260,6 +303,8 @@ Pipeline JSON 的關鍵欄位：
 
 ### 輸出格式
 
+⚠️ **強制規則：以下模板必須對每一間餐廳完整套用，不得只套用第一間而省略後續。⭐ Google 評論區塊是必填——有資料輸出表格，無資料輸出「暫無評論資料」，兩者擇一，不可整個省略。**
+
 **預設模式（感情狀態未知）**
 
 ```
@@ -271,6 +316,13 @@ Pipeline JSON 的關鍵欄位：
 顧問建議：{一個讓這次更順的細節}
 訂位狀況：{好訂 / 建議提前幾天 / 很難要碰運氣}
 
+⭐ Google 評論
+{若 review_records 非空，輸出 Markdown 表格：}
+| 作者 | 星數 | 時間 | 內容摘要 |
+|------|------|------|----------|
+| {author_name[:12]} | {"⭐" × rating} | {relative_publish_time[:10]} | {text[:60]} |
+{若 review_records 為空，輸出：暫無評論資料}
+
 📞 預約資訊
 → {reservation_url / phone / 建議提前致電確認}
 
@@ -278,7 +330,7 @@ Pipeline JSON 的關鍵欄位：
 →「{highlight}」
 
 ✨ 儀式感型：{name}
-（同上結構）
+（同上結構，含 ⭐ Google 評論表格）
 ```
 
 **感情狀態已知模式**
@@ -292,6 +344,13 @@ Pipeline JSON 的關鍵欄位：
 顧問建議：{細節建議}
 訂位狀況：{訂位難度}
 
+⭐ Google 評論
+{若 review_records 非空，輸出 Markdown 表格：}
+| 作者 | 星數 | 時間 | 內容摘要 |
+|------|------|------|----------|
+| {author_name[:12]} | {"⭐" × rating} | {relative_publish_time[:10]} | {text[:60]} |
+{若 review_records 為空，輸出：暫無評論資料}
+
 📞 預約資訊
 → {reservation_url / phone / 建議提前致電確認}
 
@@ -299,5 +358,5 @@ Pipeline JSON 的關鍵欄位：
 →「{highlight}」
 
 ✨ 有點不一樣的路線：{name}
-（同上結構）
+（同上結構，含 ⭐ Google 評論表格）
 ```

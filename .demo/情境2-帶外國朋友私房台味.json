@@ -2,7 +2,7 @@
   "demo_name": "情境2-帶外國朋友私房台味",
   "query": "帶外國朋友吃台灣味，步行25分鐘內",
   "logic": "有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
-  "saved_at": "2026-05-11",
+  "saved_at": "2026-05-13",
   "intent": {
     "raw_query": "帶外國朋友吃台灣味，步行25分鐘內",
     "cuisine": null,
@@ -10,15 +10,16 @@
     "max_walk_minutes": 25,
     "min_rating": null,
     "needs_high_rating": false,
-    "non_engineer_logic": "有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地"
+    "non_engineer_logic": "有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
+    "location": null
   },
   "recommendations": [
     {
       "place_id": "ChIJ63TtzA2pQjQRYLTOoGVHw3g",
       "name": "丰禾 台味風格料理 台北南京東店",
-      "address": "104台灣臺北市中山區南京東路二段146號2F",
+      "address": "104台灣臺北市中山區朱園里南京東路二段146號2F",
       "score": 0.7887,
-      "reason": "Google 評分 4.7；10711 則地圖評價；預估步行 14 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
+      "reason": "Google 評分 4.7；10720 則地圖評價；預估步行 14 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
       "vibe_tags": [
         "#辣感",
         "#排隊"
@@ -30,18 +31,97 @@
       ],
       "metrics": {
         "rating": 4.7,
-        "user_rating_count": 10711,
+        "user_rating_count": 10720,
         "walk_minutes": 13.550296697294892,
         "must_have_match": false
       },
       "phone": "02 2507 6808",
       "reservation_url": "https://www.veggtable.com/",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "Jamie Chang",
+          "rating": 4,
+          "text": "因為10個人訂了包廂，有低消7000元，於是選了兩組套餐，套餐裡完全沒湯品，所以再單點個雞湯，可含服務費，就超過了。\n\n而且兩邊可選的菜色加起來也幾乎是單點菜單上七八成了\n\n六人澎湃台味（3660元）\n四人豐盛台味（2460元）\n砂鍋白菜燉土雞（680元）\n\n整體是普普，超過一半料理都不夠到位，應該是不會再回訪\n服務人員沒問題，但也沒有想像中的王品集團系統的積極，但是基本ok的\n\n比較好吃的單項：\n酒香四杯雞\n芋絲香米糕\n芋香粉蒸排骨\n砂鍋白菜燉土雞（湯有濃香，但雞肉只有一隻大腿的量）",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-14T06:40:19.917456144Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xkcVIzUkZiR1ZLWTBOamMwSmZibk53VmtRMVlVRRAB!2m1!1s0x3442a90dcced74eb:0x78c34765a0ceb460"
+        },
+        {
+          "author_name": "Poeffy Lee",
+          "rating": 4,
+          "text": "餐廳位於捷運松江南京站4號出口，走路右轉3-5分鐘。餐廳在2樓，招牌不明顯，沒有電梯。\n\n我們4人於12月21日去用餐，事先訂位11點，抵達時已經有幾批客人排隊入座了。\n我們點了雙人套餐$1280，再加點2道菜，餐廳正好有活動送白飯吃到飽，雖然每道菜份量不大，但對我們3個女人1小孩來說，完全吃不完。餐廳上菜速度蠻快的，一下子就整桌滿滿還沒吃到菜就冷了，有點可惜。\n\n我們點的菜色都是不辣的家常菜，口味適中沒有雷，但也沒有特別出色。朋友們喜歡芋頭米粉湯好吃，但是我個人是覺得胡椒味太重，滿口胡椒辣味，怕辣的可能要斟酌一下。我們唯一不滿意的菜是黑麻油燒蛋，服務生問了雞蛋熟度，我們特別強調蛋黃要熟，結果來的是流心的生蛋黃。\n\n王品集團的餐廳強調有一定的水準，這間餐廳不論價格，份量味道都適合家庭朋友聚餐，雖然美中不足，但仍推薦給想試試家常台菜的網友們。",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2026-01-01T07:04:16.369582642Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xrdFdtWXpWVGwyTW01eFVqbGtRblJ0UkhRMmFFRRAB!2m1!1s0x3442a90dcced74eb:0x78c34765a0ceb460"
+        },
+        {
+          "author_name": "chia ling chuang",
+          "rating": 5,
+          "text": "菜色很豐富，服務人員非常親切有禮。\n平日也客滿，建議提早訂位。\n六個人點太多菜，桌子偏小，稍嫌擁擠，但很合我們的胃口。上菜速度很快，願意再回訪。",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-01-14T16:48:46.314091442Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xONGVuQmlabEEyZVU1Q2VrSXRSamRaVEdsWVZVRRAB!2m1!1s0x3442a90dcced74eb:0x78c34765a0ceb460"
+        }
+      ]
+    },
+    {
+      "place_id": "ChIJJYOmOMOrQjQRKdqazCuONy0",
+      "name": "磚窯古早味懷舊餐廳",
+      "address": "105台灣臺北市松山區敦化里敦化南路1段7-1號",
+      "score": 0.7667,
+      "reason": "Google 評分 4.2；1706 則地圖評價；預估步行 9 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
+      "vibe_tags": [
+        "#老字號"
+      ],
+      "risks": [],
+      "evidence": [
+        "評論摘錄：口味真的非常普通，沙茶羊肉還咬不動，芋頭米粉裡面只有丸子跟芋頭沒有什麼味道不知道是不是鹽放得不夠，電話訂完位子還需要先匯1000塊錢訂金過去，就好玩湊一次黃仁勳",
+        "風格標籤：#老字號",
+        "Threads 金句：磚窯古早味懷舊餐廳地址：台北市松山區敦化南路1段7-1號交通"
+      ],
+      "metrics": {
+        "rating": 4.2,
+        "user_rating_count": 1706,
+        "walk_minutes": 8.885911251867656,
+        "must_have_match": false
+      },
+      "phone": "02 2578 9955",
+      "reservation_url": "http://www.brick-kiln.com.tw/",
+      "social_highlights": [
+        "磚窯古早味懷舊餐廳地址：台北市松山區敦化南路1段7-1號交通"
+      ],
+      "review_records": [
+        {
+          "author_name": "Cynthia Chen",
+          "rating": 4,
+          "text": "口味真的非常普通，沙茶羊肉還咬不動，芋頭米粉裡面只有丸子跟芋頭沒有什麼味道不知道是不是鹽放得不夠，電話訂完位子還需要先匯1000塊錢訂金過去，就好玩湊一次黃仁勳的熱鬧吧",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-01-27T09:55:19.412961540Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xaaldXZ3dRbGxLWm1aelowYzViazUzT1ZCR05VRRAB!2m1!1s0x3442abc338a68325:0x2d378e2bcc9ada29"
+        },
+        {
+          "author_name": "柯",
+          "rating": 4,
+          "text": "吃了桌菜5000\n再加點兩道菜下酒 一道甜點\n這個價位，不限時間，市中心\n沒什麼好挑剔的",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-01-23T17:47:59.474337946Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2kxeVgyZHlZMUUwWlZZdGFXRlpMV3R2ZUVRMlZtYxAB!2m1!1s0x3442abc338a68325:0x2d378e2bcc9ada29"
+        },
+        {
+          "author_name": "NAI",
+          "rating": 5,
+          "text": "衝著黃仁勳的愛店之一前往朝聖😆\n\n每道菜都蠻好吃的，整體價位也不貴。\n沒有雷菜👍🏽\n今天菜色中喜歡的有～\n芋頭米粉湯、紫蘇梅排骨、白斬雞、水根A菜。",
+          "relative_publish_time": "7 個月前",
+          "publish_time": "2025-09-30T23:13:31.007596044Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xONGVucFNTVkZTU0dONllUbGFWMVZGWlZwUVFtYxAB!2m1!1s0x3442abc338a68325:0x2d378e2bcc9ada29"
+        }
+      ]
     },
     {
       "place_id": "ChIJaUrfNC-rQjQRVxQmSZzFKJ8",
       "name": "輝葉台菜",
-      "address": "10491台灣臺北市中山區長安東路二段169-5號",
+      "address": "10491台灣臺北市中山區力行里長安東路二段169-5號",
       "score": 0.7217,
       "reason": "Google 評分 4.4；498 則地圖評價；預估步行 3 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
       "vibe_tags": [
@@ -60,35 +140,33 @@
       },
       "phone": "02 2776 6618",
       "reservation_url": "https://www.facebook.com/hytwcuisine/",
-      "social_highlights": []
-    },
-    {
-      "place_id": "ChIJRy7kxmipQjQRACw5aOpSyLI",
-      "name": "山海樓",
-      "address": "100台灣臺北市中正區仁愛路二段94號",
-      "score": 0.6881,
-      "reason": "Google 評分 4.1；2388 則地圖評價；預估步行 20 分鐘；符合設定邏輯：有台灣特色但不觀光客爆多、台灣人也會推薦的私房店、食材道地",
-      "vibe_tags": [
-        "#老字號",
-        "#出片",
-        "#CP值"
-      ],
-      "risks": [
-        "Threads(budget): daily limit reached (50/50)"
-      ],
-      "evidence": [
-        "評論摘錄：蟬聯多年的米其林一星，更因其對在地食材與永續實踐的堅持，獲得了米其林綠星的肯定。這裡不僅是一間餐廳，更像是一座保存台灣 1930 年代宴客菜風華的時光機。亮點特",
-        "風格標籤：#老字號 #出片 #CP值"
-      ],
-      "metrics": {
-        "rating": 4.1,
-        "user_rating_count": 2388,
-        "walk_minutes": 20.31205792217513,
-        "must_have_match": false
-      },
-      "phone": "02 2351 3345",
-      "reservation_url": "http://www.mountain-n-seahouse.com/",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "小夏媽咪なつみ",
+          "rating": 5,
+          "text": "這次來吃 輝葉台菜 覺得很滿意。招牌臭豆腐香辣夠味、金沙蝦球不油膩，太陽蛋滷肉拌飯超加分，老菜脯雞湯溫潤耐喝。整體口味細緻、有家常感，服務也不錯，很適合家庭或朋友聚餐，會想再回訪。",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-01-29T14:12:22.311735635Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tGMmFuaE1NV1JpUzNOaVpIUTBZVzkzVTNaTFprRRAB!2m1!1s0x3442ab2f34df4a69:0x9f28c59c49261457"
+        },
+        {
+          "author_name": "Chen Terry",
+          "rating": 4,
+          "text": "第二次消費 貌似沒頭一次 這麼驚艷\n感覺 是有更換廚師🧑‍🍳 ？！\n\n干貝雞湯需預訂 湯清味濃 很棒👍\n其餘整體還行 這樣",
+          "relative_publish_time": "6 個月前",
+          "publish_time": "2025-11-08T01:34:23.585649171Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25sb1pYbDJkM3BXYTIxcVVrTjRRbmx1VmpnelJIYxAB!2m1!1s0x3442ab2f34df4a69:0x9f28c59c49261457"
+        },
+        {
+          "author_name": "林志昌",
+          "rating": 5,
+          "text": "滿桌沒位是最實在的讚賞。\n主打台式熱炒和經典中菜，Top 10 菜餚都值得試，個人推牛腩牛筋煲的味和勁，東石鮮蚵芙蓉蛋的嫩和鮮，老皮嫩肉的皮和醬。\n對了，是按摩椅大廠跨行力作，美食和按摩椅都有讓人放鬆的力量。",
+          "relative_publish_time": "6 個月前",
+          "publish_time": "2025-11-12T06:54:47.721500181Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25sUWNuWjBiV3haVEhnd1RrZDJkbkY0U2xWSFdsRRAB!2m1!1s0x3442ab2f34df4a69:0x9f28c59c49261457"
+        }
+      ]
     }
   ]
 }

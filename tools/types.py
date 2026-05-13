@@ -58,6 +58,7 @@ class Recommendation:
     phone: str | None = None
     reservation_url: str | None = None
     social_highlights: list[str] = field(default_factory=list)
+    review_records: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -89,6 +90,19 @@ class Recommendation:
             lines.append(f"電話預約：{self.phone}")
         else:
             lines.append("需現場或致電詢問，建議提前確認")
+
+        lines += ["", "**Google Maps 評論**"]
+        if self.review_records:
+            lines.append("| 作者 | 星數 | 時間 | 內容摘要 |")
+            lines.append("|------|------|------|----------|")
+            for r in self.review_records:
+                author = (r.get("author_name") or "匿名")[:12]
+                stars = "⭐" * int(r.get("rating") or 0)
+                time_str = (r.get("relative_publish_time") or "")[:10]
+                text = (r.get("text") or "")[:60].replace("\n", " ").replace("|", "｜")
+                lines.append(f"| {author} | {stars} | {time_str} | {text} |")
+        else:
+            lines.append("暫無評論資料")
 
         lines += ["", "**Threads 金句**"]
         if self.social_highlights:

@@ -55,6 +55,7 @@ class ReasonComposerSkill:
                     phone=candidate.phone,
                     reservation_url=candidate.reservation_url,
                     social_highlights=candidate.social_highlights,
+                    review_records=candidate.review_records,
                 )
             )
         return output

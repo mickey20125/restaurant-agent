@@ -2,7 +2,7 @@
   "demo_name": "功能4-可以常去不需訂位",
   "query": "可以常去的店，韓式，步行25分鐘內",
   "logic": "不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
-  "saved_at": "2026-05-11",
+  "saved_at": "2026-05-13",
   "intent": {
     "raw_query": "可以常去的店，韓式，步行25分鐘內",
     "cuisine": "韓式",
@@ -10,91 +10,163 @@
     "max_walk_minutes": 25,
     "min_rating": null,
     "needs_high_rating": false,
-    "non_engineer_logic": "不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚"
+    "non_engineer_logic": "不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
+    "location": null
   },
   "recommendations": [
     {
       "place_id": "ChIJRU9m62OpQjQRuEdxYLazqpQ",
       "name": "韓宮正宗韓式料理",
-      "address": "10491台灣臺北市中山區長安東路二段",
+      "address": "10491台灣臺北市中山區興亞里長安東路二段",
       "score": 0.7758,
-      "reason": "Google 評分 4.6；2432 則地圖評價；預估步行 14 分鐘；符合設定邏輯：不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
+      "reason": "Google 評分 4.6；2434 則地圖評價；預估步行 14 分鐘；符合設定邏輯：不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
       "vibe_tags": [
         "#辣感",
         "#CP值",
         "#豆腐鍋專門"
       ],
-      "risks": [
-        "Threads(budget): daily limit reached (50/50)"
-      ],
+      "risks": [],
       "evidence": [
         "評論摘錄：老闆娘是韓國人\n料理也都很道地韓式\n很喜歡銅盤烤肉！板腱牛不油搭上橄欖油胡椒醬很好吃\n水冷麵也很不錯",
         "風格標籤：#辣感 #CP值 #豆腐鍋專門"
       ],
       "metrics": {
         "rating": 4.6,
-        "user_rating_count": 2432,
+        "user_rating_count": 2434,
         "walk_minutes": 14.037494800401824,
         "must_have_match": false
       },
       "phone": "02 2523 5308",
       "reservation_url": "https://www.facebook.com/profile.php?id=100087345805913",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "Chihying Huang",
+          "rating": 5,
+          "text": "老闆娘是韓國人\n料理也都很道地韓式\n很喜歡銅盤烤肉！板腱牛不油搭上橄欖油胡椒醬很好吃\n水冷麵也很不錯",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-28T11:29:07.248102003Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21RMk1FSlRjMFF5ZDFwRmEybE5ZV1poYWpJeU1GRRAB!2m1!1s0x3442a963eb664f45:0x94aab3b6607147b8"
+        },
+        {
+          "author_name": "ET muse",
+          "rating": 5,
+          "text": "松江南京捷運站附近\n有鐵盤/銅盤烤肉 還有多人套餐很划算\n大推海鮮煎餅 必點\n屬於薄皮且酥脆 超好吃\n其他每一樣也都非常好吃\n烤肉也有代烤 韓式小菜也能無限續",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-03-04T13:39:59.634906543Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tJNWNuSnBhbDk1TlhrM05FNWxZM0ZmU21kaWRsRRAB!2m1!1s0x3442a963eb664f45:0x94aab3b6607147b8"
+        },
+        {
+          "author_name": "Jassie Huang",
+          "rating": 3,
+          "text": "看了別人分享點了辣牛肉湯\n湯很清淡但有一點辣度\n牛肉大概只有三個薄片\n搭配冬粉跟高麗菜\n覺得這個價位配料有點太單薄了\n\n但海鮮煎餅很酥脆滿好吃的\n朋友點的豆腐鍋也不錯\n辣炒章魚吃起來偏甜\n而且也有點太油\n\n沒有服務費 小菜好像也可以續\n整體來說有種家庭餐廳的感覺",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-25T13:02:22.985644371Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT214MWIzbGhPRUpQUnpadWRuSklTV1pHYzA5SFIzYxAB!2m1!1s0x3442a963eb664f45:0x94aab3b6607147b8"
+        }
+      ]
     },
     {
-      "place_id": "ChIJG9WIV-6pQjQRMDltYsUoxe8",
-      "name": "Yache韓式蔬食 松江店",
-      "address": "104台灣臺北市中山區松江路128號1樓",
-      "score": 0.7755,
-      "reason": "Google 評分 4.7；2605 則地圖評價；預估步行 16 分鐘；符合設定邏輯：不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
+      "place_id": "ChIJm-Tz9qSrQjQRL4JhfHUfiGA",
+      "name": "比比拌韓式拌飯 部隊/豆腐鍋/法式甜點/會議餐盒",
+      "address": "105台灣臺北市松山區中崙里八德路二段366巷39號",
+      "score": 0.7431,
+      "reason": "Google 評分 4.7；508 則地圖評價；預估步行 5 分鐘；符合設定邏輯：不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
       "vibe_tags": [
-        "#辣感",
-        "#豆腐鍋專門"
+        "#CP值"
       ],
-      "risks": [
-        "Threads(budget): daily limit reached (50/50)"
-      ],
+      "risks": [],
       "evidence": [
-        "評論摘錄：✨📍今天帶大家來吃這間超有特色的蔬食韓式料理！\n《Yache韓式蔬食 松江店》主打將韓式經典料理與蔬食完美結合，不管你是全素、蛋奶素還是想吃健康餐點的饕客都能滿",
-        "風格標籤：#辣感 #豆腐鍋專門"
+        "評論摘錄：雖然是在小巷上班族便當街，但店內完全沒有油膩髒亂感，乾淨整齊感一流。老闆們忙碌但很熱情負責的服務，餐點的呈現也是乾淨令人有胃口的美味。另外甜點的選項好多，都還滿",
+        "風格標籤：#CP值"
       ],
       "metrics": {
         "rating": 4.7,
-        "user_rating_count": 2605,
-        "walk_minutes": 15.755000147494734,
+        "user_rating_count": 508,
+        "walk_minutes": 4.618737957505396,
         "must_have_match": false
       },
-      "phone": "02 2541 2020",
-      "reservation_url": "https://www.instagram.com/yache_vege/",
-      "social_highlights": []
+      "phone": "02 2771 5327",
+      "reservation_url": "https://bibimbap.oddle.me/zh_TW/",
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "Justin Chen",
+          "rating": 4,
+          "text": "雖然是在小巷上班族便當街，但店內完全沒有油膩髒亂感，乾淨整齊感一流。老闆們忙碌但很熱情負責的服務，餐點的呈現也是乾淨令人有胃口的美味。另外甜點的選項好多，都還滿有用心的，之後可以試看看。",
+          "relative_publish_time": "10 個月前",
+          "publish_time": "2025-07-06T03:49:32.115813747Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xacWFHMVdkMTlNTlV4ckxUbDNZMlk1WkhGNVkwRRAB!2m1!1s0x3442aba4f6f3e49b:0x60881f757c61822f"
+        },
+        {
+          "author_name": "黃照庭",
+          "rating": 5,
+          "text": "拌飯跟部隊鍋都很好吃，味道很夠，不確定道不道地但至少是好吃的～有機會會再回訪～",
+          "relative_publish_time": "8 個月前",
+          "publish_time": "2025-09-02T04:00:57.983316670Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2sxSFdtUjRObk5yWkVZeFVrVlBWbE5DVWpjNVNrRRAB!2m1!1s0x3442aba4f6f3e49b:0x60881f757c61822f"
+        },
+        {
+          "author_name": "Dana",
+          "rating": 4,
+          "text": "在寒冷的晚上，來一碗好吃的部隊鍋，很不錯。\n不算便宜，但是也真的好吃。",
+          "relative_publish_time": "4 個月前",
+          "publish_time": "2026-01-11T07:23:18.510648830Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT214b1gzRllXR014YVVwNVdtcFJTM2gzVDB0ZlQzYxAB!2m1!1s0x3442aba4f6f3e49b:0x60881f757c61822f"
+        }
+      ]
     },
     {
-      "place_id": "ChIJMVLcV2OpQjQR9OML4tACUk0",
-      "name": "高麗園銅盤烤肉 三創市場",
-      "address": "100台灣臺北市中正區市民大道三段2號9樓",
-      "score": 0.737,
-      "reason": "Google 評分 4.3；3137 則地圖評價；預估步行 16 分鐘；符合設定邏輯：不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
+      "place_id": "ChIJDwWD9WCpQjQR2gzDHn8h7ho",
+      "name": "韓食村",
+      "address": "104台灣臺北市中山區中央里南京東路二段115巷3弄6號",
+      "score": 0.7322,
+      "reason": "Google 評分 4.2；1766 則地圖評價；預估步行 15 分鐘；符合設定邏輯：不用訂位、不會太吵、餐點有品質但不會吃膩、適合單獨用餐或小聚",
       "vibe_tags": [
-        "#豆腐鍋專門",
         "#辣感",
-        "#CP值"
+        "#排隊",
+        "#豆腐鍋專門"
       ],
-      "risks": [
-        "Threads(budget): daily limit reached (50/50)"
-      ],
+      "risks": [],
       "evidence": [
-        "評論摘錄：個人覺得是一家CP值很高的吃到飽餐廳\n自助吧檯擺滿了醃製好的雞肉🐔、牛肉🐮、豬肉🐷\n放在銅板上烤香味撲鼻~🤤\n肉類嚐起來都挺嫩的~尤其雞肉相當軟嫩！\n\n而銅板外",
-        "風格標籤：#豆腐鍋專門 #辣感 #CP值"
+        "評論摘錄：變味了。以前大排長龍，昨天想說經過怎麼都沒有排隊，機會難得就來回味。但根本是惡夢！\n一看到湯的顏色我就覺得不妙，醬油海帶蛋花湯？很鹹，我喝了一口就沒喝了。\n辣炒",
+        "風格標籤：#辣感 #排隊 #豆腐鍋專門"
       ],
       "metrics": {
-        "rating": 4.3,
-        "user_rating_count": 3137,
-        "walk_minutes": 15.504185012296261,
+        "rating": 4.2,
+        "user_rating_count": 1766,
+        "walk_minutes": 14.63573240424438,
         "must_have_match": false
       },
-      "phone": "02 2341 9246",
-      "reservation_url": "https://www.facebook.com/GoLyeoWon29",
-      "social_highlights": []
+      "phone": "02 2515 6071",
+      "reservation_url": null,
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "JN C",
+          "rating": 2,
+          "text": "變味了。以前大排長龍，昨天想說經過怎麼都沒有排隊，機會難得就來回味。但根本是惡夢！\n一看到湯的顏色我就覺得不妙，醬油海帶蛋花湯？很鹹，我喝了一口就沒喝了。\n辣炒肉飯，份量很大，可是用大碗裝，很丼飯，我記得以前是用大圓盤裝⋯⋯也是非常鹹又油，只吃得出鹹味，其他味道沒有。\n吃得不是很開心，整場都在皺眉吃著。\n換了一批人，味道全跑掉，氣氛也是。\n難過😫",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-03-03T01:24:54.271877279Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pOUFJUVkpOMGg0UW10SGMyTklOMkpLVDNCQ1FVRRAB!2m1!1s0x3442a960f583050f:0x1aee217f1ec30cda"
+        },
+        {
+          "author_name": "shara",
+          "rating": 4,
+          "text": "整條街生意最好的韓式🇰🇷用餐時段直接客滿\n外送取餐都要排隊等待⋯\n✨第一次吃-外帶🥡\n韓式拌飯牛🐮 $180／小辣\n有附小菜：泡菜、甜不辣、海帶芽（都很好吃）\n*海帶芽帶酸清爽開胃😍\n*泡菜很道地 清爽型\n\n點小辣 但吃到沒有一點辣感 是甜甜的韓式醬\n還要一個訂單備注醬另外放但沒看到，\n不知道是不是忘記了。\n\n可以選鍋巴要多或要少，\n吃起來不夠脆反而比較帶硬（沒有很喜歡）\n很像黏在電鍋煮太久硬掉的飯 ㄉㄧㄠˊ在那\n肉蠻大塊的🥩本身有附蛋🥚，\n小黃瓜的搭配讓整體吃起來更清爽🥒\n整體覺得一般，中規中矩。／比起飯更喜歡小菜\n\n✨第二次吃-內用️ （比外帶好吃很多很多❗）\n生意依舊很好，中午時段人很多要排隊\n內用有一份小菜、湯可以自取，喝起來鹹香夠味\n小菜：海帶芽、甜不辣、泡菜（一絲一絲的夠酸很清爽 帶一點薑味🫚）\n很推薦石鍋拌飯豬🐷.ᐟ.ᐟ覺得有比牛肉好吃\n非常香又不油膩 份量很夠 還有鍋巴脆脆的\n\n海鮮豆腐鍋 $160\n看起來紅通通但不會很辣 湯頭很好喝！\n有飯又有冬粉，冬粉吃起來還好、白飯是糙米飯\n料沒有很多，豆腐、蛋、木耳、花枝（2個）",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-23T13:40:02.593721013Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tGalQyWlVkRkpsY2tKWVpteGFSa2xuTkZSbVdsRRAB!2m1!1s0x3442a960f583050f:0x1aee217f1ec30cda"
+        },
+        {
+          "author_name": "Chih-Hsien Su",
+          "rating": 4,
+          "text": "在松江南京附近四平商圈的小巷子內，是一家算蠻熱門的韓式小餐廳～平日晚上約6點左右到，內用沒位子要等兩組！（但排隊時間不會太長，大概等5-10分鐘就入座了！）\n-\n2025.10.30 到訪用餐🍴\n這次點的是一個部隊鍋，部隊鍋跟一般個人小鍋不一樣，他直接是2人份的餐點，然後會給一個卡式瓦斯爐（但大致上的料都已經是熟的，桌上只有煮泡麵跟年糕而已）\n整體口味算是很不錯的！有點辣但也不會太辣～裡面的料有泡麵、起司、年糕、肉片、韓式熱狗切片（？）、豆腐、蛤蜊，還有一些青菜，算是蠻豐富的，覺得很不錯\n另外內用有海帶湯（但感覺是比較醬油口味的）可以自取，覺得很不錯喝，是清湯系的，還蠻清爽！一入座附的小菜也蠻好吃的！！",
+          "relative_publish_time": "6 個月前",
+          "publish_time": "2025-10-30T23:40:00.899952924Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xWdVVqWnNjRWd4UlVoamNXWlFhMjlmU0daWFkzYxAB!2m1!1s0x3442a960f583050f:0x1aee217f1ec30cda"
+        }
+      ]
     }
   ]
 }

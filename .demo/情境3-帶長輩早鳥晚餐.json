@@ -2,7 +2,7 @@
   "demo_name": "情境3-帶長輩早鳥晚餐",
   "query": "帶長輩吃晚餐，和食，步行25分鐘內",
   "logic": "五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
-  "saved_at": "2026-05-11",
+  "saved_at": "2026-05-13",
   "intent": {
     "raw_query": "帶長輩吃晚餐，和食，步行25分鐘內",
     "cuisine": null,
@@ -10,46 +10,71 @@
     "max_walk_minutes": 25,
     "min_rating": null,
     "needs_high_rating": false,
-    "non_engineer_logic": "五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味"
+    "non_engineer_logic": "五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
+    "location": null
   },
   "recommendations": [
     {
-      "place_id": "ChIJN9ucPgqrQjQRR_NUGhFiJHE",
-      "name": "旭集 和食集錦 微風店",
-      "address": "105台灣臺北市松山區復興南路一段39號6樓",
-      "score": 0.8514,
-      "reason": "Google 評分 4.7；2150 則地圖評價；預估步行 3 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
+      "place_id": "ChIJ9240AWGpQjQRYkqzSvuO47I",
+      "name": "今日魚市-南京店-原丼賞和食",
+      "address": "B1, No. 140號南京東路二段朱園里中山區臺北市台灣 10491",
+      "score": 0.7875,
+      "reason": "Google 評分 4.7；15151 則地圖評價；預估步行 14 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
       "vibe_tags": [
-        "#排隊"
+        "#出片"
       ],
-      "risks": [
-        "Threads(budget): daily limit reached (50/50)"
-      ],
+      "risks": [],
       "evidence": [
-        "評論摘錄：微風旭集有一些跟其他店不一樣的獨家料理，菜色如同集團一樣品質穩定，美味可口。只是比起同集團的饗饗菜色豐富度較少，有點可惜。\n\n喜歡鐵板區煎干貝、肋眼牛排、麵包蟹",
-        "風格標籤：#排隊"
+        "評論摘錄：已經來吃好幾次了，店名雖換，但是品質還是一樣穩定。\n丼飯好吃、份量夠，配料也很新鮮，吃完很有滿足感。\n服務態度很好，整體體驗加分，之後還會再帶朋友來！",
+        "風格標籤：#出片"
       ],
       "metrics": {
         "rating": 4.7,
-        "user_rating_count": 2150,
-        "walk_minutes": 3.1070556807442973,
+        "user_rating_count": 15151,
+        "walk_minutes": 13.741670429688456,
         "must_have_match": false
       },
-      "phone": "02 8772 9988",
-      "reservation_url": "http://www.xujisunrise.com.tw/",
-      "social_highlights": []
+      "phone": "02 2517 5526",
+      "reservation_url": "https://www.facebook.com/140B1/",
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "張宸誌",
+          "rating": 5,
+          "text": "已經來吃好幾次了，店名雖換，但是品質還是一樣穩定。\n丼飯好吃、份量夠，配料也很新鮮，吃完很有滿足感。\n服務態度很好，整體體驗加分，之後還會再帶朋友來！",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-28T04:33:00.746138764Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pKaFZsWmFOVUp5ZFRKbGVuRXdaRkZmTUdGZlNVRRAB!2m1!1s0x3442a96101346ef7:0xb2e38efb4ab34a62"
+        },
+        {
+          "author_name": "Bennett",
+          "rating": 5,
+          "text": "位於南京東路巷弄內的「今日魚市」（原丼賞和食），是許多生魚片愛好者的口袋名單。這裡延承了以往的高水準，一踏入店內就能感受到熱鬧的用餐氛圍，非常適合下班後想犒賞味蕾的饕客。店內主打份量驚人的生魚片丼飯，每一片魚肉都切得極厚且質地鮮甜，尤其是那亮澤動人的鮭魚與海鮮拼盤，鋪滿到幾乎看不見底下的醋飯，視覺與味覺的澎湃感同時爆棚！\n除了招牌丼飯，這裡的味增湯更是誠意十足，隨便一撈都是滿滿的鮮魚肉塊，湯頭濃郁鮮甜，喝得出職人的堅持。整體而言，今日魚市完美平衡了食材品質與平實價格，那種大口吃肉、大啖海味的爽快感，讓人每一口都吃得出新鮮與滿足。如果你在找尋一處物超所值、能讓靈魂被海鮮填滿的日式餐館，這間南京東路的隱藏實力派絕對不會讓你失望！",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-04T12:10:29.071908588Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tKeVFUazNiSEZYVW5wcFFrUjZOV0ZaWm5RNGFtYxAB!2m1!1s0x3442a96101346ef7:0xb2e38efb4ab34a62"
+        },
+        {
+          "author_name": "North",
+          "rating": 4,
+          "text": "四人用餐，建議定位～\n生意很好的日料店，可惜9點打烊～\n基本上生魚片系列不論是視覺或是味覺都是一種享受，但在於熟時丼系列，肉品的味道比較重（不論是豬或是牛），是蠻可惜的～\n另外加入會員，會有無酒精飲品兌換券，是芒果康普茶，不知道是本身康普茶味道還是杯子的味道，有種說不出來的腳臭味@@，四杯都只淺嚐就放棄了。\n清酒整體來說濃度一般，甜度偏高，但容器很有在日本喝清酒的感覺。",
+          "relative_publish_time": "5 個月前",
+          "publish_time": "2025-12-13T10:28:20.997668592Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tWbmRuTXpXVVpKYkRFMmVraERlVGRPVVhWdFQwRRAB!2m1!1s0x3442a96101346ef7:0xb2e38efb4ab34a62"
+        }
+      ]
     },
     {
       "place_id": "ChIJxXX-hDCrQjQRE9_b286Jl9A",
       "name": "小新 和食 酒場",
-      "address": "106台灣臺北市大安區市民大道三段246號No",
+      "address": "106台灣臺北市大安區誠安里市民大道三段246號No",
       "score": 0.7413,
       "reason": "Google 評分 4.7；472 則地圖評價；預估步行 4 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
       "vibe_tags": [
         "#出片"
       ],
       "risks": [
-        "Threads(budget): daily limit reached (50/50)"
+        "Threads(scrape): no Threads results found on Brave Search"
       ],
       "evidence": [
         "評論摘錄：大推鹹蛋絲瓜、干貝黑松露蒸蛋還有鮭魚大腹，好吃的讓人回味！櫛瓜的料理方式也很不錯~\n老闆親切又健談，整體而言是非常愉快的體驗。比較可惜的是洗手間，如果潔淨度和氛",
@@ -63,19 +88,45 @@
       },
       "phone": "02 2775 1902",
       "reservation_url": "https://www.facebook.com/Ashin036/",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "J.Y",
+          "rating": 4,
+          "text": "大推鹹蛋絲瓜、干貝黑松露蒸蛋還有鮭魚大腹，好吃的讓人回味！櫛瓜的料理方式也很不錯~\n老闆親切又健談，整體而言是非常愉快的體驗。比較可惜的是洗手間，如果潔淨度和氛圍可以強化，環境會讓人覺得更舒適，相信生意一定會再上層樓~",
+          "relative_publish_time": "5 個月前",
+          "publish_time": "2025-11-24T00:50:15.823324547Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21aNGJ6Y3hlR2xuUVVSbWRuVjVUR0oyYTBaU1NsRRAB!2m1!1s0x3442ab3084fe75c5:0xd09789cedbdbdf13"
+        },
+        {
+          "author_name": "maison liu",
+          "rating": 5,
+          "text": "吃東西怎麼有時間拍！\n新鮮。。經過就來吃吧。。\n我要常來（筆記）\n繼續等下要道",
+          "relative_publish_time": "6 個月前",
+          "publish_time": "2025-10-20T11:44:42.430845071Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2kweWFHMW9aR2xwWm1sc2IwRkpTMkozTVZOU1ZHYxAB!2m1!1s0x3442ab3084fe75c5:0xd09789cedbdbdf13"
+        },
+        {
+          "author_name": "蘇俊安",
+          "rating": 5,
+          "text": "和男友來慶祝週年，\n\n每一道食物都很棒，食材很新鮮，\n而且價格很實惠！\n\n有機會會再來這裡用餐",
+          "relative_publish_time": "8 個月前",
+          "publish_time": "2025-08-22T18:31:57.098050863Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25KT1RrcEVOa1IwWVhsQ1FrMW5kMkpXVGtvNGNtYxAB!2m1!1s0x3442ab3084fe75c5:0xd09789cedbdbdf13"
+        }
+      ]
     },
     {
       "place_id": "ChIJAaBnrtCrQjQRtLmLHe378j4",
       "name": "和食EN 日本料理｜東區 大安區 忠孝復興站 日本定食 ｜遠東SOGO復興店",
-      "address": "106台灣台北市大安区忠孝东路三段300號SOGO復興館11樓",
+      "address": "106台灣台北市大安区义村里忠孝东路三段300號SOGO復興館11樓",
       "score": 0.6764,
       "reason": "Google 評分 3.9；917 則地圖評價；預估步行 9 分鐘；符合設定邏輯：五點多就開門、不太舊但不太潮、不會太吵、適合長輩口味",
       "vibe_tags": [
         "#CP值"
       ],
       "risks": [
-        "Threads(budget): daily limit reached (50/50)"
+        "Threads(scrape): no Threads results found on Brave Search"
       ],
       "evidence": [
         "評論摘錄：三大一小第一次來用餐就幸運坐到包廂，餐點好吃、每道都很精緻以外，服務超親切，還會叮嚀某些湯底有酒或有味醂，貼心到不行！\n今天用餐體驗一級棒，還會再來回訪，也祝霏",
@@ -89,7 +140,33 @@
       },
       "phone": "02 7745 0796",
       "reservation_url": "https://www.facebook.com/entaipei.com.tw/",
-      "social_highlights": []
+      "social_highlights": [],
+      "review_records": [
+        {
+          "author_name": "Migo妍儒",
+          "rating": 5,
+          "text": "三大一小第一次來用餐就幸運坐到包廂，餐點好吃、每道都很精緻以外，服務超親切，還會叮嚀某些湯底有酒或有味醂，貼心到不行！\n今天用餐體驗一級棒，還會再來回訪，也祝霏霏新年快樂～",
+          "relative_publish_time": "2 個月前",
+          "publish_time": "2026-02-20T12:53:57.779306468Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2twMFJIRkhlbDlNZVhSdFRFODBjMDA1TXpaSmVrRRAB!2m1!1s0x3442abd0ae67a001:0x3ef2fbed1d8bb9b4"
+        },
+        {
+          "author_name": "Lee Amanda",
+          "rating": 5,
+          "text": "1.午仔魚一夜干 皮酥脆肉質鮮甜美味.$480\n2.鮭魚親子土鍋飯，飯Q魚煎得剛剛好，配上鮭魚卵非常爽口，打包還捏成三角飯糰🍙很貼心. $480\n3.抹茶紅豆冰淇淋，好吃，但量太少好貴$170\n4.海老綜合天婦羅（茄子/蝦子/糯米椒/魚片）裹粉不會太厚，很好吃 $480\n5.魷魚一夜干 嫩度適中$290\n6.燉煮蘿蔔豆皮南，蘿蔔燉的入味加梅子很鮮甜$180\n\n兩人6道 2288 不便宜，但好吃😋",
+          "relative_publish_time": "3 個月前",
+          "publish_time": "2026-02-06T14:48:50.821614904Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xkSWJtaGZVVFJFY21rdFdGQnRlRTVPV1VwcVRGRRAB!2m1!1s0x3442abd0ae67a001:0x3ef2fbed1d8bb9b4"
+        },
+        {
+          "author_name": "Amy chen",
+          "rating": 4,
+          "text": "價位不便宜 份量算還行\n2人點 四樣吃蠻飽的\n🌟綜合生魚片五品 💰900\n有鮭魚/鮪魚/鰆魚/另一個忘了/干貝\n一種魚都有3片\n蠻新鮮的～～個人覺得不錯\n\n🌟炭烤岩鹽豬排 💰320\n店家建議7-9分熟\n我們選9分熟 我覺得肉切太厚\n如果切薄一點會更好吃\n\n🌟半熟玉子肉醬飯 💰220\n這道不用點 就是很鹹的肉燥飯\n吃到下面蠻油的\n玉子也不是半熟的😅\n\n🌟蛤蠣味噌湯 💰220\n蛤蜊很鮮甜 整體偏鹹！\n\n🌟單點蒲燒鰻魚飯 💰480 附玄米高湯\n鰻魚飯偏甜 有附高湯可以變泡飯\n\n整體cp值不高 單價稍貴～～\n敦南店年底關門  可以吃一次體驗👌🏻\n\n目前有週年慶套餐 原價2180🉐特價1880\n10%服務費另計\n（懷食籠六品小菜、二品刺身、蟹腳天婦羅、\n寒鰤魚山椒醬油燒、炙燒和牛握壽司、海膽軍艦、味噌湯、甜點）",
+          "relative_publish_time": "6 個月前",
+          "publish_time": "2025-11-10T12:13:26.002615576Z",
+          "google_maps_uri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2pOMlRXZGhWRFpRZWtNM1FtdzBka04yTlRsUGVFRRAB!2m1!1s0x3442abd0ae67a001:0x3ef2fbed1d8bb9b4"
+        }
+      ]
     }
   ]
 }
